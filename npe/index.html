@@ -7,6 +7,7 @@
     <meta name="theme-color" content="#157878">
     <link rel="stylesheet" href="css/normalize.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" href="css/cayman.css">
   </head>
   <body>
@@ -29,9 +30,163 @@
       <h1>
       <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h1>
       <p>Under Construction</p>
+      <!-- <p>Note the transfer of momentum. Describe the difference in mass. Diverges after a few seconds. Show results on different random seeds.</p> -->
+      <h3>Train: worlds with less balls</h3>
+      <p>3 Balls of Different Mass</p>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/balls_n3/balls_n3_gt_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/balls_n3/balls_n3_npe_pred_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <p>4 Balls of Different Mass</p>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/balls_n4/balls_n4_gt_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/balls_n4/balls_n4_npe_pred_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <p>5 Balls of Different Mass</p>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/balls_n5/balls_n5_gt_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/balls_n5/balls_n5_npe_pred_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <h3>Test: worlds with more balls</h3>
+      <p>6 Balls of Different Mass</p>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/balls_n6/balls_n6_gt_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/balls_n6/balls_n6_npe_pred_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <p>7 Balls of Different Mass</p>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/balls_n7/balls_n7_gt_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/balls_n7/balls_n7_npe_pred_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <p>8 Balls of Different Mass</p>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/balls_n8/balls_n8_gt_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/balls_n8/balls_n8_npe_pred_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+
+      <h2>Walls and Obstacles</h2>
+      <h3>Train: worlds without internal obstacles</h3>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/walls_O/walls_n2_wO_gt_batch0_ex3.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/walls_O/walls_n2_wO_npe_pred_batch0_ex3.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/walls_L/walls_n2_wL_gt_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/walls_L/walls_n2_wL_npe_pred_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <h3>Test: worlds with internal obstacles</h3>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/walls_U/walls_n2_wU_gt_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/walls_U/walls_n2_wU_npe_pred_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/walls_I/walls_n2_wI_gt_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/walls_I/walls_n2_wI_npe_pred_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+
 
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/mbchang/dynamics">An Compositional Object-Based Approach to Learning Physical Dynamics</a> is maintained by <a href="https://github.com/mbchang">Michael Chang</a>.</span>
+       <!--  <span class="site-footer-owner"><a href="https://github.com/mbchang/dynamics">An Compositional Object-Based Approach to Learning Physical Dynamics</a> is maintained by <a href="https://github.com/mbchang">Michael Chang</a>.</span> -->
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
 
