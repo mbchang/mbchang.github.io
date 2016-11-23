@@ -14,9 +14,9 @@
     <section class="page-header">
       <h1 class="project-name">A Compositional Object-Based Approach to Learning Physical Dynamics</h1>
       <h2 class="project-tagline">Michael Chang, Tomer Ullman, Antonio Torralba, Joshua B. Tenenbaum</h2>
-      <a href="#" class="btn">View on GitHub</a>
+<!--       <a href="#" class="btn">View on GitHub</a>
       <a href="#" class="btn">Download .zip</a>
-      <a href="#" class="btn">Download .tar.gz</a>
+      <a href="#" class="btn">Download .tar.gz</a> -->
     </section>
 
     <section class="main-content">
@@ -28,9 +28,29 @@
       <!--<p> <a href="https://github.com">Links</a></p>-->
 
       <h1>
-      <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h1>
-      <p>Under Construction</p>
+      <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model</h1>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            <img src="assets/models/scenarios_and_model_npe.png">
+          </span>
+        </span>
+      </div>
+      <p>By design, the NPE scales to scenes with a large variable number of objects. It models a particular object's velocity (object 3 in this case) at <i>t + 1</i> as a composition of the pairwise interactions between itself and other neighboring context objects during <i>t</i> and <i>t - 1</i>. Further details are in the paper.</p>
+
+      <h1>
+      <a id="user-content-header-3" class="anchor" href="#header-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h1>
+      <p>
+        Below we present results that show the NPE's efficacy in prediction, generalization, and inference. For the predictions below, the model is provided with two timesteps as input and predicts all subsequent timesteps with no external supervision. Concretely, the NPE takes two previous timesteps as input and predicts the velocity of each object for the next timestep. This predicted velocity is used to update the objects' positions, which become part of the input for the next prediction.
+      </p> 
+      <p>
+        Because these physical systems are chaotic systems, it is not surprising that the model predictions diverge from the ground truth after a couple of seconds. However, note that the NPE learns physical concepts such as solidity of objects, inertia, and collisions that continue to be preserved throughout these rollouts. Crucially, this knowledge can be transferred and extrapolated to worlds with a number of objects and object configurations previously unseen.
+      </p>
       <!-- <p>Note the transfer of momentum. Describe the difference in mass. Diverges after a few seconds. Show results on different random seeds.</p> -->
+      <h2>Balls of Different Masses</h2>
+      <p>
+        Here, the NPE is trained on worlds with 3, 4, or 5 balls and is tested on unobserved worlds with 6, 7, and 8 balls. From heavest to lightest, cyan, red, and yellow-green colors indicate the different masses. Note that the NPE faithfully predicts transfer of momentum between objects of different mass, and this knowledge of mass is preserved in the test worlds. 
+      </p>
       <h3>Train: worlds with less balls</h3>
       <p>3 Balls of Different Mass</p>
       <div class="image-row">
@@ -125,6 +145,9 @@
       </div>
 
       <h2>Walls and Obstacles</h2>
+      <p>
+        Here, the NPE is trained on worlds with no internal obstacles and is tested on unobserved worlds with internal obstacles. Variations in wall geometries add to the difficulty of this extrapolation task. Our state space representation formualtes macro-structures such as walls to be composed of smaller building-blocks. Therefore, by this design, the NPE scales to worlds with complex configurations.
+      </p>
       <h3>Train: worlds without internal obstacles</h3>
       <div class="image-row">
         <span class="flex-wrapper">
