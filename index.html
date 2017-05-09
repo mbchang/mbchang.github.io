@@ -11,11 +11,20 @@
     @import url("font-awesome.min.css");
     @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Arvo:700");
     
+
     /*body {
       background-image: url("assets/abstract_tiger_4-wallpaper-1920x1080-dark.jpg");
       opacity: 0.2
     }
-*/    a {
+*/    
+    
+    :root {
+      --font-weight: 300;
+      --font-family: 'Source Sans Pro', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    /*--font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+    }
+    a {
       /*color: #1772d0;*/
       color: #000c96;
       text-decoration: none;
@@ -26,27 +35,27 @@
       text-decoration: none;
     }
     body,td,th,tr,p,a {
-      font-family: 'Source Sans Pro', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: var(--font-family);
       font-size: 14px;
+      font-weight: var(--font-weight);
     }
     p,li {
       color: #777;
       /*color: white;*/
     }
     strong {
-      font-family: 'Source Sans Pro', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: var(--font-family);
       font-size: 14px;
+      font-weight: 400;
     }
     table {
       /*background-color: black;*/
       /*opacity: 0.2;*/
     }
     heading, subheading {
-      font-family: 'FontAwesome', 'Source Sans Pro', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: var(--font-family);
       color: black;
+      font-weight: var(--font-weight);
     }
     heading {
       font-size: 22px;
@@ -55,16 +64,15 @@
       font-size: 18px;
     }
     papertitle {
-      font-family: 'Source Sans Pro', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: var(--font-family);
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 500;
     }
     name {
-      font-family: 'Source Sans Pro', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: var(--font-family);
       font-size: 32px;
       color: black;
+      font-weight: var(--font-weight);
     }
     .one {
       width: 160px;
