@@ -5,20 +5,15 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <style type="text/css">
     /* Color scheme stolen from Sergey Karayev */
 
-    @import url("font-awesome.min.css");
+    /*@import url("font-awesome.min.css");*/
     @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Arvo:700");
-    
-
-    /*body {
-      background-image: url("assets/abstract_tiger_4-wallpaper-1920x1080-dark.jpg");
-      opacity: 0.2
-    }
-*/    
-    
+        
     :root {
+      --bkgd-multiplier: 200%;
       --font-weight: 300;
       --font-family: 'Source Sans Pro', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -27,6 +22,17 @@
       --body-font-size: 15px;
     /*--font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
     }
+    body {
+      /*background-image: url("assets/abstract_tiger_4-wallpaper-1920x1080-dark.jpg");*/
+      /*background-image: url("assets/tiger-light-flip-fade.png"), url("assets/tiger-light-fade.png");*/
+      background-image: url("assets/tiger-light-flip-fade.png");
+      background-repeat: no-repeat;
+      background-position: top;
+      background-attachment: fixed;
+      background-size: var(--bkgd-multiplier);
+      /*opacity: 0.2*/
+      /*filter: opacity(70%);*/
+    }    
     a {
       /*color: #1772d0;*/
       color: #000c96;
@@ -101,6 +107,12 @@
     .tab { 
       margin-left: 40px; 
     }
+    .imgborder {
+      border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      background: white;
+    }
   </style>
   <link rel="icon" type="image/png" href="http://jonbarron.info/seal_icon.png">
   <title>Michael Chang</title>
@@ -120,7 +132,7 @@
         <td>
 
           <!-- About -->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="about" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
               <tr>
                 <td width="67%" valign="middle">
@@ -141,7 +153,9 @@
                   </p>
                 </td>
                 <td width="33%">
+                  <!-- <img src="./assets/profile-circle.png"> -->
                   <img src="./assets/profile-circle-10.png">
+                  <!-- <img src="./assets/profile-circle-outline.png"> -->
                 </td>
               </tr>
             </tbody>
@@ -200,7 +214,9 @@
               <!-- A Compositional Object-Based Approach to Learning Physical Dynamics -->
               <tr>
                 <td width="25%">
-                  <img src="./assets/balls_n7_npe_pred_batch0_ex0.gif" width="100%">
+                  <div class="imgborder">
+                    <img src="./assets/balls_n7_npe_pred_batch0_ex0.gif" width="100%" height="100%">
+                  </div>
                 </td>
                 <td valign="top" width="75%">
                   <p>
@@ -225,7 +241,9 @@
               <!-- Understanding Visual Concepts with Continuation Learning -->
               <tr>
                 <td width="25%">
-                  <img src="./assets/uvc-face.gif" width="75%">
+                  <div class="imgborder">
+                    <img src="./assets/uvc-face.gif" height="100%" align="middle">
+                  </div>
                 </td>
                 <td valign="top" width="75%">
                   <p>
@@ -312,6 +330,43 @@
           </table>
 
           <!-- Website Tracking -->
+
+          <!-- Scripts -->
+          <script>
+            (function(){
+              var htmlStyles = window.getComputedStyle(document.querySelector("html"));
+              var bkgd_multiplier = parseFloat(htmlStyles.getPropertyValue("--bkgd-multiplier"))/100.0;
+
+              var parallax = document.querySelectorAll("body"),
+                  // speed = 1.0/bkgd_multiplier;
+                  speed = 0.5;
+
+              // console.log(bkgd_multiplier)
+              // console.log(speed)
+              // console.log(Math.max($(document).height(), $(window).height()))
+
+
+              // // do some math to calculate scroll speed based on image height on document height
+              // var img = new Image;
+              // img.src = $(document.body).css('background-image');//.replace(/url\(|\)$/ig, "");
+              // var bgImgWidth = img.width;
+              // var bgImgHeight = img.height;
+
+              // console.log(bgImgHeight)
+
+              window.onscroll = function(){
+                [].slice.call(parallax).forEach(function(el,i){
+
+                  var windowYOffset = window.pageYOffset,
+                      elBackgrounPos = "50% " + (-windowYOffset * speed) + "px";
+
+                  el.style.backgroundPosition = elBackgrounPos;
+
+                });
+              };
+
+          })();
+          </script>
         </td>
       </tr>
     </tbody>
