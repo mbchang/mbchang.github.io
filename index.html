@@ -16,31 +16,21 @@
       --font-weight: 300;
       --font-family: 'Source Sans Pro', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-/*      --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;*/
       --body-font-size: 15px;
-    /*--font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
     }
     body {
-      /*background-image: url("assets/abstract_tiger_4-wallpaper-1920x1080-dark.jpg");*/
-      /*background-image: url("assets/tiger-light-flip-fade.png"), url("assets/tiger-light-fade.png");*/
       background-image: url("assets/tiger-very-light-flip-fade.png");
       background-repeat: no-repeat;
       background-position: top;
       background-attachment: fixed;
       background-size: var(--bkgd-multiplier);
       width: 100%;
-      /*height: 100%;*/
-      /*opacity: 0.2*/
-      /*filter: opacity(70%);*/
     }    
     a {
-      /*color: #1772d0;*/
       color: #000c96;
       text-decoration: none;
     }
     a:focus,a:hover {
-      /*color: #f09228;*/
       color: #A31F34;
       text-decoration: none;
     }
@@ -51,16 +41,11 @@
     }
     p,li {
       color: #000;
-      /*color: white;*/
     }
     strong {
       font-family: var(--font-family);
       font-size: var(--body-font-size);
       font-weight: 400;
-    }
-    table {
-      /*background-color: black;*/
-      /*opacity: 0.2;*/
     }
     heading, subheading {
       font-family: var(--font-family);
@@ -143,27 +128,7 @@
 
                   <p>I am a Ph.D. student in Computer Science at U.C. Berkeley. I am a member of <a href="http://bair.berkeley.edu/">Berkeley AI Research</a>.</p>
 
-<!--                   <div float="left" display="inline-block">
-                  <div float="left" display="inline-block">
-                        <img src="./assets/rnem.gif">
-                  </div>
-                  <div display="inline-block"> -->
                   <p>This summer I was a research intern at <a href="http://idsia.ch/">Istituto Dalle Molle di Studi sull'Intelligenza Artificiale (IDSIA)</a> under the supervision of Professor <a href="http://people.idsia.ch/~juergen/">Jürgen Schmidhuber</a>.</p>
-<!--                   </div>
-                  </div> -->
-
-                  <!-- <tr id='rnemd'>
-                    <td width="10%">
-                      <div class="imgborder">
-                        <img src="./assets/rnem.gif">
-                      </div>
-                    </td>
-                    <td valign="top" width="90%">
-                      <p>
-                        This summer I was a research intern at <a href="http://idsia.ch/">Istituto Dalle Molle di Studi sull'Intelligenza Artificiale (IDSIA)</a> under the supervision of Professor <a href="http://people.idsia.ch/~juergen/">Jürgen Schmidhuber</a>.
-                      </p>
-                    </td>
-                  </tr> -->
 
                   <p>Earlier this year, I graduated with a B.S. in Computer Science from MIT, where I researched in <a href="http://www.csail.mit.edu/">CSAIL</a> and <a href="http://bcs.mit.edu/">BCS</a> with Professors <a href="http://web.mit.edu/cocosci/josh.html">Josh Tenenbaum</a> and <a href="http://web.mit.edu/torralba/www">Antonio Torralba</a>.</p>
 
@@ -179,7 +144,7 @@
                     <a href="https://www.collegeswimming.com/swimmer/141629/">Swimming</a>
                   </p>
                   <p align="center">
-                  [ <a href="#news">News</a> | <a href="#talks">Talks</a> | <a href="#research">Research</a> | <a href="#readings">Readings</a>] 
+                  [ <a href="#news">News</a> | <a href="#talks">Talks</a> | <a href="#research">Research</a> | <a href="#readings">Readings</a> | <a href="#heroes">Heroes</a>] 
                   </p>
                 </td>
                 <td width="33%">
@@ -263,10 +228,6 @@
                     <em>NIPS workshop on Cognitively Informed Artificial Intelligence</em>, 2017
                     <br>
                     <strong style="color:green">Oral Presentation, Oculus Outstanding Paper Award</strong><br>
-<!--                     <a href="http://mbchang.github.io/npe/">project webpage</a> /
-                    <a href="https://github.com/mbchang/dynamics">code</a> /
-                    <a href="./assets/npe-poster.pdf">poster</a> /
-                    <a href="https://www.youtube.com/watch?v=ifMRtHRMQe8&feature=youtu.be">spotlight talk (NIPS Intuitive Physics Workshop)</a> -->
                   </p>
                   <p></p>
                   <p>We propose a novel approach to common-sense physical reasoning that learns physical interactions between objects from raw visual images in a purely unsupervised fashion. Our method incorporates prior knowledge about the compositional nature of human perception, enabling it to discover objects, factor interactions between object-pairs to learn efficiently, and generalize to new environments without re-training.</p>
@@ -394,6 +355,20 @@
             </tbody>
           </table>
 
+          <!-- Heroes -->
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td width="100%" valign="middle">
+                  <heading id="heroes">Heroes</heading>
+                  <p>
+                    <a href="heroes.html">Here are some of my heroes that have influenced my worldview.</a>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
           <!-- Fun Stuff --><!-- 
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
@@ -424,37 +399,18 @@
             </tbody>
           </table>
 
-          <!-- Website Tracking -->
-
+          
           <!-- Scripts -->
           <script>
             (function(){
               var htmlStyles = window.getComputedStyle(document.querySelector("html"));
               var bkgd_multiplier = parseFloat(htmlStyles.getPropertyValue("--bkgd-multiplier"))/100.0;
-
               var parallax = document.querySelectorAll("body"),
-                  // speed = 1.0/bkgd_multiplier;
                   speed = 0.5;
-
-              // console.log(bkgd_multiplier)
-              // console.log(speed)
-              // console.log(Math.max($(document).height(), $(window).height()))
-
-
-              // // do some math to calculate scroll speed based on image height on document height
-              // var img = new Image;
-              // img.src = $(document.body).css('background-image');//.replace(/url\(|\)$/ig, "");
-              // var bgImgWidth = img.width;
-              // var bgImgHeight = img.height;
-
-              // console.log(bgImgHeight)
-
               window.onscroll = function(){
                 [].slice.call(parallax).forEach(function(el,i){
-
                   var windowYOffset = window.pageYOffset,
                       elBackgrounPos = "50% " + (-windowYOffset * speed) + "px";
-
                   el.style.backgroundPosition = elBackgrounPos;
 
                 });
@@ -462,6 +418,7 @@
 
           })();
           </script>
+          <!-- Website Tracking -->
           <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
