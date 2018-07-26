@@ -165,8 +165,9 @@
                 <td width="100%" valign="middle">
                   <heading id="news">News</heading>
                   <ul>
-                    <li><b>July 2018</b>: <a href="https://arxiv.org/pdf/1807.04640.pdf">"Automatically Composing Representation Transformations as a Means for Generalization"</a> has been accepted to the ICML 2018 <a href="https://uclmr.github.io/nampi/">Workshop Neural Abstract Machines and Program Induction v2</a>.
+                    <li><b>July 2018</b>: <a href="https://arxiv.org/abs/1807.04640">"Automatically Composing Representation Transformations as a Means for Generalization"</a> has been accepted to the ICML 2018 <a href="https://uclmr.github.io/nampi/">Workshop Neural Abstract Machines and Program Induction v2</a>.
                     <li><b>May 2018</b>: <strong style="color:purple">Press Article</strong> - Our work on <a href="https://arxiv.org/abs/1612.00341">"A Compositional Object-Based Approach to Learning Physical Dynamics"</a> is featured in <a href="http://www.sciencemag.org/news/2018/05/how-researchers-are-teaching-ai-learn-child?utm_source=general_public&utm_medium=youtube&utm_campaign=vid-ai-kid-19551">Science Magazine</a> (<a href="https://youtu.be/79zHbBuFHmw">accompany video</a> | <a href="https://youtu.be/79zHbBuFHmw?t=123">featured segment</a>). </li>
+                    <li><b>April 2018</b>: <a href="https://arxiv.org/abs/1807.07134">"Representational Efficiency Outweighs Action Efficiency in Human Program Induction"</a> has been accepted to the CogSci 2018.
                     <li><b>April 2018</b>: <strong style="color:purple">Press Article</strong> - Our work on <a href="https://arxiv.org/abs/1802.10353">"Relational Neural Expectation Maximization: Unsupervised Discovery of Objects and their Interactions"</a> is featured in an <a href="https://blogs.nvidia.com/blog/2018/04/30/nvail-deep-learning-iclr/">NVIDIA blog post.</a></li>
                     <li><b>January 2018</b>: <a href="https://arxiv.org/abs/1802.10353">"Relational Neural Expectation Maximization: Unsupervised Discovery of Objects and their Interactions"</a> has been accepted to ICLR 2018.</li>
                     <li><b>December 2017</b>: <strong style="color:green">Award</strong> -  Our NIPS <a href="https://sites.google.com/view/ciai2017/home">workshop</a> paper on <a href="https://drive.google.com/file/d/0B9x3IewnhkK1R0VfQ1E5ZTRsYWM/view">Relational Neural Expectation Maximization</a> received the <i>Outstanding Paper Award</i> sponsored by <a href="https://www.oculus.com/">Oculus</a>.</li>
@@ -209,7 +210,7 @@
                     I am interested in the inductive biases and algorithmic constraints that guide learning agents to learn to develop their own <a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-25.html#%_chap_4">languages</a> for representing problems and modeling their world.
                   </p>
                   <p>
-                    I have pursued this research vision from several perspectives: <a href='#udcign'>unsupervised learning of disentangled representations</a>, <a href='#npe'>neural architectures that capture regularities in environment dynamics</a>, <a href='#rnem'>bridging perception and symbolic reasoning</a>, and <a href="#crl">compositional neural program induction.</a>
+                    I have pursued this research vision from several perspectives: <a href='#udcign'>unsupervised learning of disentangled representations</a>, <a href='#npe'>neural architectures that capture regularities in environment dynamics</a>, <a href='#rnem'>bridging perception and symbolic reasoning</a>, <a href="#lbot">hierarchical approaches to problems solving</a>, and <a href="#crl">compositional neural program induction.</a>
                   </p>
                 </td>
               </tr>
@@ -229,7 +230,7 @@
                 </td>
                 <td valign="top" width="75%">
                   <p>
-                    <a href="https://arxiv.org/pdf/1807.04640.pdf">
+                    <a href="https://arxiv.org/abs/1807.04640">
                       <papertitle>Automatically Composing Representation Transformations as a Means for Generalization</papertitle>
                     </a>
                     <br>
@@ -241,7 +242,32 @@
                   <p></p>
                   <p>This paper connects and synthesizes ideas from reformulation, metareasoning, program induction, hierarchical reinforcement learning, and self-organizing neural networks. The key perspective of this paper is to recast the problem of generalization to a problem of learning algorithmic procedures over representation transformations: discovering the structure of a family of problems amounts to learning a set of reusable primitive transformations and their means of composition. Our formulation enables the learner to learn the structure and parameters of its own computation graph with sparse supervision, make analogies between problems by transforming one problem representation to another, and exploit modularity and reuse to scale to problems of varying complexity.</p>
                 </td>
-              </ting
+              </tr>
+
+              <!-- Lightbot Cogsci 2018 -->
+              <tr id='lbot'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/puzzle_reference.jpg" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1807.07134">
+                      <papertitle>Representational Efficiency Outweighs Action Efficiency in Human Program Induction</papertitle>
+                    </a>
+                    <br>
+                    <a href="https://github.com/sophiaas">Sophia Sanborn</a>, <a href="https://www.linkedin.com/in/david-bourgin/">David Bourgin</a>, <strong>Michael Chang</strong>, <a href=http://cocosci.berkeley.edu/tom/index.php>Thomas Griffiths</a>
+                    <br>
+                    <em>Proceedings of the 40th Annual Conference of the Cognitive Science Society</em>, 2018
+                    <br>
+                  </p>
+                  <p></p>
+                  <p>
+                    This paper introduces Lightbot, a problem-solving domain that explores the link between problem solving and program induction. This paper departs from work in hierarchical learning that hypothesize that hierarchies accelerates the discovery of shortest-path solutions to a problem by segmenting the solution into subgoals. Instead, we investigate a setting in which the hierarchical solutions that humans discover minimize the complexity of the underlying program that generated the solution rather than minimize the length of the solution itself.
+                  </p>
+                </td>
+              </tr>
 
               <!-- Relational Neural Expectation Maximization ICLR -->
               <tr id='rnem'>
