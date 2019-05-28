@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link href="./css/css" rel="stylesheet" type="text/css">
   <style type="text/css">
     /* Color scheme stolen from Sergey Karayev */
 
@@ -40,7 +41,7 @@
     body,td,th,tr,p,a {
       font-family: var(--font-family);
       font-size: var(--body-font-size);
-      font-weight: var(--font-weight
+      font-weight: var(--font-weight)
     }
     p,li {
       color: #000;
@@ -50,15 +51,15 @@
       font-size: var(--body-font-size);
       font-weight: 400;
     }
-    heading, subheading {
+    h2, h3 {
       font-family: var(--font-family);
       color: black;
       font-weight: var(--font-weight);
     }
-    heading {
+    h2 {
       font-size: 22px;
     }
-    subheading {
+    h3 {
       font-size: 18px;
     }
     papertitle {
@@ -97,21 +98,14 @@
       margin-left: 40px; 
     }
     .imgborder {
-      border: 1px solid black;
+      border: 1px solid white;
       display: flex;
       justify-content: center;
       background: white;
     }
   </style>
-  <link rel="icon" type="image/png" href="http://jonbarron.info/seal_icon.png">
+  <!-- <link rel="icon" type="image/png" href="http://jonbarron.info/seal_icon.png"> -->
   <title>Michael Chang</title>
-
-  <link href="./css/css" rel="stylesheet" type="text/css">
-  <style type="text/css">
-    .fancybox-margin {
-      margin-right: 0px;
-    }
-  </style>
 </head>
 
 <body>
@@ -126,7 +120,7 @@
               <tr>
                 <td width="67%" valign="middle">
                   <p align="center">
-                    <name>Michael Chang</name>
+                  <name>Michael Chang</name>
                   </p>
 
                   <p>I am a Ph.D. student advised by Professors <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a> and <a href="http://cocosci.princeton.edu/tom/tom.php">Tom Griffiths</a> in the computer science department at U.C. Berkeley. I am a member of <a href="http://bair.berkeley.edu/">Berkeley AI Research</a>. 
@@ -167,7 +161,7 @@
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
-                  <heading id="news">News</heading>
+                  <h2 id="news">News</h2>
                   <ul>
                     <li><b>December 2018</b>: <strong style="color:brown">Conference</strong> - <a href="https://arxiv.org/abs/1807.04640">"Automatically Composing Representation Transformations as a Means for Generalization"</a> accepted to ICLR 2019.
                     <li><b>May 2018</b>: <strong style="color:purple">Press Article</strong> - <a href="https://arxiv.org/abs/1612.00341">"A Compositional Object-Based Approach to Learning Physical Dynamics"</a> featured in <a href="http://www.sciencemag.org/news/2018/05/how-researchers-are-teaching-ai-learn-child?utm_source=general_public&utm_medium=youtube&utm_campaign=vid-ai-kid-19551">Science Magazine</a> (<a href="https://youtu.be/79zHbBuFHmw">accompany video</a> | <a href="https://youtu.be/79zHbBuFHmw?t=123">featured segment</a>). </li>
@@ -189,7 +183,7 @@
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
-                  <heading id="talks">Talks</heading>
+                  <h2 id="talks">Talks</h2>
                   <ul>
                     <li><b>November 2018</b>: <a href="http://cocosci.mit.edu/">MIT Cocosci, Cambridge</a>. "Leveraging Compositional Inductive Biases to Help Deep Learning Methods Extrapolate"</li>
                     <li><b>April 2018</b>: <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-ai/">Microsoft Research, Redmond</a>. "Unsupervised Discovery of Objects and the Interactions"</li>
@@ -208,7 +202,7 @@
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
-                  <heading id="teaching">Teaching</heading>
+                  <h2 id="teaching">Teaching</h2>
                   <tr>
                     <td width="100%" valign="middle">
                       CS294-112: Deep Reinforcement Learning - Fall 2018
@@ -223,7 +217,7 @@
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
-                  <heading id="teaching">Teaching</heading>
+                  <h2 id="teaching">Teaching</h2>
                   <ul>
                     <li><a href="https://inst.eecs.berkeley.edu/~cs188/sp19/">CS188: Introduction to Artificial Intelligence - Spring 2019:</a> Graduate Student Instructor</li>
                     <li><a href="http://rail.eecs.berkeley.edu/deeprlcourse/">CS294-112: Deep Reinforcement Learning - Fall 2018:</a> Graduate Student Instructor</li>
@@ -238,7 +232,7 @@
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
-                  <heading id="research">Research</heading>
+                  <h2 id="research">Research</h2>
                   <p>
                     I am interested in understanding and building machines that generalize as humans do. I have recently been exploring problems related to learners with compositional representations and computations. The goal is to work towards building agents that design and update their own <a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-25.html#%_chap_4">languages</a> for modeling the world and solving problems.
                   </p>
@@ -410,30 +404,6 @@
                 </td>
               </tr>
 
-              <!-- A Compositional Object-Based Approach to Learning Physical Dynamics -->
-<!--               <tr id='npe'>
-                <td width="25%">
-                  <div class="imgborder">
-                    <img src="./assets/balls_n7_npe_pred_batch0_ex0.gif" width="100%" height="100%">
-                  </div>
-                </td>
-                <td valign="top" width="75%">
-                  <p>
-                    <a href="https://arxiv.org/abs/1612.00341">
-                      <papertitle>The Neural Physics Engine</papertitle>
-                    </a>
-                    <br>
-                    <strong>Michael B. Chang</strong>, <a href=http://www.mit.edu/~tomeru/>Tomer D. Ullman<a/>, <a href=http://web.mit.edu/torralba/www/>Antonio Torralba</a>, <a href=http://web.mit.edu/cocosci/josh.html>Joshua B. Tenenbaum</a>
-                    <br>
-                    <em>NIPS Intuitive Physics Workshop</em>, 2016
-                    <br>
-                    <a href="https://www.youtube.com/watch?v=ifMRtHRMQe8&feature=youtu.be">spotlight talk</a>
-                  </p>
-                  <p></p>
-                  <p>This paper presents the Neural Physics Engine (NPE), an object-based neural network architecture for learning predictive models of intuitive physics. The NPE draws on the strengths of both symbolic and neural approaches: like a symbolic physics engine, it is endowed with generic notions of objects and their interactions, but as a neural network it can also be trained via stochastic gradient descent to adapt to specific object properties and dynamics of different worlds.</p>
-                </td>
-              </tr> -->
-
               <!-- Understanding Visual Concepts with Continuation Learning -->
               <tr id='udcign'>
                 <td width="25%">
@@ -465,12 +435,12 @@
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
-                  <heading id="readings">Readings</heading>
+                  <h2 id="readings">Readings</h2>
                   <p>
                     Here are some of my past and current readings that have changed the way I think.
                   </p>
 
-                  <br><subheading class="tab">Longer Works</subheading>
+                  <br><h3 class="tab">Longer Works</h3>
 
                   <p class="tab"><a href="https://www.amazon.com/Newbery-Vladimir-Radunsky-Bagram-Ibatoulline/dp/B0055L0Y32/">Holes</a> - Louis Sachar</p>
 
@@ -502,7 +472,7 @@
 
                   <p class="tab"><a href="https://www.amazon.com/Discussions-Youth-Leaders-Future-Diasaku/dp/1932911936">Discussions on Youth</a> - Diasaku Ikeda</p>
 
-                  <br><subheading class="tab">Shorter Works</subheading>
+                  <br><h3 class="tab">Shorter Works</h3>
 
                   <p class="tab"><a href="http://www.columbia.edu/itc/english/f1124y-001/resources/Longfellow.pdf">A Psalm of Life</a> - Henry Wadsworth Longfellow</p>
                   
@@ -518,11 +488,11 @@
 
                   <p class="tab"><a href="http://togelius.blogspot.com/2016/04/the-differences-between-tinkering-and.html">The Differences Between Tinkering and Research</a> - Julian Togelius</p>
 
-<!--                   <br><subheading class="tab">References</subheading>
+<!--                   <br><h3 class="tab">References</h3>
 
                   <p class="tab"><a href="http://incompleteideas.net/book/bookdraft2018jan1.pdf">Reinforcement Learning: An Introduction</a> - Richard S. Sutton and Andrew G. Barto</p> -->
 
-                  <br><subheading class="tab">Others' Reading Lists</subheading>
+                  <br><h3 class="tab">Others' Reading Lists</h3>
                   <p class="tab"><a href="https://docs.lucasem.com/readings/">Lucas Morales' reading list</a></p>
                   
                   <p class="tab"><a href="http://probcomp.csail.mit.edu/reading-list/">MIT Probabilistic Computing Project's reading list</a></p>
@@ -539,7 +509,7 @@
 
                   <p class="tab"><a href="https://www.scottaaronson.com/blog/?p=3679">Scott Aaronson's reading list</a></p>
 
-                  <br><subheading class="tab">Blogs</subheading>
+                  <br><h3 class="tab">Blogs</h3>
                   <p class="tab"><a href="https://www.scottaaronson.com/blog/">Scott Aaronson's blog</a></p>
 
                 </td>
@@ -551,12 +521,12 @@
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
-                  <heading id="heroes">Heroes</heading>
+                  <h2 id="heroes">Heroes</h2>
                   <p>
                     Here are some of my heroes that have shaped my worldview.
                   </p>
                   <tr>
-                    <td><subheading class="tab"><a href="https://en.wikipedia.org/wiki/Cheng_Yen">證嚴法師 Master Cheng Yen</a></subheading>
+                    <td><h3 class="tab"><a href="https://en.wikipedia.org/wiki/Cheng_Yen">證嚴法師 Master Cheng Yen</a></h3>
                       <!--http://lovequotes.symphonyoflove.net/master-cheng-yen-love-quotes-and-sayings.html-->
 
                       <p class="tab" ><i>充滿愛心的人最幸福。 <br> Happiest is the person whose heart is filled with love.</i></p><!--good-->
@@ -590,7 +560,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td><subheading class="tab"><a href="https://en.wikipedia.org/wiki/Bruce_Lee">李小龍 Bruce Lee</a></subheading>
+                    <td><h3 class="tab"><a href="https://en.wikipedia.org/wiki/Bruce_Lee">李小龍 Bruce Lee</a></h3>
 
                       <p class="tab" ><i>Knowledge will give you power, but character respect.</i></p>
 
@@ -636,7 +606,7 @@
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
-                  <heading id="research">Fun</heading>
+                  <h2 id="research">Fun</h2>
                   <p>
                     <a href="https://neurotree.org/neurotree/tree.php?pid=737469">My academic family tree</a>
                   </p>
