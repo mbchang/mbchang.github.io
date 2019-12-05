@@ -240,24 +240,33 @@
               <tr id='op32019'>
                 <td width="25%">
                   <div class="imgborder">
-                    <img src="./assets/double-bridge-close-topfar_3.gif" width="100%" height="100%">
+                    <img src="./assets/high_level_overview_op3.png" width="100%" height="100%">
                   </div>
                 </td>
                 <td valign="top" width="75%">
                   <p>
-                    <a href="https://drive.google.com/file/d/1yvFbiGdmK0UKKWlQ8NP0gFbW4a6Brz6H/view">
-                      <papertitle>Discovering, Predicting, and Planning with Objects</papertitle>
+                    <a href="https://arxiv.org/abs/1910.12827">
+                      <papertitle>Entity Abstraction in Visual Model-Based Reinforcement Learning</papertitle>
                     </a>
                     <br>
-                    <a href=https://people.eecs.berkeley.edu/~jcoreyes/>John D. Co-Reyes</a>, <a href=https://www.linkedin.com/in/rishi-veerapaneni-308153133/>Rishi Veerapaneni</a>, <strong>Michael Chang</strong>, <a href=https://people.eecs.berkeley.edu/~janner/>Michael Janner</a>, <a href=http://people.eecs.berkeley.edu/~cbfinn/>Chelsea Finn</a>, <a href=https://jiajunwu.com/>Jiajun Wu</a>, <a href=http://web.mit.edu/cocosci/josh.html>Joshua B. Tenenbaum</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
+                    <a href=https://www.linkedin.com/in/rishi-veerapaneni-308153133/>Rishi Veerapaneni*</a>, <a href=https://people.eecs.berkeley.edu/~jcoreyes/>John D. Co-Reyes*</a>, <strong>Michael Chang*</strong>, <a href=https://people.eecs.berkeley.edu/~janner/>Michael Janner</a>, <a href=http://people.eecs.berkeley.edu/~cbfinn/>Chelsea Finn</a>, <a href=https://jiajunwu.com/>Jiajun Wu</a>, <a href=http://web.mit.edu/cocosci/josh.html>Joshua B. Tenenbaum</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
                     <br>
-                    <a href="https://sites.google.com/view/mbrl-icml2019/home?authuser=0"><em>ICML workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI</em>, 2019</a>
+                    <em>Proceedings of the Conference on Robot Learning (CORL)</em>, 2019
                     <br>
-                    <a href="https://sites.google.com/view/dpppo/">project webpage</a> /
+                    <a href="https://sites.google.com/view/op3website/">project webpage</a> /
+                    <a href="https://github.com/jcoreyes/OP3">code</a> /
                     <a href="https://github.com/JannerM/o2p2">environment</a>
+                    <br><br> Also in:<br>
+                    <a href="https://pgr-workshop.github.io/accepted_papers/"><em>&nbsp&nbsp NeurIPS workshop on Perception as Generative Reasoning</em>, 2019</a> <strong style="color:green">(Spotlight Talk)</strong>
+                    <br>
+                    <a href="https://sites.google.com/view/deep-rl-workshop-neurips-2019/home?authuser=0"><em>&nbsp&nbsp NeurIPS workshop on Deep Reinforcement Learning</em>, 2019</a>
+                    <br>
+                    <a href="https://www.svrhm2019.com/call-for-papers"><em>&nbsp&nbsp NeurIPS workshop on Shared Visual Representations in Human & Machine Intelligence</em>, 2019</a>
+                    <br>
+                    <a href="https://sites.google.com/view/mbrl-icml2019/home?authuser=0"><em>&nbsp&nbsp ICML workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI</em>, 2019</a>
                   </p>
                   <p></p>
-                  <p>We introduce a framework for model-based planning that predicts and plans with learned object representations without supervision. The key idea behind our approach is to frame model-based planning under the language of a factorized HMM that processes a set of hidden states independently and symmetrically. This approach gives us permutation invariance, order invariance, and count equivariance by collapsing the combinatorial complexity along the object dimension. We show on a combinatorially complex block-stacking task that we are able to achieve almost three times the accuracy of <a href="https://arxiv.org/abs/1804.01523">non-latent-factorized video prediction model</a> and achieve comparable performance to an <a href="https://arxiv.org/abs/1812.10972">oracle model</a> that assumes access to object segmentations.</p>
+                  <p>We present object-centric perception, prediction, and planning (OP3), which to the best of our knowledge is the first entity-centric dynamic latent variable framework for model-based reinforcement learning that acquires entity representations from raw visual observations without supervision and uses them to predict and plan. OP3 enforces entity-abstraction -- symmetric processing of each entity representation with the same locally-scoped function -- which enables it to scale to model different numbers and configurations of objects from those in training. Our approach to solving the key technical challenge of grounding these entity representations to actual objects in the environment is to frame this variable binding problem as an inference problem, and we developing an interactive inference algorithm that uses temporal continuity and interactive feedback to bind information about object properties to the entity variables.</p>
                 </td>
               </tr>
 
@@ -276,7 +285,7 @@
                     <br>
                     <a href=https://xbpeng.github.io>Jason Peng</a>, <strong>Michael Chang</strong>, <a href="mailto: grace.zhang@berkeley.edu">Grace Zhang</a>, <a href=https://people.eecs.berkeley.edu/~pabbeel/>Pieter Abbeel</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
                     <br>
-                    <a href="https://sites.google.com/view/mtlrl/"><em>ICML workshop on multitask learning and reinforcement learning</em>, 2019</a>
+                    <em>Proceedings of the Thirty-third Conference on Neural Information Processing Systems</em>, 2019
                     <br>
                     <a href="https://xbpeng.github.io/projects/MCP/index.html">project webpage</a>
                   </p>
