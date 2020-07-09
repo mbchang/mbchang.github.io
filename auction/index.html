@@ -236,7 +236,10 @@ If it were possible to construct the incentive mechanism in a way that the <a hr
 
 <!-- begin section II: model-based techniques -->
 
-<h2 id="global-decision-making-via-local-economic-transactions">Global Decision-Making via Local Economic Transactions</h2>
+<!-- <h2 id="global-decision-making-via-local-economic-transactions">Global Decision-Making via Local Economic Transactions</h2>
+ -->
+
+<h2 id="a-market-economy-perspective-on-reinforcement-learning">A Market Economy Perspective on Reinforcement Learning</h2>
 
 <p>
 As a first step towards this goal, we can work backwards: start with an agent, imagine it were a super-agent, and study how to emulate optimal behavior of such an agent via a society of even more primitive agents.
@@ -260,6 +263,7 @@ The monolithic decision-making framework views reinforcement learning from the p
 But we can also view reinforcement learning from the perspective of a <strong><a href="https://en.wikipedia.org/wiki/Market_economy">market economy</a></strong>, in which production and wealth distribution are governed by the economic transactions between actions that <i>buy and sell states to each other.</i>
 Rather than being passively chosen by a global policy as in the monolithic framework, the actions actively choose <i>themselves</i> when to activate in the environment by bidding in an auction to transform the state $s_t$ to the next state $s_{t+1}$.
 We call this the <strong>societal decision-making</strong> framework because these actions form a society of primitive agents that themselves seek to maximize their auction utility at each state.
+In other words, the society of primitive agents form a super-agent that solves the MDP as a consequence of the primitive agents optimal auction strategies.
 </p>
 
 <p style="text-align:center;">
@@ -268,20 +272,25 @@ We call this the <strong>societal decision-making</strong> framework because the
     <i>In the societal decision-making framework, actions actively choose themselves when to activate.</i>
 </p>
 
-<p>
-In the societal decision-making framework, the revenue that the winning primitive receives for producing $s_{t+1}$ from $s_t$ depends on the price the winning primitive at $t+1$ is willing to bid for $s_{t+1}$.
-In turn, the winning primitive at $t+1$ sells $s_{t+2}$ to the winning primitive at $t+2$, and so on.
-Ultimately currency is grounded in the environment reward.
-Wealth is distributed based on what future primitives decide to bid for the fruits of the labor of information processing carried out by past primitives transforming one state to another.
-</p>
-
 <blockquote>
 <p>Wealth is distributed based on what future primitives decide to bid for the fruits of the labor of information processing carried out by past primitives transforming one state to another.</p>
 </blockquote>
 
 <p>
-In our recent work, we show that adapting the Vickrey auction mechanism for societal decision-making produces a society, which we call the <strong>cloned Vickrey society</strong>, whose dominant strategy equilibrium of the primitives optimizing their auction utilities coincides with the optimal policy of the super-agent the society collectively represents.
-From the optimality of this solution we derive a class of <strong>decentralized reinforcement learning</strong> algorithms for optimizing the super-agent in solving MDPs as a by-product of optimizing the primitives' auction utilities.
+In <a href="https://arxiv.org/abs/2007.02382">our recent work</a>, we formalize the societal decision-making framework and develop a class of decentralized reinforcement learning algorithms for optimizing the super-agent as a by-product of optimizing the primitives' auction utilities.
+We show that adapting the <a href="https://en.wikipedia.org/wiki/Vickrey_auction">Vickrey auction</a> as the auction mechanism and initializing redundant clones of each primitive yields a society, which we call the <strong>cloned Vickrey society</strong>, whose dominant strategy equilibrium of the primitives optimizing their auction utilities coincides with the optimal policy of the super-agent the society collectively represents. 
+In particular, we design the auction utilities in the following way:
+</p>
+
+<p>
+\underset{\text{utility}}{\underbrace{\vphantom{\max_{j \neq i}}\winnerutility_{s_t}(\allprimitives)}} = \underset{\text{revenue, or valuation} \; \yourvalue_{s_t}}{\underbrace{\vphantom{\max_{j \neq i}}r(s_t, \winnerprimitive^i) + \gamma \cdot \max_k \mathbf{b}^k_{s_{t+1}}}} - \underset{\text{price}}{\underbrace{\max_{j \neq i} \mathbf{b}^j_{s_t}}}.
+</p>
+
+<p>
+The revenue that the winning primitive receives for producing $s_{t+1}$ from $s_t$ depends on the price the winning primitive at $t+1$ is willing to bid for $s_{t+1}$.
+In turn, the winning primitive at $t+1$ sells $s_{t+2}$ to the winning primitive at $t+2$, and so on.
+Ultimately currency is grounded in the environment reward.
+Wealth is distributed based on what future primitives decide to bid for the fruits of the labor of information processing carried out by past primitives transforming one state to another.
 </p>
 
 <p>
