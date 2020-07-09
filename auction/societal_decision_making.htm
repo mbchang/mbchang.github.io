@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://bair.berkeley.edu/blog/2019/12/12/mbpo/ -->
+<html prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The BAIR Blog">
+    <meta name="author" content="Daniel Seita">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://bair.berkeley.edu/blog/2019/12/12/mbpo/">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for The Berkeley Artificial Intelligence Research Blog" href="https://bair.berkeley.edu/blog/feed.xml">
+    <link rel="stylesheet" href="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/pixyll.css" type="text/css">
+    <link rel="stylesheet" href="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/bair-blog.css" type="text/css">
+
+    <!-- Fonts -->
+    <link href="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/css" rel="stylesheet" type="text/css">
+    <link href="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/css(1)" rel="stylesheet" type="text/css">
+    
+      <link href="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/font-awesome.min.css" rel="stylesheet">
+    
+
+    <!-- Open Graph -->
+    <!-- From: https://github.com/mmistakes/hpstr-jekyll-theme/blob/master/_includes/head.html -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Bridging Levels of Abstraction in Learning Systems">
+    <meta property="og:description" content="The BAIR Blog">
+    <meta property="og:url" content="http://bair.berkeley.edu/blog/2019/12/12/mbpo/">
+    <meta property="og:site_name" content="The Berkeley Artificial Intelligence Research Blog">
+    <meta property="og:image" content="http://bair.berkeley.edu/blogassets/mbpo/teaser-01.png">
+    <meta property="og:image:url" content="http://bair.berkeley.edu/blogassets/mbpo/teaser-01.png">
+
+    <script async="" src="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/analytics.js"></script><script type="text/x-mathjax-config;executed=true">
+      MathJax.Hub.Config({
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+          processEscapes: true
+        },
+        messageStyle: "none",
+        "HTML-CSS": { availableFonts: ["TeX"] }
+      });
+    </script>
+
+
+    <script src="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/MathJax.js" id="">
+    </script>
+
+    <!-- Daniel Seita: I added this to handle Samaneh's post. -->
+    <script type="text/javascript">
+    function update_im_font1(option_font) {
+        document.getElementById("im_font1").src="http://bair.berkeley.edu/static/blog/mcgan/"+option_font+".png";
+    }
+    function update_im_font2(option_font) {
+        document.getElementById("im_font2").src="http://bair.berkeley.edu/static/blog/mcgan/"+option_font+".png";
+    }
+    function update_im_font3(option_font) {
+        document.getElementById("im_font3").src="http://bair.berkeley.edu/static/blog/mcgan/"+option_font+".png";
+    }
+    function update_im_font4(option_font) {
+        document.getElementById("im_font4").src="http://bair.berkeley.edu/static/blog/mcgan/"+option_font+".png";
+    }
+    </script>
+
+
+<script type="text/javascript" async="" src="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/embed.js"></script><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><link rel="prefetch" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.5c5dad4ae74bbb3422efd01116dc45e6.css"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.6c1eae6bc9387c9331312cf9e26ec68e.js"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.7f8ed42388da812e66b571110fd74f8b.js"><link rel="prefetch" as="script" href="https://disqus.com/next/config.js"><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Main-bold; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Main-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Math-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.1') format('opentype')}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><script src="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/alfalfalfa.0823c767a3bc925f628afd9bed26c958.js" async="" charset="UTF-8"></script><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style></head><span id="warning-container"><i data-reactroot=""></i></span>
+
+<body class="site"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+  <div class="mt2 wrap">
+    <div class="measure">
+      <div class="blog-logo-container">
+        <a href="https://bair.berkeley.edu/blog/"><img class="bair-logo" src="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/BAIR_Logo.png"></a>
+      </div>
+      <nav class="site-nav bair-blog-site-nav">
+        <a href="https://bair.berkeley.edu/blog/subscribe/">Subscribe</a>
+<a href="https://bair.berkeley.edu/blog/about/">About</a>
+<a href="https://bair.berkeley.edu/blog/archive/">Archive</a>
+<a href="http://bair.berkeley.edu/">BAIR</a>
+
+      </nav>
+      <div class="clearfix"></div>
+      
+    </div>
+  </div>
+</header>
+
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-header mb2">
+  <h1>Bridging Levels of Abstraction<br> in Learning Systems</h1>
+  <div class="post-meta">
+  
+  <a href="https://people.eecs.berkeley.edu/~janner/">Michael Chang</a> &nbsp;&nbsp;
+  
+  
+  July 8, 2020
+  
+  </div>
+</div>
+
+
+
+<article class="post-content">
+  <meta name="twitter:title" content="Bridging Levels of Abstraction in Learning Systems">
+
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="twitter:image" content="https://people.eecs.berkeley.edu/~janner/mbpo/blog/figures/teaser-01.png">
+
+<article class="post-content">
+
+<!-- begin section I: introduction -->
+
+<p>
+The history of computer science is also a history of <a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-10.html#%_sec_1.1">abstraction</a>.
+What began as specialized circuits for specific purposes of <a href="http://jva.cs.iastate.edu/operation.php">solving linear systems</a> and <a href="https://en.wikipedia.org/wiki/Colossus_computer">cryptanalysis</a> only a century ago has now exploded to such a scale that <a href="https://www.marketwatch.com/story/this-is-how-much-money-exists-in-the-entire-world-in-one-chart-2015-12-18">about 92% of the world's money is virtual</a>, <a href="https://www.statista.com/statistics/278414/number-of-worldwide-social-network-users/">over two billion people are on social media</a>, and <a href="https://www.informationisbeautiful.net/visualizations/million-lines-of-code/">two billion lines of code underlie Google's infrastructure</a>.
+</p>
+
+<p style="text-align:center;">
+    <img src="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/figs/abc.jpg" width="50%">
+    <br>
+    <i>The Atanasoff–Berry computer: the world's first automatic electronic digital computer.</i>
+</p>
+
+<p>
+Yet while better hardware made such complexity <i>physically</i> possible, advances in formalizing languages and design patterns that abstract away <i>what</i> a set of code does from <i>how</i> it does it made such complexity <i>mentally</i> and <i>socially</i> possible.
+Abstraction enables the programmer to allocate mental capacity for building more and more complex systems by relieving the cognitive effort of accounting for how the components of these systems are implemented.
+The abstraction barrier that separates software into isolated components enables multiple programmers to develop different parts of the system independently &mdash; <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite#Layer_names_and_number_of_layers_in_the_literature">the Internet is a good example of this</a>.
+</p>
+
+<h2 id="complex-learning-systems-at-multiple-levels-of-abstraction">Complex Learning Systems at Multiple Levels of Abstraction</h2>
+
+<blockquote cite="http://aurellem.org/society-of-mind/som-1.3.html">
+<p>You know that everything you think and do is thought and done by you. But what's a "you"? What kinds of smaller entities cooperate inside your mind to do your work?</p>
+<p align="right">&mdash; Marvin Minsky, <cite>The Society of Mind</cite></p>
+</blockquote>
+
+<p>
+Many neural network architectures that underlie various artificial intelligence systems today bear an interesting similarity with the early computers a century ago: once trained, the network generally functions also as a <a href="https://youtu.be/9EN_HoEk3KY?t=211">specialized circuit</a> for performing a specific task, with all parameters coupled together in the same global scope.
+One might naturally wonder what it might take for <i>learning</i> systems to scale in complexity in the same way as <i>programmed</i> systems have.
+And if the history of computer science gives any indication, one possible place to start would be to consider what it means to build complex learning systems at multiple levels of abstraction, where each level of learning is the emergent consequence of learning from the layer below.
+</p>
+
+<p>
+In fact, <a href="https://youtu.be/uyUbGatPKpI?t=1419">the real world is pervaded by examples of learning at different levels of abstraction.</a>
+Biological processes, corporations, and ecosystems are all complex systems that are physically decentralized, yet in some sense functionally unified.
+A corporation for example, is a society of self-interested human agents, each learning to optimize for their own objectives, yet the corporation itself also learns to optimize for profits as if it were a single super-agent.
+And every human is also simply an abstraction of the trillions of cells individually adapting and making their own simpler decisions.
+</p>
+
+<p style="text-align:center;">
+    <img src="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/figs/fish-school.gif" width="75%">
+    <br>
+    <i>A hundred fish at one level of abstraction collectively functions as a single fish at the level above.</i>
+</p>
+
+<p>
+At the core of building complex learning systems at multiple levels of abstraction is to understand the mechanisms that bind consecutive levels together.
+In the context of learning for decision-making, this means to define three ingredients:
+</p>
+<ul>
+    <li>A <b>framework</b> for expressing the encapsulation of a society of primitive agents as a super-agent</li>
+    <li>An <b>incentive mechanism</b> that guarantees the optimal solution for the super-agent's decision problem emerges as a consequence of the primitives optimizing their individual decision problems</li>
+    <li>A <b>learning algorithm</b> for implicitly training the super-agent by directly training the primitives</li>
+</ul>
+<p>
+The incentive mechanism is the abstraction barrier that connects the optimization problems of the primitive agents from the optimization problem of the society as a super-agent.
+</p>
+
+<p style="text-align:center;">
+    <img src="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/figs/abstraction_barrier.png" width="100%">
+    <br>
+    <i>Build complex learning systems at multiple levels of abstraction requires defining the incentive mechanism that connects the optimization problems at the level of primitive agent to the optimization problem at the level of the society. The incentive mechanism is the abstraction barrier that separates the society as a super-agent from its constituent primitive agents.</i>
+</p>
+
+<p>
+If it were possible to construct the incentive mechanism in a way that the <a href="https://en.wikipedia.org/wiki/Strategic_dominance#Dominance_and_Nash_equilibria">dominant strategy equilibrium</a> of the primitive agents coincides with the optimal solution for the super-agent, then the society can in theory be faithfully abstracted as a super-agent, which could then serve as a primitive for the next level of abstraction, and so on, thereby constructing in a learning system the higher and higher levels of complexity that characterized the programmed systems of modern software infrastructure.
+</p>
+
+<!-- begin section II: model-based techniques -->
+
+<h2 id="global-decision-making-via-local-economic-transactions">Global Decision-Making via Local Economic Transactions</h2>
+
+<p>
+As a first step towards this goal, we can work backwards: start with an agent, imagine it were a super-agent, and study how to emulate optimal behavior of such an agent via a society of even more primitive agents.
+We consider a restricted scenario that builds upon existing frameworks familiar to us, <a href="https://en.wikipedia.org/wiki/Markov_decision_process">Markov decision processes (MDP)</a>.
+Normally, the objective of the learner is to maximize the <a href="https://en.wikipedia.org/wiki/Markov_decision_process#Optimization_objective">expected return</a> of the MDP.
+In deep reinforcement learning, the approach that directly optimizes this objective parameterizes the policy as a function that maps states to actions and adjusts the policy parameters according to the gradient of the MDP objective.
+</p>
+
+<p>
+We refer to this standard approach as the <strong>monolithic decision-making framework</strong> because all the learnable parameters are globally coupled together under a single objective.
+The monolithic decision-making framework views reinforcement learning from the perspective of a <strong><a href="https://en.wikipedia.org/wiki/Planned_economy">command economy</a></strong>, in which all production &mdash; the transformation of past states $s_t$ into future states $s_{t+1}$ &mdash; and wealth distribution &mdash; the credit assignment of reward signals to parameters &mdash; derive directly from single central authority &mdash; the MDP objective. 
+</p>
+
+<p style="text-align:center;">
+    <img src="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/figs/centralized_gif.gif" width="100%">
+    <br>
+    <i>In the monolithic decisioin-making framework, actions are chosen passively by the agent.</i>
+</p>
+
+<p>
+But we can also view reinforcement learning from the perspective of a <strong><a href="https://en.wikipedia.org/wiki/Market_economy">market economy</a></strong>, in which production and wealth distribution are governed by the economic transactions between actions that <i>buy and sell states to each other.</i>
+Rather than being passively chosen by a global policy as in the monolithic framework, the actions actively choose <i>themselves</i> when to activate in the environment by bidding in an auction to transform the state $s_t$ to the next state $s_{t+1}$.
+We call this the <strong>societal decision-making</strong> framework because these actions from a society of primitive agents that themselves seek to maximize their auction utility at each state.
+</p>
+
+<p style="text-align:center;">
+    <img src="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/figs/decentralized_gif.gif" width="100%">
+    <br>
+    <i>In the societal decision-making framework, actions actively choose themselves when to activate.</i>
+</p>
+
+<p>
+In the societal decision-making framework, the revenue that the winning primitive receives for producing $s_{t+1}$ from $s_t$ depends on the price the winning primitive at $t+1$ is willing to bid for $s_{t+1}$.
+In turn, the winning primitive at $t+1$ sells $s_{t+2}$ to the winning primitive at $t+2$, and so on.
+Ultimately currency is grounded in the environment reward.
+Wealth is distributed based on what future primitives decide to bid for the fruits of the labor of information processing carried out by past primitives transforming one state to another.
+</p>
+
+<blockquote>
+<p>Wealth is distributed based on what future primitives decide to bid for the fruits of the labor of information processing carried out by past primitives transforming one state to another.</p>
+</blockquote>
+
+<p>
+In our recent work, we show that adapting the Vickrey auction mechanism for societal decision-making produces a society, which we call the <strong>cloned Vickrey society</strong>, whose dominant strategy equilibrium of the primitives optimizing their auction utilities coincides with the optimal policy of the super-agent the society collectively represents.
+From the optimality of this solution we derive a class of <strong>decentralized reinforcement learning</strong> algorithms for optimizing the super-agent in solving MDPs as a by-product of optimizing the primitives' auction utilities.
+</p>
+
+<p>
+Societal decision-making frames standard reinforcement learning from the perspective of self-organizing primitive agents.
+But the primitive agents need not be restricted to literal actions.
+The agents can be any computation that transforms a state from one to another, including <a href="#hrl_fig">options in semi-MDPs</a> or <a href="#mnist">functions in dynamic computation graphs</a>.
+</p>
+
+<p>
+In the restricted setting we consider, the societal decision-making framework, the cloned Vickrey society, and the decentralized reinforcement learning algorithms provide answers to the three ingredients outlined above for relating the learning problem of the primitive agent to the learning problem of the society.
+For related work and further details, including the role of redundancy for robustness, please refer to <a href="https://arxiv.org/abs/2007.02382">our paper</a>.
+</p>
+
+<h3 id="local-credit-assignment-for-more-efficient-transfer">Local Credit Assignment for More Efficient Learning and Transfer</h3>
+
+<p>
+Whereas learning in the command economy system of monolithic decision-making requires global credit assignment pathways because all learnable parameters are globally coupled, learning in the market economy system of societal decision making requires only credit assignment that is local in space and time because the primitives only optimize for their immediate local auction utility without regard to the global learning objective of the society.
+Indeed, we find evidence that suggests that the inherent modularity in framing the learning problem of the society in this way offers advantages in transferring to new tasks.
+</p>
+
+<p id="hrl_fig" style="text-align:center;">
+    <img src="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/figs/hrl.png" width="75%">
+    <br>
+    <i>We consider transferring from the pre-training task of reaching the green goal to transfer task of reaching the blue goal in the <a href="https://github.com/maximecb/gym-minigrid">MiniGrid gym environment</a>. $\phi^0$ represents an option that opens the red door, $\phi^1$ represents an option that reaches the blue goal, and $\phi^2$ represents an option that reaches the green goal. The primitive associated with a particular option $\phi^i$ activates by executing that option in the environment. "Credit Conserving Vickrey Cloned" refers to our society-based decentralized reinforcement learning algorithm, which learns much more efficiently than both a hierarchical monolithic baseline equipped to select the same options and a non-hierarchical monolithic baseline that only selects literal actions.</i>
+</p>
+
+<h3 id="problem-solving-via-analogy">Problem Solving via Analogy</h3>
+
+<blockquote>
+<p>Solving a problem simply means representing it so as to make the solution transparent.</p>
+<p align="right">&mdash; Herbert Simon, <cite>The Science of Design: Creating the Artificial.</cite></p>
+</blockquote>
+
+<p>
+<a href="https://mitpress.mit.edu/books/analogy-making-perception">Re-representing an observation as an instance of what is more familiar</a> has been an important topic of study in human cognition from the perspective of <a href="http://bert.stuy.edu/pbrooks/ai/resources/Analogy%20as%20the%20Core%20of%20Cognition-2.pdf">analogy-making</a>.
+One particularly intuitive example of this phenomenon are <a href="http://nmr.mgh.harvard.edu/mkozhevnlab/wp-content/uploads/pdfs/courses/literature/Types%20of%20spatial%20transformations/SHEPARD_METZLER_1988.pdf">the mental rotations</a> studied by Roger Shepard that suggested that humans seemed to compose mental rotation operations in their mind for certain types of image recognition.
+Inspired by these above works, we considered an image recognition task based on <a href="https://arxiv.org/pdf/1807.04640.pdf">earlier work</a> where we define each primitive agent as representing a different affine transformation.
+By using the classification accuracy of an MNIST digit classifier as the sole reward signal, the society of primitives learns to iteratively re-represent unfamiliar images into more familiar ones that the classifier knows how to classify.
+</p>
+
+<p id="mnist" style="text-align:center;">
+    <img src="./Bridging Levels of Abstraction in Learning Systems – The Berkeley Artificial Intelligence Research Blog_files/figs/mnist.png" width="75%">
+    <br>
+    <i>The society of primitives learns to classify transformed digits by making analogies to the digit's canonical counterpart. Here $\omega$ represents a primitive agent, $\psi$ represents that agent's bidding policy, and $\phi$ represents that agent's affine transformation. This figure shows a society with redundant primitives, where clones are indicated by an apostrophe. See the paper for a discussion on the benefits of redundancy for robustness.</i>
+</p>
+
+
+<h2 id="looking-forward">Looking Forward</h2>
+
+<p>
+Modeling intelligence at various levels of abstraction has its roots in the <a href="https://en.wikipedia.org/wiki/Society_of_Mind">early foundations of AI</a>, and modeling the mind as a society of agents goes back as far as <a href="https://en.wikipedia.org/wiki/Republic_(Plato)">Plato's Republic</a>.
+In this restricted setting where the primitive agents seek to maximize utility in auctions and the society seeks to maximize return in the MDP, we now have a small piece of the puzzle towards building complex learning systems at multiple levels of abstraction.
+There are many more pieces left to go.
+</p>
+<p>
+In some sense these complex learning systems are grown rather than built because every component at every abstraction layer is learning.
+But in the same way that programming methodology emerged as a discipline for defining best practices for building complex programmed systems, so too will we need to specify, build, and test the scaffolding that guide the growth of complex learning systems.
+This type of deep learning is not only deep in levels of representation but deep in levels of learning.
+</p>
+
+<hr>
+
+<p>
+    This post is based on the following paper:
+</p>
+
+<ul>
+    <li>
+        <a href="https://arxiv.org/abs/1906.08253"><strong>Decentralized Reinforcement Learning: Bridging Levels of Abstraction in Learning Systems</strong></a>
+        <br>
+        <a href="http://mbchang.github.io/">Michael Chang</a>, <a href="mailto: kaushik.sid.99@berkeley.edu">Sid Kaushik</a>, <a href=https://www.cs.princeton.edu/~smattw/>S. Matthew Weinberg</a>, <a href=http://cocosci.princeton.edu/tom/index.php>Thomas Griffiths</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
+        <br>
+        <em>Thirty-seventh International Conference Machine Learning (ICML), 2020.</em>
+        <br>
+        <a href="https://sites.google.com/view/clonedvickreysociety/home">Webpage</a>
+    </li>
+</ul>
+
+<hr>
+
+</article>
+
+</article>
+
+</body></html>
