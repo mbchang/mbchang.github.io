@@ -170,7 +170,7 @@ img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!importan
   <a href="http://mbchang.github.io/">Michael Chang</a> and <a href="mailto: kaushik.sid.99@berkeley.edu">Sidhant Kaushik</a> &nbsp;&nbsp;
   
   
-  July 8, 2020
+  July 10, 2020
   
   </div>
 </div>
@@ -189,7 +189,7 @@ img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!importan
 <!-- begin section I: introduction -->
 
 <p>
-Many neural network architectures that underlie various artificial intelligence systems today bear an interesting similarity with the early computers a century ago.
+Many neural network architectures that underlie various artificial intelligence systems today bear an interesting similarity to the early computers a century ago.
 Just as early computers were specialized circuits for specific purposes like <a href="http://jva.cs.iastate.edu/operation.php">solving linear systems</a> or <a href="https://en.wikipedia.org/wiki/Colossus_computer">cryptanalysis</a>, so too does the trained neural network generally function as a <a href="https://youtu.be/9EN_HoEk3KY?t=211">specialized circuit</a> for performing a specific task, with all parameters coupled together in the same global scope.
 </p>
 
@@ -205,8 +205,8 @@ This post discusses <a href="https://arxiv.org/abs/2007.02382">our recent paper<
 <h2 id="levels-of-abstraction-in-complex-learning-systems">Levels of Abstraction in Complex Learning Systems</h2>
 
 <p>
-From corporations to organisms, <a href="https://youtu.be/uyUbGatPKpI?t=1419">many large scale systems in our world are composed of smaller individual autonomous components</a>, whose collective function serve a larger objective than the objective of any individual component alone.
-A corporation for example, optimizes for profits as if it were a single super-agent when in reality it is society of self-interested human agents, each with concerns that may have little to do with profit.
+From corporations to organisms, <a href="https://youtu.be/uyUbGatPKpI?t=1419">many large-scale systems in our world are composed of smaller individual autonomous components</a>, whose collective function serve a larger objective than the objective of any individual component alone.
+A corporation for example, optimizes for profits as if it were a single super-agent when in reality it is a society of self-interested human agents, each with concerns that may have little to do with profit.
 And every human is also simply an abstraction of organs, tissues, and cells individually adapting and making their own simpler decisions.
 </p>
 
@@ -219,7 +219,7 @@ And every human is also simply an abstraction of organs, tissues, and cells indi
 At the core of building complex learning systems at multiple levels of abstraction is to understand the mechanisms that bind consecutive levels together.
 In the context of learning for decision-making, this means to define three ingredients:
 </p>
-<ul>
+<ul id="ingredients">
     <li>A <b>framework</b> for expressing the encapsulation of a society of primitive agents as a super-agent</li>
     <li>An <b>incentive mechanism</b> that guarantees the optimal solution for the super-agent's decision problem emerges as a consequence of the primitives optimizing their individual decision problems</li>
     <li>A <b>learning algorithm</b> for implicitly training the super-agent by directly training the primitives</li>
@@ -267,7 +267,7 @@ The monolithic decision-making framework views reinforcement learning from the p
 But as suggested <a href="https://pdfs.semanticscholar.org/4373/526d6a46bac9c2de569557957d0b052a437a.pdf?_ga=2.198702767.1414080719.1594348633-1342068630.1594256465">in</a> previous <a href="http://people.idsia.ch/~juergen/economy.html">work</a> dating <a href="https://dl.acm.org/doi/10.5555/645511.657087">back</a> at least two decades, we can also view reinforcement learning from the perspective of a <strong><a href="https://en.wikipedia.org/wiki/Market_economy">market economy</a></strong>, in which production and wealth distribution are governed by the economic transactions between actions that <i>buy and sell states to each other.</i>
 Rather than being passively chosen by a global policy as in the monolithic framework, the actions are primitive agents that actively choose <i>themselves</i> when to activate in the environment by bidding in an auction to transform the state $s_t$ to the next state $s_{t+1}$.
 We call this the <strong>societal decision-making</strong> framework because these actions form a society of primitive agents that themselves seek to maximize their auction utility at each state.
-In other words, the society of primitive agents form a super-agent that solves the MDP as a consequence of the primitive agents optimal auction strategies.
+In other words, the society of primitive agents form a super-agent that solves the MDP as a consequence of the primitive agents' optimal auction strategies.
 </p>
 
 <p style="text-align:center;">
@@ -276,9 +276,9 @@ In other words, the society of primitive agents form a super-agent that solves t
     <i>In the societal decision-making framework, actions actively choose themselves when to activate.</i>
 </p>
 
-<blockquote>
+<!-- <blockquote>
 <p>Wealth is distributed based on what future primitives decide to bid for the fruits of the labor of information processing carried out by past primitives transforming one state to another.</p>
-</blockquote>
+</blockquote> -->
 
 <p>
 In <a href="https://arxiv.org/abs/2007.02382">our recent work</a>, we formalize the societal decision-making framework and develop a class of <b>decentralized reinforcement learning algorithms</b> for optimizing the super-agent as a by-product of optimizing the primitives' auction utilities.
@@ -289,7 +289,7 @@ In particular, with the following specification of auction utility, we can lever
 <p style="text-align:center;">
     <img src="./bair_blog_files/figs/utility.png" width="75%">
     <br>
-    <i>The utility $\hat{U}^i_{s_t}$ for the primitive with the highest bid, $\hat{\omega}^i$ is given by the revenue it receives from selling $s_{t+1}$ in the auction at the next time-step minus the price it pays for buying $s_t$ from the auction winner at the previous time-step. The revenue is given by the environment reward plus the discounted higest bid at the next time-step. In accordance with the Vickrey auction, the price is given by the second highest bid at the current time-step. The utility of losing agents is 0.</i>
+    <i>The utility $\hat{U}^i_{s_t}$ for the primitive with the highest bid, $\hat{\omega}^i$ is given by the revenue it receives from selling $s_{t+1}$ in the auction at the next time-step minus the price $\max_{j \neq i} \mathbf{b}^j_{s_t}$ it pays for buying $s_t$ from the auction winner at the previous time-step. The revenue is given by the environment reward $r(s_t, \hat{\omega}^i)$ plus the discounted highest bid $\max_k \mathbf{b}^k_{s_{t+1}}$ at the next time-step. In accordance with the Vickrey auction, the price is given by the second highest bid at the current time-step. The utility of losing agents is 0.</i>
 </p>
 
 <p>
@@ -303,7 +303,7 @@ Wealth is distributed based on what future primitives decide to bid for the frui
 Under the Vickrey auction, the dominant strategy for each primitive is to truthfully bid exactly the revenue it would receive.
 With the above utility function, a primitive's truthful bid at equilibrium is the optimal Q-value of its corresponding action.
 And since the primitive with the maximum bid in the auction gets to take its associated action in the environment, overall the society at equilibrium activates the agent with the highest optimal Q-value &mdash; the optimal policy of the super agent.
-Thus in the restricted setting we consider, the societal decision-making framework, the cloned Vickrey society, and the decentralized reinforcement learning algorithms provide answers to the three ingredients outlined above for relating the learning problem of the primitive agent to the learning problem of the society.
+Thus in the restricted setting we consider, the societal decision-making framework, the cloned Vickrey society, and the decentralized reinforcement learning algorithms provide answers to the <a href="#ingredients">three ingredients</a> outlined above for relating the learning problem of the primitive agent to the learning problem of the society.
 </p>
 
 <p>
@@ -315,7 +315,7 @@ The agents can be any computation that transforms a state from one to another, i
 <h3 id="local-credit-assignment-for-more-efficient-transfer">Local Credit Assignment for More Efficient Learning and Transfer</h3>
 
 <p>
-Whereas learning in the command economy system of monolithic decision-making requires global credit assignment pathways because all learnable parameters are globally coupled, learning in the market economy system of societal decision making requires only credit assignment that is local in space and time because the primitives only optimize for their immediate local auction utility without regard to the global learning objective of the society.
+Whereas learning in the command economy system of monolithic decision-making requires global credit assignment pathways because all learnable parameters are globally coupled, learning in the market economy system of societal decision-making requires only credit assignment that is local in space and time because the primitives only optimize for their immediate local auction utility without regard to the global learning objective of the society.
 Indeed, we find evidence that suggests that the inherent modularity in framing the learning problem of the society in this way offers advantages in transferring to new tasks.
 </p>
 
