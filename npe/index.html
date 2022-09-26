@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>NPE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="css/cayman.css">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">A Compositional Object-Based Approach to Learning Physical Dynamics</h1>
+      <h2 class="project-tagline"><a href="http://mbchang.github.io" target="_blank"><font color="FFFFFF">Michael B. Chang</font></a>, <a href="http://www.mit.edu/~tomeru/" target="_blank"><font color="FFFFFF">Tomer Ullman</font></a>, <a href="http://web.mit.edu/torralba/www/" target="_blank"><font color="FFFFFF">Antonio Torralba</font></a>, <a href="http://web.mit.edu/cocosci/josh.html" target="_blank"><font color="FFFFFF">Joshua B. Tenenbaum</font></a></h2>
+      <a href="#user-content-header-1" class="btn">Abstract</a>
+      <a href="#user-content-header-2" class="btn">Model</a>
+      <a href="#user-content-header-3" class="btn">Results</a>
+      <a href="#user-content-header-4" class="btn">Code</a>
+      <a href="https://arxiv.org/abs/1612.00341" target="_blank" class="btn">Paper</a>
+      <a href="#user-content-header-5" class="btn">Citation</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+      <a id="user-content-header-1" class="anchor" href="#header-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Abstract</h1>
+
+      <p>We present the Neural Physics Engine (NPE), a framework for learning simulators of intuitive physics that naturally generalize across variable object count and different scene configurations. We propose a factorization of a physical scene into composable object-based representations and a neural network architecture whose compositional structure factorizes object dynamics into pairwise interactions. Like a symbolic physics engine, the NPE is endowed with generic notions of objects and their interactions; realized as a neural network, it can be trained via stochastic gradient descent to adapt to specific object properties and dynamics of different worlds. We evaluate the efficacy of our approach on simple rigid body dynamics in two-dimensional worlds. By comparing to less structured architectures, we show that the NPE's compositional representation of the structure in physical interactions improves its ability to predict movement, generalize across variable object count and different scene configurations, and infer latent properties of objects such as mass.</p>
+
+      <p>You can read the full paper <a href="https://arxiv.org/abs/1612.00341" target="_blank">here</a>, view the poster <a href="http://mbchang.scripts.mit.edu/mbchang/wp-content/uploads/2016/05/poster.pdf" target="_blank">here</a>, and watch the spotlight presentation <a href="https://youtu.be/ifMRtHRMQe8" target="_blank">here</a>.</p>
+
+      <h1>
+      <a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model</h1>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            <img src="assets/models/scenarios_and_model_npe.png">
+          </span>
+        </span>
+      </div>
+      <p>By design, the NPE scales to scenes with a large variable number of objects. It models a particular object's velocity (object 3 in this case) at <i>t + 1</i> as a composition of the pairwise interactions between itself and other neighboring context objects during <i>t</i> and <i>t - 1</i>. Further details are in the paper.</p>
+
+      <h1>
+      <a id="user-content-header-3" class="anchor" href="#header-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h1>
+      <p>
+        Below we present results that show the NPE's efficacy in prediction, generalization, and inference. For the predictions below, the model is provided with two timesteps as input and predicts all subsequent timesteps with no external supervision. Concretely, the NPE takes two previous timesteps as input and predicts the velocity of each object for the next timestep. This predicted velocity is used to update the objects' positions, which become part of the input for the next prediction.
+      </p> 
+      <p>
+        Because these physical systems are chaotic systems, it is not surprising that the model predictions diverge from the ground truth after a couple of seconds. However, note that the NPE learns physical concepts such as solidity of objects, inertia, and collisions that continue to be preserved throughout these rollouts. Crucially, this knowledge can be transferred and extrapolated to worlds with a number of objects and object configurations previously unseen.
+      </p>
+      <!-- <p>Note the transfer of momentum. Describe the difference in mass. Diverges after a few seconds. Show results on different random seeds.</p> -->
+      <h2>Balls of Different Masses</h2>
+      <p>
+        Here, the NPE is trained on worlds with 3, 4, or 5 balls and is tested on unobserved worlds with 6, 7, and 8 balls. From heavest to lightest, cyan, red, and yellow-green colors indicate the different masses. Note that the NPE faithfully predicts transfer of momentum between objects of different mass, and this knowledge of mass is preserved in the test worlds. 
+      </p>
+      <h3>Train: worlds with fewer balls</h3>
+      <p>3 Balls of Different Mass</p>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/balls_n3/balls_n3_gt_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/balls_n3/balls_n3_npe_pred_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <p>4 Balls of Different Mass</p>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/balls_n4/balls_n4_gt_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/balls_n4/balls_n4_npe_pred_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <p>5 Balls of Different Mass</p>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/balls_n5/balls_n5_gt_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/balls_n5/balls_n5_npe_pred_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <h3>Test: worlds with more balls</h3>
+      <p>6 Balls of Different Mass</p>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/balls_n6/balls_n6_gt_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/balls_n6/balls_n6_npe_pred_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <p>7 Balls of Different Mass</p>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/balls_n7/balls_n7_gt_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/balls_n7/balls_n7_npe_pred_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <p>8 Balls of Different Mass</p>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/balls_n8/balls_n8_gt_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/balls_n8/balls_n8_npe_pred_batch0_ex0.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+
+      <h2>Walls and Obstacles</h2>
+      <p>
+        Here, the NPE is trained on worlds with no internal obstacles and is tested on unobserved worlds with internal obstacles. Variations in wall geometries add to the difficulty of this extrapolation task. Our state space representation formualtes macro-structures such as walls to be composed of smaller building-blocks. Therefore, by this design, the NPE scales to worlds with complex configurations.
+      </p>
+      <h3>Train: worlds without internal obstacles</h3>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/walls_O/walls_n2_wO_gt_batch0_ex3.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/walls_O/walls_n2_wO_npe_pred_batch0_ex3.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/walls_L/walls_n2_wL_gt_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/walls_L/walls_n2_wL_npe_pred_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <h3>Test: worlds with internal obstacles</h3>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/walls_U/walls_n2_wU_gt_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/walls_U/walls_n2_wU_npe_pred_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <div class="image-row">
+        <span class="flex-wrapper">
+          <span class="image-block">
+            Ground Truth
+            <img src="assets/visualizations/walls_I/walls_n2_wI_gt_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+        <span class="flex-wrapper">
+          <span class="image-block">
+            NPE Prediction
+            <img src="assets/visualizations/walls_I/walls_n2_wI_npe_pred_batch0_ex2.gif" style="border:5px solid black">
+          </span>
+        </span>
+      </div>
+      <h1>
+      <a id="user-content-header-4" class="anchor" href="#header-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code</h1>
+      The code for this project is available at <a href="https://github.com/mbchang/dynamics" target="_blank">https://github.com/mbchang/dynamics</a>.
+
+      <h1>
+      <a id="user-content-header-5" class="anchor" href="#header-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Citation</h1>
+      <p>If this paper was helpful, or if you use our code, please cite us!</p>
+      <pre>
+@article{chang2016compositional,
+    title={A Compositional Object-Based Approach to Learning Physical Dynamics},
+    author={Chang, Michael B and Ullman, Tomer and Torralba, Antonio and Tenenbaum, Joshua B},
+    journal={arXiv preprint arXiv:1612.00341},
+    year={2016}
+}</pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mbchang/dynamics">An Compositional Object-Based Approach to Learning Physical Dynamics</a> is maintained by <a href="http://mbchang.scripts.mit.edu/mbchang/" target="_blank">Michael Chang</a>.</span>
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  </body>
+</html>

@@ -1,1 +1,783 @@
-Hello World!
+<!DOCTYPE html>
+<html class="">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link href="./css/css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+    /* Color scheme stolen from Sergey Karayev */
+
+    @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600|Arvo:700");
+        
+    :root {
+      --bkgd-multiplier: 200%;
+      --font-weight: 300;
+      --font-family: 'Source Sans Pro', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", 
+    "KaiTi", "楷體", STKaiti, "華文楷體",
+    /*"FangSong", "放鬆", STFangSong, "華文放鬆", */
+    sans-serif;
+      --body-font-size: 15px;
+    }
+    body {
+      background-image: url("assets/tiger-very-light-flip-fade.png");
+      background-repeat: no-repeat;
+      background-position: top;
+      background-attachment: fixed;
+      background-size: var(--bkgd-multiplier);
+      width: 100%;
+    }    
+    a {
+      color: #000c96;
+      text-decoration: none;
+    }
+    a:focus,a:hover {
+      color: #A31F34; 
+      text-decoration: none;
+    }
+    body,td,th,tr,p,a {
+      font-family: var(--font-family);
+      font-size: var(--body-font-size);
+      font-weight: var(--font-weight)
+    }
+    p,li {
+      color: #000;
+    }
+    strong {
+      font-family: var(--font-family);
+      font-size: var(--body-font-size);
+      font-weight: 400;
+    }
+    h2, h3 {
+      font-family: var(--font-family);
+      color: black;
+      font-weight: var(--font-weight);
+    }
+    h2 {
+      font-size: 22px;
+    }
+    h3 {
+      font-size: 18px;
+    }
+    papertitle {
+      font-family: var(--font-family);
+      font-size: var(--body-font-size);
+      font-weight: 500;
+    }
+    name {
+      font-family: var(--font-family);
+      font-size: 48px;
+      color: black;
+      font-weight: var(--font-weight);
+    }
+    .one {
+      width: 160px;
+      height: 160px;
+      position: relative;
+    }
+    .two {
+      width: 160px;
+      height: 160px;
+      position: absolute;
+      transition: opacity .2s ease-in-out;
+      -moz-transition: opacity .2s ease-in-out;
+      -webkit-transition: opacity .2s ease-in-out;
+    }
+    .fade {
+      transition: opacity .2s ease-in-out;
+      -moz-transition: opacity .2s ease-in-out;
+      -webkit-transition: opacity .2s ease-in-out;
+    }
+    span.highlight {
+      background-color: #ffffd0;
+    }
+    .tab { 
+      margin-left: 40px; 
+    }
+    .imgborder {
+      border: 1px solid white;
+      display: flex;
+      justify-content: center;
+      background: white;
+    }
+  </style>
+  <!-- <link rel="icon" type="image/png" href="http://jonbarron.info/seal_icon.png"> -->
+  <title>Michael Chang</title>
+</head>
+
+<body>
+  <table width="1200" border="0" align="center" cellspacing="0" cellpadding="0">
+    <tbody> 
+      <tr>
+        <td>
+
+          <!-- About -->
+          <table class="about" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td width="67%" valign="middle">
+                  <p align="center">
+                  <name>Michael Chang</name>
+                  </p>
+
+                  <p>
+                    I am a Ph.D. student advised by Professors <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a> and <a href="http://cocosci.princeton.edu/tom/tom.php">Tom Griffiths</a> in the computer science department at U.C. Berkeley. 
+                    I am a member of <a href="http://bair.berkeley.edu/">Berkeley AI Research (BAIR)</a>. 
+                    I co-organize Berkeley's AI mentoring program, which matches undergraduates from underrepresented groups in CS to Ph.D. students and postdocs at BAIR.
+                    I am grateful to be funded by the <a href="https://www.nsfgrfp.org/">NSF Graduate Research Felowship</a>.
+
+                  <!-- I am a member of the <a href="https://simons.berkeley.edu/people/michael-chang">Simons Institute for the Theory of Computing</a>. -->
+                  </p>
+
+                  <p>Prior to coming to Berkeley, I spent time at <a href="http://idsia.ch/">Istituto Dalle Molle di Studi sull'Intelligenza Artificiale (IDSIA)</a> under the supervision of Professor <a href="http://people.idsia.ch/~juergen/">Jürgen Schmidhuber</a>.</p>
+
+                  <p>I graduated in 2017 with a B.S. in Computer Science from MIT, where I researched in <a href="http://www.csail.mit.edu/">CSAIL</a> and <a href="http://bcs.mit.edu/">BCS</a> under the supervision of Professors <a href="http://web.mit.edu/cocosci/josh.html">Josh Tenenbaum</a> and <a href="http://web.mit.edu/torralba/www">Antonio Torralba</a>.</p>
+
+                  <p>Previously I worked at Google, at the University of Michigan Ann Arbor with Professor <a href="http://web.eecs.umich.edu/~honglak/">Honglak Lee</a>, at the <a href="https://www.media.mit.edu/">MIT Media Lab</a> with Professor <a href="https://www.media.mit.edu/people/pattie/overview/">Pattie Maes</a>, and as Strategy Lead in the <a href="http://solar-cars.scripts.mit.edu/main/">MIT Solar Electric Vehicle Team</a>. </p>
+
+                  <!-- <p>Ultimately, I want to be an artist at life, and to empower others to become artists at their lives. Currently, my best understanding of the best path toward doing this is to design media that enable people to share stories that capture more of the human experience. The medium is the communication interface between people.</p> -->
+
+                  </p>
+                  <p align="center">
+                    <!-- <a href="./cv.pdf">CV</a> &nbsp;/&nbsp; -->
+                    <a href="https://scholar.google.com/citations?user=vgfGtykAAAAJ&hl=en">Google Scholar</a> &nbsp;/&nbsp;
+                    <a href="https://www.linkedin.com/in/mbchang">LinkedIn</a> &nbsp;/&nbsp;
+                    <a href="https://github.com/mbchang">Github</a> &nbsp;/&nbsp;
+                    <a href="https://twitter.com/mmmbchang">Twitter</a> &nbsp;/&nbsp;
+                    <a href="https://www.goodreads.com/user/show/69084065-michael-chang">Goodreads</a> &nbsp;/&nbsp;
+                    <a href="https://www.collegeswimming.com/swimmer/141629/">Swimming</a>
+                  </p>
+                  <p align="center">
+                  [ <a href="#news">News</a> | <a href="#talks">Talks</a> | <a href="#teaching">Teaching</a> | <a href="#research">Research</a> | <a href="#readings">Readings</a> | <a href="#heroes">Heroes</a>] 
+                  </p>
+                </td>
+                <td width="33%">
+                  <img src="./assets/profile-circle-10.png">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- News -->
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td width="100%" valign="middle">
+                  <h2 id="news">News</h2>
+                  <ul>
+                    <li><b>July 2021</b>: <strong style="color:green">Oral Presentation</strong> - Our paper <a href="https://sites.google.com/view/modularcreditassignment">Modularity in Reinforcement Learning via Algorithmic Independence in Credit Assignment</a> was selected for a long oral presentation at ICML 2021.
+                    <li><b>December 2020</b>: <strong style="color:#33C1FF">Workshop</strong> - I co-organized a NeurIPS 2020 workshop on <a href="https://orlrworkshop.github.io/">Object Representations for Learning and Reasoning</a>.
+                    <li><b>June 2019</b>: <strong style="color:#33C1FF">Workshop</strong> - I co-organized an ICML 2019 workshop on <a href="https://sites.google.com/view/mbrl-icml2019/home?authuser=0">Generative Modeling and Model-Based Reasoning for Robotics and AI</a>.
+                    <li><b>May 2018</b>: <strong style="color:purple">Press Article</strong> - <a href="https://arxiv.org/abs/1612.00341">"A Compositional Object-Based Approach to Learning Physical Dynamics"</a> featured in <a href="http://www.sciencemag.org/news/2018/05/how-researchers-are-teaching-ai-learn-child?utm_source=general_public&utm_medium=youtube&utm_campaign=vid-ai-kid-19551">Science Magazine</a> (<a href="https://youtu.be/79zHbBuFHmw">accompany video</a> | <a href="https://youtu.be/79zHbBuFHmw?t=123">featured segment</a>). </li>
+                    <li><b>April 2018</b>: <strong style="color:purple">Press Article</strong> - <a href="https://arxiv.org/abs/1802.10353">"Relational Neural Expectation Maximization: Unsupervised Discovery of Objects and their Interactions"</a> featured in an <a href="https://blogs.nvidia.com/blog/2018/04/30/nvail-deep-learning-iclr/">NVIDIA blog post.</a></li>
+                    <li><b>December 2017</b>: <strong style="color:green">Award</strong> -  Our NIPS <a href="https://sites.google.com/view/ciai2017/home">workshop</a> paper on <a href="https://drive.google.com/file/d/0B9x3IewnhkK1R0VfQ1E5ZTRsYWM/view">Relational Neural Expectation Maximization</a> received the <i>Outstanding Paper Award</i> sponsored by <a href="https://www.oculus.com/">Oculus</a>.</li>
+                    <li><b>March 2015</b>: <strong style="color:purple">Press Article</strong> - <a href="http://news.mit.edu/2015/finger-mounted-reading-device-blind-0310">Finger-Mounted Reading Device for the Blind</a>, with <a href="http://hi.cs.stonybrook.edu/">Roy Shilkrot</a> and <a href="https://www.linkedin.com/in/marcel-polanco-87a6627b/">Marcelo Polanco</a>.</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Talks -->
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td width="100%" valign="middle">
+                  <h2 id="talks">Talks</h2>
+                  <ul>
+                      <li><b>February 2020</b>: MIT <a href="http://cocosci.mit.edu/">CoCoSci</a>, <a href="https://people.csail.mit.edu/pulkitag/">Improbable AI Lab</a>, <a href="http://lis.csail.mit.edu/">Learning and Intelligent Systems Group</a>. "Entity Abstraction in Visual Model-Based Reinforcement Learning." [<a href="https://drive.google.com/open?id=1-QBmbGZiiR9Bzg2gIICcDuAl4EVDlwEZ">slides</a>] </li>
+                    <li><b>October 2019</b>: <a href="http://cocolab.stanford.edu/">Stanford Computation & Cognition Lab</a>. "Automatically Composing Representation Transformations as a Means for Generalization." [<a href="https://drive.google.com/file/d/1myDjRKf_Tq8DHNDqWSc2mEKXO5jle5Vl/view?usp=sharing">slides</a>] </li>
+                    <li><b>August 2019</b>: <a href="https://ai.google/research/teams/brain/">Google Brain, Mountain View</a>. "Automatically Composing Represenation Transformations as a Means for Generalization." [<a href="https://drive.google.com/file/d/1myDjRKf_Tq8DHNDqWSc2mEKXO5jle5Vl/view?usp=sharing">slides</a>] </li>
+                    <li><b>November 2018</b>: <a href="http://cocosci.mit.edu/">MIT CoCoSci</a>. "Leveraging Compositional Inductive Biases to Help Deep Learning Methods Extrapolate"</li>
+                    <li><b>April 2018</b>: <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-ai/">Microsoft Research, Redmond</a>. "Unsupervised Discovery of Objects and the Interactions"</li>
+                    <li><b>May 2017</b>: <a href="https://mila.umontreal.ca/en/">Montreal Institute for Learning Algorithms</a>. "Learning Visual and Physical Models of the Environment"</li>
+                    <li><b>March 2017</b>: <a href="https://openai.com/">OpenAI</a>. "A Compositional Object-Based Approach to Learning Physical Dynamics"</li>
+                    <li><b>February 2017</b>: <a href="http://nlp.seas.harvard.edu/">Harvard NLP</a>. "Learning Visual and Physical Models of the Environment"</li>
+                    <li><b>January 2017</b>: <a href="https://research.google.com/">Google, Cambridge</a>. "Learning Visual and Physical Models of the Environment"</li>
+                    <li><b>April 2016</b>: <a href="http://eecscon.mit.edu/">MIT EECScon</a>. "Understanding Visual Concepts with Continuation Learning"</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Teaching -->
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td width="100%" valign="middle">
+                  <h2 id="teaching">Teaching</h2>
+                  <ul>
+                    <li><a href="https://inst.eecs.berkeley.edu/~cs188/sp19/">CS188: Introduction to Artificial Intelligence - Spring 2019:</a> Graduate Student Instructor</li>
+                    <li><a href="http://rail.eecs.berkeley.edu/deeprlcourse/">CS294-112: Deep Reinforcement Learning - Fall 2018:</a> Graduate Student Instructor</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Research Header -->
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td width="100%" valign="middle">
+                  <h2 id="research">Research</h2>
+                  <p>
+                    I am broadly interested in designing machine learners that generalize in similar ways that humans do. I want to understand the virtuous cycle between how abstraction improves learning and how learning improves abstraction. My burning question is: how can we build neural learners that automatically instantiate, compose, and abstract their own primitive computations and representations in a way that can be used to accelerate future learning and improvise solutions to novel problems? These primitives, means of composition, and means of abstraction constitute the <a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-25.html#%_chap_4">language</a> that the learner designs for itself to model the world and solve problems. In pursuit of this question, I am exploring and learning about ideas in information theory, game theory, causality, and programming languages.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+
+              <!-- Auction -->
+              <tr id='acl2021'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/modularity_in_rl.gif" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="#">
+                      <papertitle>Modularity in Reinforcement Learning via Algorithmic Independence in Credit Assignment</papertitle>
+                    </a>
+                    <br>
+                    <strong>Michael Chang*</strong>, <a href="mailto: kaushik.sid.99@berkeley.edu">Sid Kaushik*</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>, <a href=http://cocosci.princeton.edu/tom/index.php>Thomas Griffiths</a>
+                    <br>
+                    <em>Proceedings of the Thirty-eighth International Conference on Machine Learning (ICML)</em>, 2021
+                    <br>
+                    <strong style="color:green">Long Presentation (166 out of 5513)</strong>
+                    <br>
+                    <a href="https://sites.google.com/view/modularcreditassignment">project webpage</a> /
+                    <a href="https://www.youtube.com/watch?v=_KXdjWxJ2Ow">talk</a> /
+                    <a href="https://drive.google.com/file/d/1YtagDu5gF1y7ed6K-adTOV29bIdLuMpO/view?usp=sharing">slides</a>
+                  <p></p>
+                  <p>
+                  Many transfer problems require re-using previously optimal decisions for solving new tasks, which suggests the need for learning algorithms that can modify the mechanisms for choosing certain actions independently of those for choosing others. However, there is currently no formalism nor theory for how to achieve this kind of modular credit assignment. To answer this question, we define modular credit assignment as a constraint on minimizing the algorithmic mutual information among feedback signals for different decisions. We introduce what we call the modularity criterion for testing whether a learning algorithm satisfies this constraint by performing causal analysis on the algorithm itself. We generalize the recently proposed societal decision-making framework as a more granular formalism than the Markov decision process to prove that for decision sequences that do not contain cycles, certain single-step temporal difference action-value methods meet this criterion while all policy-gradient methods do not. Empirical evidence suggests that such action-value methods are more sample efficient than policy-gradient methods on transfer problems that require only sparse changes to a sequence of previously optimal decisions.
+                </p>
+                </td>
+              </tr>
+
+              <!-- Auction -->
+              <tr id='drl2020'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/decentralized_gif.gif" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/2007.02382">
+                      <papertitle>Decentralized Reinforcement Learning: Global Decision-Making via Local Economic Transactions</papertitle>
+                    </a>
+                    <br>
+                    <strong>Michael Chang</strong>, <a href="mailto: kaushik.sid.99@berkeley.edu">Sid Kaushik</a>, <a href=https://www.cs.princeton.edu/~smattw/>S. Matthew Weinberg</a>, <a href=http://cocosci.princeton.edu/tom/index.php>Thomas Griffiths</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
+                    <br>
+                    <em>Proceedings of the Thirty-seventh International Conference on Machine Learning (ICML)</em>, 2020
+                    <br>
+                    <a href="https://sites.google.com/view/clonedvickreysociety/home">project webpage</a> /
+                    <a href="https://icml.cc/virtual/2020/paper/6293">ICML talk</a> /
+                    <a href="https://drive.google.com/file/d/1uFbVRyrmoCijS4I9VYsju-gdu28QVALy/view?usp=sharing">slides</a> /
+                    <a href="https://bair.berkeley.edu/blog/2020/07/11/auction/">blog post</a> /
+                    <a href="https://github.com/mbchang/decentralized-rl">code</a>
+                  </p>
+                  <p></p>
+                  <p>We develop the societal decision-making framework in which a society of primitive agents buy and sell to each other the right to operate on the environment state in a series of auctions. We prove that the Vickrey auction mechanism can be adapted to incentive the society to collectively solve MDPs as an emergent consequence of the primitive agents optimizing their own auction utilities. We propose a class of decentralized reinforcement learning algorithms for training the society that uses credit assignment that is local in space and time. The societal decision-making framework and decentralized reinforcement learning algorithms can be applied not only to standard reinforcement learning, but also for selecting options in semi-MDPs and dynamically composing computation graphs. We find evidence that suggests the potential advantages of a society’s inherent modular structure for more efficient transfer learning.</p>
+                </td>
+              </tr>
+
+              <!-- OP3 -->
+              <tr id='op32019'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/high_level_overview_op3.png" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1910.12827">
+                      <papertitle>Entity Abstraction in Visual Model-Based Reinforcement Learning</papertitle>
+                    </a>
+                    <br>
+                    <a href=https://sites.google.com/view/rishiv/>Rishi Veerapaneni*</a>, <a href=https://people.eecs.berkeley.edu/~jcoreyes/>John D. Co-Reyes*</a>, <strong>Michael Chang*</strong>, <a href=https://people.eecs.berkeley.edu/~janner/>Michael Janner</a>, <a href=http://people.eecs.berkeley.edu/~cbfinn/>Chelsea Finn</a>, <a href=https://jiajunwu.com/>Jiajun Wu</a>, <a href=http://web.mit.edu/cocosci/josh.html>Joshua B. Tenenbaum</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
+                    <br>
+                    <em>Proceedings of the Conference on Robot Learning (CORL)</em>, 2019
+                    <br>
+                    <a href="https://sites.google.com/view/op3website/">project webpage</a> /
+                    <a href="https://github.com/jcoreyes/OP3">code</a> /
+                    <a href="https://github.com/JannerM/o2p2">environment</a> /
+                    <a href="https://drive.google.com/open?id=1-QBmbGZiiR9Bzg2gIICcDuAl4EVDlwEZ">slides</a>
+                    <br><br> Also in:<br>
+                    <a href="https://pgr-workshop.github.io/accepted_papers/"><em>&nbsp&nbsp NeurIPS workshop on Perception as Generative Reasoning</em>, 2019</a> <strong style="color:green">(Spotlight Talk)</strong>
+                    <br>
+                    <a href="https://sites.google.com/view/deep-rl-workshop-neurips-2019/home?authuser=0"><em>&nbsp&nbsp NeurIPS workshop on Deep Reinforcement Learning</em>, 2019</a>
+                    <br>
+                    <a href="https://www.svrhm2019.com/call-for-papers"><em>&nbsp&nbsp NeurIPS workshop on Shared Visual Representations in Human & Machine Intelligence</em>, 2019</a>
+                    <br>
+                    <a href="https://sites.google.com/view/mbrl-icml2019/home?authuser=0"><em>&nbsp&nbsp ICML workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI</em>, 2019</a>
+                  </p>
+                  <p></p>
+                  <p>We present object-centric perception, prediction, and planning (OP3), which to the best of our knowledge is the first entity-centric dynamic latent variable framework for model-based reinforcement learning that acquires entity representations from raw visual observations without supervision and uses them to predict and plan. OP3 enforces entity-abstraction -- symmetric processing of each entity representation with the same locally-scoped function -- which enables it to scale to model different numbers and configurations of objects from those in training. Our approach to solving the key technical challenge of grounding these entity representations to actual objects in the environment is to frame this variable binding problem as an inference problem, and we developing an interactive inference algorithm that uses temporal continuity and interactive feedback to bind information about object properties to the entity variables.</p>
+                </td>
+              </tr>
+
+              <!-- MCP -->
+              <tr id='mcp2019'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/mcp.gif" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1905.09808">
+                      <papertitle>MCP: Learning Composable Hierarchical Control with Multiplicative Compositional Policies</papertitle>
+                    </a>
+                    <br>
+                    <a href=https://xbpeng.github.io>Jason Peng</a>, <strong>Michael Chang</strong>, <a href="mailto: grace.zhang@berkeley.edu">Grace Zhang</a>, <a href=https://people.eecs.berkeley.edu/~pabbeel/>Pieter Abbeel</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
+                    <br>
+                    <em>Proceedings of the Thirty-third Conference on Neural Information Processing Systems</em>, 2019
+                    <br>
+                    <a href="https://xbpeng.github.io/projects/MCP/index.html">project webpage</a>
+                  </p>
+                  <p></p>
+                  <p>We propose multiplicative compositional policies (MCP), a method for learning reusable motor skills that can be composed to produce a range of complex behaviors. Our method factorizes an agent's skills into a collection of primitives, where multiple primitives can be activated simultaneously via multiplicative composition. This flexibility allows the primitives to be transferred and recombined to elicit new behaviors as necessary for novel tasks. We demonstrate that MCP is able to extract composable skills for highly complex simulated characters from pre-training tasks, such as motion imitation, and then reuse these skills to solve challenging continuous control tasks, such as dribbling a soccer ball to a goal, and picking up an object and transporting it to a target location.</p>
+                </td>
+              </tr>
+
+
+              <!-- COBEHA Doing more with less -->
+              <tr id='cobeha2019'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/cobeha2019.jpg" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://authors.elsevier.com/c/1Ye0-8MqMiUmwg">
+                      <papertitle>Doing more with less: meta-reasoning and meta-learning in humans and machines</papertitle>
+                    </a>
+                    <br>
+                    <a href=http://cocosci.berkeley.edu/tom/index.php>Thomas Griffiths</a>, <a href=http://fredcallaway.com/>Frederick Callaway</a>, <strong>Michael Chang</strong>, <a href=https://people.eecs.berkeley.edu/~eringrant/>Erin Grant</a>, Paul M. Krueger, <a href=https://sites.google.com/site/falklieder/home?authuser=0>Falk Lieder</a>
+                    <br>
+                    <em>Current Opinion in Behavioral Sciences</em>, Volume 29, 2019
+                    <br>
+                  </p>
+                  <p></p>
+                  <p>Artificial intelligence systems use an increasing amount of computation and data to solve very specific problems. By contrast, human minds solve a wide range of problems using a fixed amount of computation and limited experience. We identify two abilities that we see as crucial to this kind of general intelligence: meta-reasoning (deciding how to allocate computational resources) and meta-learning (modeling the learning environment to make better use of limited data). We summarize the relevant AI literature and relate the resulting ideas to recent work in psychology.</p>
+                </td>
+              </tr>
+
+              <!-- CRL ICLR 2019 -->
+              <tr id='crl'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/fsm.png" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1807.04640">
+                      <papertitle>Automatically Composing Representation Transformations as a Means for Generalization</papertitle>
+                    </a>
+                    <br>
+                    <strong>Michael Chang</strong>, <a href=https://people.eecs.berkeley.edu/~abhigupta/>Abhishek Gupta</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>, <a href=http://cocosci.berkeley.edu/tom/index.php>Thomas Griffiths</a>
+                    <br>
+                    <!-- <em>ICML workshop Neural Abstract Machines & Program Induction v2</em>, 2018 -->
+                    <em>Proceedings of the International Conference on Learning Representations (ICLR) </em>, 2019
+                    <br>
+                    <a href="https://sites.google.com/view/compositionalrecursivelearner/home">project webpage</a> /
+                    <a href="https://github.com/mbchang/crl">code</a> /
+                    <a href="./assets/crl-poster.pdf">poster</a> /
+                    <a href="https://drive.google.com/file/d/1myDjRKf_Tq8DHNDqWSc2mEKXO5jle5Vl/view?usp=sharing">slides</a>
+                  </p>
+                  <p></p>
+                  <p>This paper connects and synthesizes ideas from reformulation, metareasoning, program induction, hierarchical reinforcement learning, and self-organizing neural networks. The key perspective of this paper is to recast the problem of generalization to a problem of learning algorithmic procedures over representation transformations: discovering the structure of a family of problems amounts to learning a set of reusable primitive transformations and their means of composition. Our formulation enables the learner to learn the structure and parameters of its own computation graph with sparse supervision, make analogies between problems by transforming one problem representation to another, and exploit modularity and reuse to scale to problems of varying complexity.</p>
+                </td>
+              </tr>
+
+              <!-- Lightbot Cogsci 2018 -->
+              <tr id='lbot'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/puzzle_reference.jpg" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1807.07134">
+                      <papertitle>Representational Efficiency Outweighs Action Efficiency in Human Program Induction</papertitle>
+                    </a>
+                    <br>
+                    <a href="https://github.com/sophiaas">Sophia Sanborn</a>, <a href="https://www.linkedin.com/in/david-bourgin/">David Bourgin</a>, <strong>Michael Chang</strong>, <a href=http://cocosci.berkeley.edu/tom/index.php>Thomas Griffiths</a>
+                    <br>
+                    <em>Proceedings of the 40th Annual Conference of the Cognitive Science Society</em>, 2018
+                    <br>
+                  </p>
+                  <p></p>
+                  <p>
+                    This paper introduces Lightbot, a problem-solving domain that explores the link between problem solving and program induction. This paper departs from work in hierarchical learning that hypothesize that hierarchies accelerates the discovery of shortest-path solutions to a problem by segmenting the solution into subgoals. Instead, we investigate a setting in which the hierarchical solutions that humans discover minimize the complexity of the underlying program that generated the solution rather than minimize the length of the solution itself.
+                  </p>
+                </td>
+              </tr>
+
+              <!-- Relational Neural Expectation Maximization ICLR -->
+              <tr id='rnem'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/rnem.gif" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1802.10353">
+                      <papertitle>Relational Neural Expectation Maximization: Unsupervised Discovery of Objects and their Interactions</papertitle>
+                    </a>
+                    <br>
+                    <a href=http://www.sjoerdvansteenkiste.com/>Sjoerd van Steenkiste</a>, <strong>Michael Chang</strong>, <a href=https://qwlouse.github.io//>Klaus Greff</a>, <a href=http://people.idsia.ch/~juergen/>Jürgen Schmidhuber</a>
+                    <br>
+                    <em>Proceedings of the International Conference on Learning Representations (ICLR)</em>, 2018
+                    <br>
+                    <strong style="color:purple">Press:</strong> <a href="https://blogs.nvidia.com/blog/2018/04/30/nvail-deep-learning-iclr/">NVIDIA article</a>
+                    <br>
+                    <a href="https://sites.google.com/view/r-nem-gifs/">project webpage</a> /
+                    <a href="https://github.com/sjoerdvansteenkiste/Relational-NEM">code</a>
+                  </p>
+                  <p></p>
+                  <p>We present a novel method that learns to discover objects and model their physical interactions from raw visual images in a purely unsupervised fashion. It incorporates prior knowledge about the compositional nature of human perception to factor interactions between object-pairs and learn efficiently. On videos of bouncing balls we show the superior modeling capabilities of our method compared to other unsupervised neural approaches that do not incorporate such prior knowledge.</p>
+                </td>
+              </tr>
+
+              <!-- Relational Neural Expectation Maximization NIPS-->
+              <tr id='rnem_workshop'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/rnem_diagram.png" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://drive.google.com/file/d/0B9x3IewnhkK1R0VfQ1E5ZTRsYWM/view">
+                      <papertitle>Relational Neural Expectation Maximization</papertitle>
+                    </a>
+                    <br>
+                    <a href=http://www.sjoerdvansteenkiste.com/>Sjoerd van Steenkiste</a>, <strong>Michael Chang</strong>, <a href=https://qwlouse.github.io//>Klaus Greff</a>, <a href=http://people.idsia.ch/~juergen/>Jürgen Schmidhuber</a>
+                    <br>
+                    <em>NIPS workshop on Cognitively Informed Artificial Intelligence</em>, 2017
+                    <br>
+                    <strong style="color:green">Oral Presentation, Oculus Outstanding Paper Award</strong>
+                    <br>
+                  </p>
+                  <p></p>
+                  <p>We propose a novel approach to common-sense physical reasoning that learns physical interactions between objects from raw visual images in a purely unsupervised fashion. Our method incorporates prior knowledge about the compositional nature of human perception, enabling it to discover objects, factor interactions between object-pairs to learn efficiently, and generalize to new environments without re-training.</p>
+                </td>
+              </tr>
+
+              <!-- A Compositional Object-Based Approach to Learning Physical Dynamics -->
+              <tr id='npe'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/balls_n7_npe_pred_batch0_ex0.gif" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1612.00341">
+                      <papertitle>A Compositional Object-Based Approach to Learning Physical Dynamics</papertitle>
+                    </a>
+                    <br>
+                    <strong>Michael B. Chang</strong>, <a href=http://www.mit.edu/~tomeru/>Tomer D. Ullman<a/>, <a href=http://web.mit.edu/torralba/www/>Antonio Torralba</a>, <a href=http://web.mit.edu/cocosci/josh.html>Joshua B. Tenenbaum</a>
+                    <br>
+                    <em>Proceedings of the International Conference on Learning Representations (ICLR)</em>, 2017
+                    <br>
+                    <strong style="color:purple">Press:</strong> <a href="http://www.sciencemag.org/news/2018/05/how-researchers-are-teaching-ai-learn-child?utm_source=general_public&utm_medium=youtube&utm_campaign=vid-ai-kid-19551">Science Magazine article</a> (<a href="https://youtu.be/79zHbBuFHmw">accompany video</a> | <a href="https://youtu.be/79zHbBuFHmw?t=123">featured segment</a>)
+                    <br>
+                    <a href="http://mbchang.github.io/npe/">project webpage</a> /
+                    <a href="https://github.com/mbchang/dynamics">code</a> /
+                    <a href="./assets/npe-poster.pdf">poster</a> /
+                    <a href="https://www.youtube.com/watch?v=ifMRtHRMQe8&feature=youtu.be">spotlight talk (NIPS Intuitive Physics Workshop)</a>
+                  </p>
+                  <p></p>
+                  <p>The Neural Physics Engine (NPE) frames learning a simulator of intuitive physics as learning a compositional program over objects and interactions. This allows the NPE to naturally generalize across variable object count and different scene configurations.</p>
+                </td>
+              </tr>
+
+              <!-- Understanding Visual Concepts with Continuation Learning -->
+              <tr id='udcign'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/uvc-face.gif" height="100%" align="middle">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1602.06822">
+                      <papertitle>Understanding Visual Concepts with Continuation Learning</papertitle>
+                    </a>
+                    <br>
+                    <a href="http://www.willwhitney.com">William F. Whitney</a>, <strong>Michael B. Chang</strong>, <a href=https://tejasdkulkarni.github.io/>Tejas D. Kulkarni</a>, <a href=http://web.mit.edu/cocosci/josh.html>Joshua B. Tenenbaum</a>
+                    <br>
+                    <em>International Conference on Learning Representations (ICLR) workshop</em>, 2016
+                    <br>
+                    <a href="http://willwhitney.github.io/understanding-visual-concepts/">project webpage</a> /
+                    <a href="https://github.com/willwhitney/understanding-visual-concepts">code</a>
+                  </p>
+                  <p></p>
+                  <p>This paper presents an unsupervised approach to learning factorized symbolic representations of high-level visual concepts by exploiting temporal continuity in the scene.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td width="100%" valign="middle">
+                  <h2 id="readings">Readings</h2>
+                  <p>
+                    Here are some of my past and current readings that have changed the way I think.
+                  </p>
+
+                  <br><h3 class="tab">Longer Works</h3>
+
+                  <p class="tab"><a href="https://www.amazon.com/Newbery-Vladimir-Radunsky-Bagram-Ibatoulline/dp/B0055L0Y32/">Holes</a> - Louis Sachar</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/Harry-Potter-Paperback-Box-Books/dp/0545162076">Harry Potter</a> - J. K. Rowling</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/Society-Mind-Marvin-Minsky/dp/0671657135">The Society of Mind</a> - Marvin Minsky</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/Three-Kingdoms-Historical-Guanzhong-Luo/dp/0520282167">三國演義 Romance of the Three Kingdoms</a> - 羅貫中 Luo Guanzhong</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/Beginning-Infinity-Explanations-Transform-World/dp/0143121359">The Beginning of Infinity</a> - David Deutsch</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/Little-Prince-Antoine-Saint-Exup%C3%A9ry/dp/0156012197/ref=pd_lpo_sbs_14_t_0?_encoding=UTF8&psc=1&refRID=TZSP8PQWMETQSVS3H9PN">The Little Prince</a> - Antoine de Saint-Exupéry</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/Zhuangzi-Essential-Selections-Traditional-Commentaries/dp/0872209113/ref=asap_bc?ie=UTF8">莊子 Zhuangzi</a> - 莊子 Zhuangzi</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/Structure-Scientific-Revolutions-Thomas-Kuhn/dp/0226458083">The Structure of Scientific Revolutions</a> - Thomas Kuhn</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/Hegemony-Survival-Americas-Dominance-American/dp/0805076883">Hegemony or Survival</a> - Noam Chomsky</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/G%C3%B6del-Escher-Bach-Eternal-Golden/dp/0465026567">Gödel, Escher, Bach: an Eternal Golden Braid</a> - Douglas Hofstadter</p>
+
+                  <p class="tab"><a href="https://mitpress.mit.edu/sicp/">Structure and Interpretation of Computer Programs</a> - Harold Abelson and Gerald Sussman with Julie Sussman</p>
+
+                  <p class="tab"><a href="http://www.feynmanlectures.caltech.edu/">The Feynman Lectures on Physics</a> - Richard P. Feynman, Robert B. Leighton, Matthew Sands</p>
+
+                  <p class="tab"><a href="https://www.gutenberg.org/files/1497/1497-h/1497-h.htm">Republic</a> - Plato</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/Tao-Te-Ching-Laozi/dp/1535229330">道德經 Tao Te Ching</a> - 老子 Laozi</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/Discussions-Youth-Leaders-Future-Diasaku/dp/1932911936">Discussions on Youth</a> - Diasaku Ikeda</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/Nonzero-Logic-Destiny-Robert-Wright/dp/0679758941">Nonzero: The Logic of Human Destiny</a> - Robert Wright</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/Order-Time-Carlo-Rovelli/dp/0735216118/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=">The Order of Time</a> - Carlo Rovelli</p>
+
+                  <p class="tab"><a href="https://www.amazon.com/Reality-Not-What-Seems-Journey/dp/0735213925">Reality is Not What it Seems</a> - Carlo Rovelli</p> 
+                  
+                  <p class="tab"><a href="https://www.amazon.com/Talking-Daughter-about-Economy-Capitalism/dp/1847924441">Talking to My Daughter about the Economy: A Brief History of Capitalism</a> - Yanis Varoufakis</p>
+
+                  <br><h3 class="tab">Shorter Works</h3>
+
+                  <p class="tab"><a href="http://www.columbia.edu/itc/english/f1124y-001/resources/Longfellow.pdf">A Psalm of Life</a> - Henry Wadsworth Longfellow</p>
+                  
+                  <p class="tab"><a href="http://www.cs.virginia.edu/~robins/YouAndYourResearch.pdf">You and Your Research</a> - Richard Hamming</p>
+                  
+                  <p class="tab"><a href="https://arxiv.org/abs/1604.00289">Building Machines that Think and Learn Like People</a> - Brendan M. Lake, Tomer D. Ullman, Joshua B. Tenenbaum, Samuel J. Gershman</p>
+                  
+                  <p class="tab"><a href="https://courses.csail.mit.edu/6.803/pdf/steps.pdf">Steps Toward Artificial Intelligence</a> - Marvin Minsky</p>
+                  
+                  <p class="tab"><a href="http://web.mit.edu/STS.035/www/PDFs/think.pdf">As We May Think</a> - Vannevar Bush</p>
+
+                  <p class="tab"><a href="http://xroads.virginia.edu/~hyper/poe/composition.html">The Philosophy of Composition</a> - Edgar Allan Poe</p>
+
+                  <p class="tab"><a href="http://togelius.blogspot.com/2016/04/the-differences-between-tinkering-and.html">The Differences Between Tinkering and Research</a> - Julian Togelius</p>
+
+                  <br><h3 class="tab">Others' Reading Lists</h3>
+                  <p class="tab"><a href="https://docs.lucasem.com/readings/">Lucas Morales' reading list</a></p>
+                  
+                  <p class="tab"><a href="http://probcomp.csail.mit.edu/reading-list/">MIT Probabilistic Computing Project's reading list</a></p>
+
+                  <p class="tab"><a href="https://www.reddit.com/r/MachineLearning/comments/2xcyrl/i_am_j%C3%BCrgen_schmidhuber_ama/cp5c0py/">Jürgen Schmidhuber's recommended readings</a></p>
+
+                  <p class="tab"><a href="http://aurellem.org/thoughts/html/sussman-reading-list.html">Gerry Sussman's reading list</a></p>
+                  
+                  <p class="tab"><a href="http://www.hutter1.net/ai/introref.htm">Marcus Hutter's reading list</a></p>
+
+                  <p class="tab"><a href="http://web.archive.org/web/20170731011854/https://courses.csail.mit.edu/6.803/">Patrick Winston's reading list</a></p>
+
+                  <p class="tab"><a href="http://cocosci.berkeley.edu/tom/bayes.html">Tom Griffiths' reading list</a></p>
+
+                  <p class="tab"><a href="https://www.scottaaronson.com/blog/?p=3679">Scott Aaronson's reading list</a></p>
+
+                  <br><h3 class="tab">Blogs</h3>
+                  <p class="tab"><a href="https://www.scottaaronson.com/blog/">Scott Aaronson's blog</a></p>
+                  <p class="tab"><a href="http://worrydream.com/">Bret Victor's blog</a></p>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td width="100%" valign="middle">
+                  <h2 id="heroes">Heroes</h2>
+                  <p>
+                    Here are some of my heroes that have shaped my worldview.
+                  </p>
+                  <tr>
+                    <td><h3 class="tab"><a href="https://en.wikipedia.org/wiki/Cheng_Yen">證嚴法師 Master Cheng Yen</a></h3>
+                      <!--http://lovequotes.symphonyoflove.net/master-cheng-yen-love-quotes-and-sayings.html-->
+
+                      <p class="tab" ><i>充滿愛心的人最幸福。 <br> Happiest is the person whose heart is filled with love.</i></p><!--good-->
+
+                      <p class="tab" ><i>對人有疑心，就無法愛人；對人有疑念，就無法原諒人；對人有疑感，就無法相信人。 <br> We cannot love when filled with suspicion; we cannot forgive when unwilling to believe; we cannot trust when filled with doubts.</i></p><!--good-->
+
+                      <p class="tab" ><i>有力量去愛人或被愛的人都是幸福的人。 <br> Blessed are those who have the ability to love and be loved by others.</i></p>
+
+                      <p class="tab" ><i>問心無愧心最安，能夠付出、助人、救人，最是快樂。 <br> Clear conscience brings peace of mind; the greatest happiness comes from the pleasure of giving and helping others.</i></p> <!--good-->
+
+                      <p class="tab" ><i>有力量幫助他人，是自己的福。 <br> Having the ability to help others is a blessing.</i></p>
+
+                      <p class="tab" ><i>原諒別人就是善待自己。 <br> To forgive others is, in fact, being kind to ourselves.</i></p>
+
+                      <p class="tab" ><i>孝順就是讓父母安心。 <br> Being filial is not making our parents unduly worry about us.</i></p>
+
+                      <p class="tab" ><i>該做的事，排除萬難也要完成；不該做的事，無論任何困難，也要堅持立場。 <br> Do whatever it takes to do what is right. Do whatever it takes to not do what is wrong.</i></p>
+
+                      <p class="tab" ><i>生氣是拿別人的錯誤來懲罰自己。 <br> Being angry is a form of torturing ourselves with the mistakes of others.</i></p>
+
+                      <p class="tab" ><i>人要先點亮自己的心燈，才能引發別人的心燈。 <br> Only when we light up our heart can we inspire others to do the same.</i></p>
+                      
+                      <p class="tab" ><i>心無邪思，意無邪念，即常可自在。心正則邪不侵。 <br> If our thoughts are upright and wholesome, we can always be at ease and evil cannot come near.</i></p>
+
+                      <p class="tab" ><i>心美看什麼都美。 <br> To a beautiful heart, everything appears beautiful.</i></p>
+
+                      <p class="tab" ><i>人生不怕錯，只怕不改過。 <br> Do not fear making mistakes in life, fear only not correcting them.</i></p>
+                    </td>
+                    <td width="33%">
+                      <img src="./assets/master_cheng_yen.jpg" width="100%">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><h3 class="tab"><a href="https://en.wikipedia.org/wiki/Bruce_Lee">李小龍 Bruce Lee</a></h3>
+
+                      <p class="tab" ><i>Knowledge will give you power, but character respect.</i></p>
+
+                      <p class="tab" ><i>As you think, so you shall become.</i></p>
+
+                      <p class="tab" ><i>Mistakes are always forgivable, if one has the courage to admit them.</i></p>
+
+                      <p class="tab" ><i>If you love life, don't waste time, for time is what life is made up of.</i></p>
+
+                      <p class="tab" ><i>The key to immortality is first living a life worth remembering.</i></p>
+
+                      <p class="tab" ><i>Do not pray for an easy life, pray for the strength to endure a difficult one.</i></p>
+
+                      <p class="tab" ><i>The self-sufficient stand alone - most people follow the crowd and imitate.</i></p>
+                      
+                      <p class="tab" ><i>Notice that that the stiffest tree is easily cracked, while the bamboo or willow survives by bending with the wind.</i></p>
+
+                      <p class="tab" ><i>Patience is not passive; on the contrary it is concentrated strength.</i></p>
+
+                      <p class="tab" ><i>What is defeat? Nothing but education. Nothing but the first step to something better.</i></p>
+
+                      <p class="tab" ><i>Success means doing something sincerely and wholeheartedly.</i></p>
+
+                      <p class="tab" ><i>It is compassion rather than the principle of justice which can guard us against being unjust to our fellow man.</i></p>
+
+                      <p class="tab" ><i>Absorb what is useful. Discard what is not. Add what is uniquely your own.</i></p>
+
+                      <p class="tab"><i>Defeat is a state of mind. No one is ever defeated until defeat accepted as reality.</i></p>
+
+                      <p class="tab"><i>Empty your cup so that it may be filled.</i></p>
+                    </td>
+                    <td width="33%">
+                      <img src="./assets/bruce_lee_600.jpg" width="300px">
+                    </td>
+                  </tr>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Fun Stuff --><!-- 
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td width="100%" valign="middle">
+                  <h2 id="research">Fun</h2>
+                  <p>
+                    <a href="https://neurotree.org/neurotree/tree.php?pid=737469">My academic family tree</a>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table> -->
+
+          <!-- Website Credits -->
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td>
+                  <br>
+                  <p align="right">
+                    <font size="2">
+                      <a href="http://jonbarron.info/">website template credits</a>
+                    </font>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          
+          <!-- Scripts -->
+          <script>
+            (function(){
+              var htmlStyles = window.getComputedStyle(document.querySelector("html"));
+              var bkgd_multiplier = parseFloat(htmlStyles.getPropertyValue("--bkgd-multiplier"))/100.0;
+              var parallax = document.querySelectorAll("body"),
+                  speed = 0.5;
+              window.onscroll = function(){
+                [].slice.call(parallax).forEach(function(el,i){
+                  var windowYOffset = window.pageYOffset,
+                      elBackgrounPos = "50% " + (-windowYOffset * speed) + "px";
+                  el.style.backgroundPosition = elBackgrounPos;
+
+                });
+              };
+
+          })();
+          </script>
+          <!-- Website Tracking -->
+          <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-98876949-1', 'auto');
+            ga('send', 'pageview');
+
+          </script>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</body>
+
+</html>
