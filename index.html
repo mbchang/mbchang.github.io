@@ -163,6 +163,43 @@
             </tbody>
           </table>
 
+
+          <!-- Research Header -->
+          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td width="100%" valign="middle">
+                  <h2 id="research">Research</h2>
+<!--                   <p>
+                    I am broadly interested in designing machine learners that generalize in similar ways that humans do. I want to understand the virtuous cycle between how abstraction improves learning and how learning improves abstraction. My burning question is: how can we build neural learners that automatically instantiate, compose, and abstract their own primitive computations and representations in a way that can be used to accelerate future learning and improvise solutions to novel problems? These primitives, means of composition, and means of abstraction constitute the <a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-25.html#%_chap_4">language</a> that the learner designs for itself to model the world and solve problems. In pursuit of this question, I am exploring and learning about ideas in information theory, game theory, causality, and programming languages.
+                  </p> -->
+                  <p>
+                    Our neural networks today are striking similar to what computing was like a hundred years ago.
+                    Back then we designed specialized electronic circuits for each different task; in the past decade w have been training specialized neural circuits for each different task.
+                    In the 1940s we developed the von Neumann architecture for computing; now our <a href="https://www.deepmind.com/publications/improving-language-models-by-retrieving-from-trillions-of-tokens">retrieval augmented transformers</a> are doing essentially the same thing.
+                    <b>Just as software abstractions were key to scaling our electronic circuits to the modern software stack, I believe that to shift artificial intellgience research from building learning circuits to building learning software, we also need to invent the analog of software abstractions for neural networks.</b>
+                  </p>
+                  <p>
+                  My research is on what I call <b>neural software abstractions</b>: understanding the principles that make abstractions in traditional software powerful, and translating these principles into deep learning algorithms to enable neural learners to construct their own abstractions for modeling and manipulating systems.
+                  Examples include:
+                  </p>
+                  <ul>
+                    <li><a href="#implicit2022">How <b>digital abstraction</b>, or the discretization of continuous representations, can be implemented via the <b>principle of error correction</b>.</a></li>
+                    <li><a href="op32019">How <b>variable abstraction</b>, or the construction of placeholders for datapoints, can be implemented via the <b>principle of symmetry</b>.</a></li>
+                    <li><a href="acl2021">How <b>function abstraction</b>, or the representation of reusable computations, can be implemented via the <b>principle of independence</b>.</a></li>
+                    <li><a href="drl2020">How <b>problem abstraction</b>, or the coordination of local modules for exhibiting global behaviors, can be implemented via the <b>principle of competition</b>.</a></li>
+                  </ul>
+                  To build learning algorithms that automatically model and manipulate systems, much of my research has focused on the <b>unsupervised learning of representations of objects and their relations</b>, because studying how to model and manipulate physical systems confers various advantages:
+                  <ul>
+                    <li>Objects and relations are intuitive abstractions that are present in everyday experience.</li>
+                    <li>A general-purpose solution for solving physical tasks would provide much economic and societal value.</li>
+                    <li><a href="https://arxiv.org/abs/1604.00289">Literature</a> in cognitive science studying how infants acquire physical common sense can offer inspiration for developing agents with similar capabilities.
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
           <!-- News -->
           <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
@@ -230,32 +267,7 @@
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
-                  <h2 id="research">Research</h2>
-<!--                   <p>
-                    I am broadly interested in designing machine learners that generalize in similar ways that humans do. I want to understand the virtuous cycle between how abstraction improves learning and how learning improves abstraction. My burning question is: how can we build neural learners that automatically instantiate, compose, and abstract their own primitive computations and representations in a way that can be used to accelerate future learning and improvise solutions to novel problems? These primitives, means of composition, and means of abstraction constitute the <a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-25.html#%_chap_4">language</a> that the learner designs for itself to model the world and solve problems. In pursuit of this question, I am exploring and learning about ideas in information theory, game theory, causality, and programming languages.
-                  </p> -->
-                  <p>
-                    Our neural networks today are striking similar to what computing was like a hundred years ago.
-                    Back then we designed specialized electronic circuits for each different task; in the past decade w have been training specialized neural circuits for each different task.
-                    In the 1940s we developed the von Neumann architecture for computing; now our <a href="https://www.deepmind.com/publications/improving-language-models-by-retrieving-from-trillions-of-tokens">retrieval augmented transformers</a> are doing essentially the same thing.
-                    <b>Just as software abstractions were key to scaling our electronic circuits to the modern software stack, I believe that to shift artificial intellgience research from building learning circuits to building learning software, we also need to invent the analog of software abstractions for neural networks.</b>
-                  </p>
-                  <p>
-                  My research is on what I call <b>neural software abstractions</b>: understanding the principles that make abstractions in traditional software powerful, and translating these principles into deep learning algorithms to enable neural learners to construct their own abstractions for modeling and manipulating systems.
-                  Examples include:
-                  </p>
-                  <ul>
-                    <li><a href="#implicit2022">How <b>digital abstraction</b>, or the discretization of continuous representations, can be implemented via the <b>principle of error correction</b>.</a></li>
-                    <li><a href="op32019">How <b>variable abstraction</b>, or the construction of placeholders for datapoints, can be implemented via the <b>principle of symmetry</b>.</a></li>
-                    <li><a href="acl2021">How <b>function abstraction</b>, or the representation of reusable computations, can be implemented via the <b>principle of independence</b>.</a></li>
-                    <li><a href="drl2020">How <b>problem abstraction</b>, or the coordination of local modules for exhibiting global behaviors, can be implemented via the <b>principle of competition</b>.</a></li>
-                  </ul>
-                  To build learning algorithms that automatically model and manipulate systems, much of my research has focused on the <b>unsupervised learning of representations of objects and their relations</b>, because studying how to model and manipulate physical systems confers various advantages:
-                  <ul>
-                    <li>Objects and relations are intuitive abstractions that are present in everyday experience.</li>
-                    <li>A general-purpose solution for solving physical tasks would provide much economic and societal value.</li>
-                    <li><a href="https://arxiv.org/abs/1604.00289">Literature</a> in cognitive science studying how infants acquire physical common sense can offer inspiration for developing agents with similar capabilities.
-                  </ul>
+                  <h2 id="research">Publications</h2>
                 </td>
               </tr>
             </tbody>
