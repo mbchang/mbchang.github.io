@@ -165,6 +165,11 @@
     .section-links a {
       font-weight: 400;
     }
+    .hero-heading {
+      flex: 1 1 100%;
+      text-align: center;
+      margin-bottom: 12px;
+    }
     .hero-text {
       flex: 1 1 360px;
     }
@@ -244,10 +249,20 @@
     @media (max-width: 768px) {
       .hero {
         padding: 32px;
+        flex-direction: column;
+      }
+      .hero-heading {
+        order: 0;
       }
       .hero-photo {
-        flex: 1 1 100%;
-        margin-top: 16px;
+        order: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 12px 0;
+      }
+      .hero-text {
+        order: 2;
       }
       .profile-photo {
         width: 160px;
@@ -265,10 +280,10 @@
 
           <!-- About -->
           <section class="hero">
-            <div class="hero-text">
-              <p align="center">
+            <div class="hero-heading">
               <name>Michael Chang</name>
-              </p>
+            </div>
+            <div class="hero-text">
               <p>
                 I am a Research Scientist at <a href="https://openai.com/">OpenAI</a> working on <a href="https://openai.com/sora/">Sora</a>.
               </p>
@@ -290,9 +305,6 @@
                 <a href="https://tejasdkulkarni.github.io/">Tejas Kulkarni</a>,
                 <a href="http://rubenvillegas.me/">Ruben Villegas</a>,
                 and <a href="https://www.ytzhang.net/">Yuting Zhang</a>, who helped me begin my path into AI research.
-              </p>
-              <p>
-              </p>
               </p>
               <p class="link-row" align="center">
                 <!-- <a href="./cv.pdf">CV</a> &nbsp;/&nbsp; -->
