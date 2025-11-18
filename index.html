@@ -103,6 +103,41 @@
       justify-content: center;
       background: white;
     }
+    .about td {
+      vertical-align: middle;
+    }
+    .about-text {
+      width: 64%;
+      padding-right: 10px;
+    }
+    .about-photo {
+      width: 36%;
+      text-align: center;
+    }
+    .profile-photo {
+      width: 220px;
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    @media (max-width: 768px) {
+      .about tr,
+      .about td {
+        display: block;
+        width: 100%;
+      }
+      .about-text {
+        padding-right: 0;
+      }
+      .about-photo {
+        margin-top: 20px;
+      }
+      .profile-photo {
+        width: 160px;
+      }
+    }
   </style>
   <title>Michael Chang</title>
 </head>
@@ -117,7 +152,7 @@
           <table class="about" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
               <tr>
-                <td width="67%" valign="middle">
+                <td class="about-text" width="67%" valign="middle">
                   <p align="center">
                   <name>Michael Chang</name>
                   </p>
@@ -159,8 +194,8 @@
                   [ <a href="#news">News</a> | <a href="#talks">Talks</a> | <a href="#teaching">Teaching</a> | <a href="#research">Research</a> | <a href="#readings">Readings</a> | <a href="#heroes">Heroes</a>]
                   </p>
                 </td>
-                <td width="33%">
-                  <img src="./assets/profile-circle-10.png">
+                <td class="about-photo" width="33%" align="center">
+                  <img class="profile-photo" src="./assets/IMG_2558 vertical.jpg" alt="Michael Chang smiling on a plane.">
                 </td>
               </tr>
             </tbody>
