@@ -20,7 +20,7 @@
     "KaiTi", "楷體", STKaiti, "華文楷體",
     /*"FangSong", "放鬆", STFangSong, "華文放鬆", */
     sans-serif;
-      --body-font-size: 15px;
+      --body-font-size: 16px;
     }
     body {
       background-image: url("assets/tiger-very-light-flip-fade.png");
@@ -31,6 +31,8 @@
       width: 100%;
       margin: 0;
       padding: 0;
+      line-height: 1.65;
+      color: #1f1f1f;
     }
     a {
       color: #000c96;
@@ -43,10 +45,18 @@
     body,td,th,tr,p,a {
       font-family: var(--font-family);
       font-size: var(--body-font-size);
-      font-weight: var(--font-weight)
+      font-weight: var(--font-weight);
     }
     p,li {
-      color: #000;
+      color: #111;
+      margin-top: 0;
+      margin-bottom: 1.1em;
+    }
+    li {
+      line-height: 1.55;
+    }
+    ul {
+      padding-left: 20px;
     }
     strong {
       font-family: var(--font-family);
@@ -55,14 +65,20 @@
     }
     h2, h3 {
       font-family: var(--font-family);
-      color: black;
-      font-weight: var(--font-weight);
+      color: #0d0d0d;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      margin-top: 0;
     }
     h2 {
-      font-size: 22px;
+      font-size: clamp(24px, 3vw, 30px);
+      line-height: 1.2;
+      margin-bottom: 12px;
     }
     h3 {
-      font-size: 18px;
+      font-size: clamp(18px, 2.5vw, 22px);
+      line-height: 1.3;
+      margin-bottom: 8px;
     }
     papertitle {
       font-family: var(--font-family);
@@ -71,9 +87,13 @@
     }
     name {
       font-family: var(--font-family);
-      font-size: 48px;
+      font-size: clamp(40px, 5vw, 58px);
       color: black;
-      font-weight: var(--font-weight);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      display: inline-block;
+      margin-bottom: 12px;
     }
     .one {
       width: 160px;
@@ -120,6 +140,20 @@
       padding: 48px;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
       margin-bottom: 40px;
+    }
+    .link-row,
+    .section-links {
+      font-size: 0.95rem;
+      text-align: center;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #4a4a4a;
+      margin-bottom: 0.8em;
+    }
+    .link-row a,
+    .section-links a {
+      font-weight: 400;
+      letter-spacing: 0;
     }
     .hero-text {
       flex: 1 1 360px;
@@ -221,7 +255,7 @@
               <p>
               </p>
               </p>
-              <p align="center">
+              <p class="link-row" align="center">
                 <!-- <a href="./cv.pdf">CV</a> &nbsp;/&nbsp; -->
                 <a href="https://scholar.google.com/citations?user=vgfGtykAAAAJ&hl=en">Google Scholar</a> &nbsp;/&nbsp;
                 <a href="https://www.linkedin.com/in/mbchang">LinkedIn</a> &nbsp;/&nbsp;
@@ -230,7 +264,7 @@
                 <a href="https://www.goodreads.com/user/show/69084065-michael-chang">Goodreads</a> &nbsp;/&nbsp;
                 <a href="https://www.collegeswimming.com/swimmer/141629/">Swimming</a>
               </p>
-              <p align="center">
+              <p class="section-links" align="center">
               [ <a href="#news">News</a> | <a href="#talks">Talks</a> | <a href="#teaching">Teaching</a> | <a href="#research">Research</a> | <a href="#readings">Readings</a> | <a href="#heroes">Heroes</a>]
               </p>
             </div>
