@@ -29,6 +29,8 @@
       background-attachment: fixed;
       background-size: var(--bkgd-multiplier);
       width: 100%;
+      margin: 0;
+      padding: 0;
     }
     a {
       color: #000c96;
@@ -103,16 +105,29 @@
       justify-content: center;
       background: white;
     }
-    .about td {
-      vertical-align: middle;
+    .page-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 24px 120px;
     }
-    .about-text {
-      width: 64%;
-      padding-right: 10px;
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 32px;
+      padding: 48px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+      margin-bottom: 40px;
     }
-    .about-photo {
-      width: 36%;
-      text-align: center;
+    .hero-text {
+      flex: 1 1 360px;
+    }
+    .hero-photo {
+      flex: 0 0 260px;
+      display: flex;
+      justify-content: center;
     }
     .profile-photo {
       width: 220px;
@@ -122,20 +137,50 @@
       border-radius: 18px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
+    .section-card {
+      width: 100%;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.93);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+      margin-bottom: 32px;
+    }
+    .section-card .section-content {
+      margin-bottom: 12px;
+    }
+    table.section-card {
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    .publication-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    .past-publications {
+      padding: 36px;
+    }
+    .site-footer {
+      margin-top: 48px;
+      text-align: right;
+      font-size: 13px;
+      color: #5b5b5b;
+    }
+    .site-footer a {
+      color: inherit;
+    }
     @media (max-width: 768px) {
-      .about tr,
-      .about td {
-        display: block;
-        width: 100%;
+      .hero {
+        padding: 32px;
       }
-      .about-text {
-        padding-right: 0;
-      }
-      .about-photo {
-        margin-top: 20px;
+      .hero-photo {
+        flex: 1 1 100%;
+        margin-top: 16px;
       }
       .profile-photo {
         width: 160px;
+      }
+      .section-card {
+        border-radius: 22px;
       }
     }
   </style>
@@ -143,65 +188,58 @@
 </head>
 
 <body>
-  <table width="900" border="0" align="center" cellspacing="0" cellpadding="0">
-    <tbody>
-      <tr>
-        <td>
+  <div class="page-container">
 
           <!-- About -->
-          <table class="about" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td class="about-text" width="67%" valign="middle">
-                  <p align="center">
-                  <name>Michael Chang</name>
-                  </p>
-                  <p>
-                    I am a Research Scientist at <a href="https://openai.com/">OpenAI</a> working on <a href="https://openai.com/index/sora/">Sora</a>.
-                  </p>
-                  <p>
-                    Prevously, I was a Research Scientist at <a href="https://deepmind.google/">Google DeepMind</a> working on <a href="https://deepmind.google/technologies/gemini/project-astra/">Project Astra</a> and <a href="https://deepmind.google/technologies/gemini/">Gemini</a>.
-                  </p>
-                  <p>
-                    I graduated from my Ph.D. from <a href="http://bair.berkeley.edu/">Berkeley AI Research (BAIR)</a> in 2023, advised by Professors <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a> and <a href="http://cocosci.princeton.edu/tom/tom.php">Tom Griffiths</a>, and funded by the <a href="https://www.nsfgrfp.org/">NSF Graduate Research Felowship</a>.
-                    My dissertation talk can be found <a href="https://www.youtube.com/watch?v=CzK1ah74PBs">here</a>.
-                  </p>
-                  <p>
-                    During my Ph.D., I was fortunate to have interned at <a href="https://www.deepmind.com/">DeepMind</a> and <a href="https://ai.facebook.com/">Meta AI</a>.
-                    Besides my Ph.D. advisors, I have been fortunate to have received mentorship from
-                    <a href="http://people.idsia.ch/~juergen/">Jürgen Schmidhuber</a>,
-                    <a href="http://web.mit.edu/cocosci/josh.html">Josh Tenenbaum</a>,
-                    <a href="http://web.mit.edu/torralba/www">Antonio Torralba</a>,
-                    <a href="http://web.eecs.umich.edu/~honglak/">Honglak Lee</a>,
-                    <a href="https://willwhitney.com/">Will Whitney</a>,
-                    <a href="https://tejasdkulkarni.github.io/">Tejas Kulkarni</a>,
-                    <a href="http://rubenvillegas.me/">Ruben Villegas</a>,
-                    and <a href="https://www.ytzhang.net/">Yuting Zhang</a>, who helped me begin my path into AI research.
-                  </p>
-                  <p>
-                  </p>
-                  </p>
-                  <p align="center">
-                    <!-- <a href="./cv.pdf">CV</a> &nbsp;/&nbsp; -->
-                    <a href="https://scholar.google.com/citations?user=vgfGtykAAAAJ&hl=en">Google Scholar</a> &nbsp;/&nbsp;
-                    <a href="https://www.linkedin.com/in/mbchang">LinkedIn</a> &nbsp;/&nbsp;
-                    <a href="https://github.com/mbchang">Github</a> &nbsp;/&nbsp;
-                    <a href="https://twitter.com/mmmbchang">Twitter</a> &nbsp;/&nbsp;
-                    <a href="https://www.goodreads.com/user/show/69084065-michael-chang">Goodreads</a> &nbsp;/&nbsp;
-                    <a href="https://www.collegeswimming.com/swimmer/141629/">Swimming</a>
-                  </p>
-                  <p align="center">
-                  [ <a href="#news">News</a> | <a href="#talks">Talks</a> | <a href="#teaching">Teaching</a> | <a href="#research">Research</a> | <a href="#readings">Readings</a> | <a href="#heroes">Heroes</a>]
-                  </p>
-                </td>
-                <td class="about-photo" width="33%" align="center">
-                  <img class="profile-photo" src="./assets/IMG_2558 vertical.jpg" alt="Michael Chang smiling on a plane.">
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <section class="hero">
+            <div class="hero-text">
+              <p align="center">
+              <name>Michael Chang</name>
+              </p>
+              <p>
+                I am a Research Scientist at <a href="https://openai.com/">OpenAI</a> working on <a href="https://openai.com/sora/">Sora</a>. Play with it <a href="https://sora.chatgpt.com/onboarding?redirect=/explore">here</a>!
+              </p>
+              <p>
+                Prevously, I was a Research Scientist at <a href="https://deepmind.google/">Google DeepMind</a> working on <a href="https://deepmind.google/technologies/gemini/project-astra/">Project Astra</a> and <a href="https://deepmind.google/technologies/gemini/">Gemini</a>.
+              </p>
+              <p>
+                I graduated from my Ph.D. from <a href="http://bair.berkeley.edu/">Berkeley AI Research (BAIR)</a> in 2023, advised by Professors <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a> and <a href="http://cocosci.princeton.edu/tom/tom.php">Tom Griffiths</a>, and funded by the <a href="https://www.nsfgrfp.org/">NSF Graduate Research Felowship</a>.
+                My dissertation talk can be found <a href="https://www.youtube.com/watch?v=CzK1ah74PBs">here</a>.
+              </p>
+              <p>
+                During my Ph.D., I was fortunate to have interned at <a href="https://www.deepmind.com/">DeepMind</a> and <a href="https://ai.facebook.com/">Meta AI</a>.
+                Besides my Ph.D. advisors, I have been fortunate to have received mentorship from
+                <a href="http://people.idsia.ch/~juergen/">Jürgen Schmidhuber</a>,
+                <a href="http://web.mit.edu/cocosci/josh.html">Josh Tenenbaum</a>,
+                <a href="http://web.mit.edu/torralba/www">Antonio Torralba</a>,
+                <a href="http://web.eecs.umich.edu/~honglak/">Honglak Lee</a>,
+                <a href="https://willwhitney.com/">Will Whitney</a>,
+                <a href="https://tejasdkulkarni.github.io/">Tejas Kulkarni</a>,
+                <a href="http://rubenvillegas.me/">Ruben Villegas</a>,
+                and <a href="https://www.ytzhang.net/">Yuting Zhang</a>, who helped me begin my path into AI research.
+              </p>
+              <p>
+              </p>
+              </p>
+              <p align="center">
+                <!-- <a href="./cv.pdf">CV</a> &nbsp;/&nbsp; -->
+                <a href="https://scholar.google.com/citations?user=vgfGtykAAAAJ&hl=en">Google Scholar</a> &nbsp;/&nbsp;
+                <a href="https://www.linkedin.com/in/mbchang">LinkedIn</a> &nbsp;/&nbsp;
+                <a href="https://github.com/mbchang">Github</a> &nbsp;/&nbsp;
+                <a href="https://twitter.com/mmmbchang">Twitter</a> &nbsp;/&nbsp;
+                <a href="https://www.goodreads.com/user/show/69084065-michael-chang">Goodreads</a> &nbsp;/&nbsp;
+                <a href="https://www.collegeswimming.com/swimmer/141629/">Swimming</a>
+              </p>
+              <p align="center">
+              [ <a href="#news">News</a> | <a href="#talks">Talks</a> | <a href="#teaching">Teaching</a> | <a href="#research">Research</a> | <a href="#readings">Readings</a> | <a href="#heroes">Heroes</a>]
+              </p>
+            </div>
+            <div class="hero-photo">
+              <img class="profile-photo" src="./assets/IMG_2558 vertical.jpg" alt="Michael Chang smiling on a plane.">
+            </div>
+          </section>
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
               <tr></tr>
                 <td width="100%" valign="middle">
@@ -226,7 +264,7 @@
             </tbody>
           </table>
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
@@ -277,7 +315,7 @@
           </table>
 
           <!-- Research Header -->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
@@ -313,7 +351,7 @@
           </table>
 
           <!-- News -->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
@@ -335,7 +373,7 @@
           </table>
 
           <!-- Talks -->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
@@ -362,7 +400,7 @@
           </table>
 
           <!-- Teaching -->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
@@ -377,130 +415,124 @@
           </table>
 
           <!-- Research Header -->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td width="100%" valign="middle">
-                  <h2 id="research">Past Publications</h2>
-                  <p>
-                    The list below highlights my publications during and before my Ph.D. For an updated list of my most recent publications, please see my <a href="https://scholar.google.com/citations?user=vgfGtykAAAAJ&hl=en">Google Scholar</a>.
+          <section class="section-card past-publications">
+            <div class="section-content">
+              <h2 id="research">Past Publications</h2>
+              <p>
+                The list below highlights my publications during and before my Ph.D. For an updated list of my most recent publications, please see my <a href="https://scholar.google.com/citations?user=vgfGtykAAAAJ&hl=en">Google Scholar</a>.
+              </p>
+            </div>
+          <table class="publication-table" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+              <tbody>
+
+                <!-- Modularity -->
+                <tr id='implicit2022'>
+                  <td width="25%">
+                    <div class="imgborder">
+                      <img src="./assets/teaser_slot_attention.png" width="100%" height="100%">
+                    </div>
+                  </td>
+                  <td valign="top" width="75%">
+                    <p>
+                      <a href="https://arxiv.org/pdf/2207.00787.pdf">
+                        <papertitle>Object Representations as Fixed Points: Training Iterative Inference Algorithms with Implicit Differntiation</papertitle>
+                      </a>
+                      <br>
+                      <strong>Michael Chang</strong>, <a href=http://cocosci.princeton.edu/tom/index.php>Thomas Griffiths</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
+                      <br>
+                      <em>Proceedings of the Thirty-sixth Conference on Neural Information Processing Systems (NeurIPS)</em>, 2022
+                      <br>
+                      <a href="https://sites.google.com/view/implicit-slot-attention/home">project webpage</a> /
+                      <a href="https://www.youtube.com/watch?v=59ZVjYVVmcs">talk</a>
+                      <br><br> Also in:<br>
+                      <a href="https://iclr.cc/virtual/2022/workshop/4554#wse-detail-8051"><em>&nbsp&nbsp ICLR Workshop on the Elements of Reasoning: Objects, Structure, and Causality</em>, 2019</a> <strong style="color:green">(Oral Presentation)</strong>
+                      <!-- / <a href="https://drive.google.com/file/d/1YtagDu5gF1y7ed6K-adTOV29bIdLuMpO/view?usp=sharing">slides</a> -->
+                    <p></p>
+                    <p>
+                    Deep generative models, particularly those that aim to factorize the observations into discrete entities (such as objects), must often use iterative inference procedures that break symmetries among equally plausible explanations for the data. Such inference procedures include variants of the expectation-maximization algorithm and structurally resemble clustering algorithms in a latent space. However, combining such methods with deep neural networks necessitates differentiating through the inference process, which can make optimization exceptionally challenging. We observe that such iterative amortized inference methods can be made differentiable by means of the implicit function theorem, and develop an implicit differentiation approach that improves the stability and tractability of training such models by decoupling the forward and backward passes. This connection enables us to apply recent advances in optimizing implicit layers to not only improve the stability and optimization of the slot attention module in SLATE, a state-of-the-art method for learning entity representations, but do so with constant space and time complexity in backpropagation and only one additional line of code.
                   </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  </td>
+                </tr>
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-
-              <!-- Modularity -->
-              <tr id='implicit2022'>
-                <td width="25%">
-                  <div class="imgborder">
-                    <img src="./assets/teaser_slot_attention.png" width="100%" height="100%">
-                  </div>
-                </td>
-                <td valign="top" width="75%">
-                  <p>
-                    <a href="https://arxiv.org/pdf/2207.00787.pdf">
-                      <papertitle>Object Representations as Fixed Points: Training Iterative Inference Algorithms with Implicit Differntiation</papertitle>
-                    </a>
-                    <br>
-                    <strong>Michael Chang</strong>, <a href=http://cocosci.princeton.edu/tom/index.php>Thomas Griffiths</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
-                    <br>
-                    <em>Proceedings of the Thirty-sixth Conference on Neural Information Processing Systems (NeurIPS)</em>, 2022
-                    <br>
-                    <a href="https://sites.google.com/view/implicit-slot-attention/home">project webpage</a> /
-                    <a href="https://www.youtube.com/watch?v=59ZVjYVVmcs">talk</a>
-                    <br><br> Also in:<br>
-                    <a href="https://iclr.cc/virtual/2022/workshop/4554#wse-detail-8051"><em>&nbsp&nbsp ICLR Workshop on the Elements of Reasoning: Objects, Structure, and Causality</em>, 2019</a> <strong style="color:green">(Oral Presentation)</strong>
-                    <!-- / <a href="https://drive.google.com/file/d/1YtagDu5gF1y7ed6K-adTOV29bIdLuMpO/view?usp=sharing">slides</a> -->
-                  <p></p>
-                  <p>
-                  Deep generative models, particularly those that aim to factorize the observations into discrete entities (such as objects), must often use iterative inference procedures that break symmetries among equally plausible explanations for the data. Such inference procedures include variants of the expectation-maximization algorithm and structurally resemble clustering algorithms in a latent space. However, combining such methods with deep neural networks necessitates differentiating through the inference process, which can make optimization exceptionally challenging. We observe that such iterative amortized inference methods can be made differentiable by means of the implicit function theorem, and develop an implicit differentiation approach that improves the stability and tractability of training such models by decoupling the forward and backward passes. This connection enables us to apply recent advances in optimizing implicit layers to not only improve the stability and optimization of the slot attention module in SLATE, a state-of-the-art method for learning entity representations, but do so with constant space and time complexity in backpropagation and only one additional line of code.
-                </p>
-                </td>
-              </tr>
-
-              <!-- Modularity -->
-              <tr id='acl2021'>
-                <td width="25%">
-                  <div class="imgborder">
-                    <img src="./assets/modularity_in_rl.gif" width="100%" height="100%">
-                  </div>
-                </td>
-                <td valign="top" width="75%">
-                  <p>
-                    <a href="https://arxiv.org/abs/2106.14993">
-                      <papertitle>Modularity in Reinforcement Learning via Algorithmic Independence in Credit Assignment</papertitle>
-                    </a>
-                    <br>
-                    <strong>Michael Chang*</strong>, <a href="mailto: kaushik.sid.99@berkeley.edu">Sid Kaushik*</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>, <a href=http://cocosci.princeton.edu/tom/index.php>Thomas Griffiths</a>
-                    <br>
-                    <em>Proceedings of the Thirty-eighth International Conference on Machine Learning (ICML)</em>, 2021
-                    <br>
-                    <strong style="color:green">Long Presentation (166 out of 5513)</strong>
-                    <br>
-                    <a href="https://sites.google.com/view/modularcreditassignment">project webpage</a> /
-                    <a href="https://www.youtube.com/watch?v=_KXdjWxJ2Ow">talk</a> /
-                    <a href="https://drive.google.com/file/d/1YtagDu5gF1y7ed6K-adTOV29bIdLuMpO/view?usp=sharing">slides</a>
-                  <p></p>
-                  <p>
-                  Many transfer problems require re-using previously optimal decisions for solving new tasks, which suggests the need for learning algorithms that can modify the mechanisms for choosing certain actions independently of those for choosing others. However, there is currently no formalism nor theory for how to achieve this kind of modular credit assignment. To answer this question, we define modular credit assignment as a constraint on minimizing the algorithmic mutual information among feedback signals for different decisions. We introduce what we call the modularity criterion for testing whether a learning algorithm satisfies this constraint by performing causal analysis on the algorithm itself. We generalize the recently proposed societal decision-making framework as a more granular formalism than the Markov decision process to prove that for decision sequences that do not contain cycles, certain single-step temporal difference action-value methods meet this criterion while all policy-gradient methods do not. Empirical evidence suggests that such action-value methods are more sample efficient than policy-gradient methods on transfer problems that require only sparse changes to a sequence of previously optimal decisions.
-                </p>
-                </td>
-              </tr>
-
-              <!-- Auction -->
-              <tr id='drl2020'>
-                <td width="25%">
-                  <div class="imgborder">
-                    <img src="./assets/decentralized_gif.gif" width="100%" height="100%">
-                  </div>
-                </td>
-                <td valign="top" width="75%">
-                  <p>
-                    <a href="https://arxiv.org/abs/2007.02382">
-                      <papertitle>Decentralized Reinforcement Learning: Global Decision-Making via Local Economic Transactions</papertitle>
-                    </a>
-                    <br>
-                    <strong>Michael Chang</strong>, <a href="mailto: kaushik.sid.99@berkeley.edu">Sid Kaushik</a>, <a href=https://www.cs.princeton.edu/~smattw/>S. Matthew Weinberg</a>, <a href=http://cocosci.princeton.edu/tom/index.php>Thomas Griffiths</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
-                    <br>
-                    <em>Proceedings of the Thirty-seventh International Conference on Machine Learning (ICML)</em>, 2020
-                    <br>
-                    <a href="https://sites.google.com/view/clonedvickreysociety/home">project webpage</a> /
-                    <a href="https://icml.cc/virtual/2020/paper/6293">ICML talk</a> /
-                    <a href="https://drive.google.com/file/d/1uFbVRyrmoCijS4I9VYsju-gdu28QVALy/view?usp=sharing">slides</a> /
-                    <a href="https://bair.berkeley.edu/blog/2020/07/11/auction/">blog post</a> /
-                    <a href="https://github.com/mbchang/decentralized-rl">code</a>
+                <!-- Modularity -->
+                <tr id='acl2021'>
+                  <td width="25%">
+                    <div class="imgborder">
+                      <img src="./assets/modularity_in_rl.gif" width="100%" height="100%">
+                    </div>
+                  </td>
+                  <td valign="top" width="75%">
+                    <p>
+                      <a href="https://arxiv.org/abs/2106.14993">
+                        <papertitle>Modularity in Reinforcement Learning via Algorithmic Independence in Credit Assignment</papertitle>
+                      </a>
+                      <br>
+                      <strong>Michael Chang*</strong>, <a href="mailto: kaushik.sid.99@berkeley.edu">Sid Kaushik*</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>, <a href=http://cocosci.princeton.edu/tom/index.php>Thomas Griffiths</a>
+                      <br>
+                      <em>Proceedings of the Thirty-eighth International Conference on Machine Learning (ICML)</em>, 2021
+                      <br>
+                      <strong style="color:green">Long Presentation (166 out of 5513)</strong>
+                      <br>
+                      <a href="https://sites.google.com/view/modularcreditassignment">project webpage</a> /
+                      <a href="https://www.youtube.com/watch?v=_KXdjWxJ2Ow">talk</a> /
+                      <a href="https://drive.google.com/file/d/1YtagDu5gF1y7ed6K-adTOV29bIdLuMpO/view?usp=sharing">slides</a>
+                    <p></p>
+                    <p>
+                    Many transfer problems require re-using previously optimal decisions for solving new tasks, which suggests the need for learning algorithms that can modify the mechanisms for choosing certain actions independently of those for choosing others. However, there is currently no formalism nor theory for how to achieve this kind of modular credit assignment. To answer this question, we define modular credit assignment as a constraint on minimizing the algorithmic mutual information among feedback signals for different decisions. We introduce what we call the modularity criterion for testing whether a learning algorithm satisfies this constraint by performing causal analysis on the algorithm itself. We generalize the recently proposed societal decision-making framework as a more granular formalism than the Markov decision process to prove that for decision sequences that do not contain cycles, certain single-step temporal difference action-value methods meet this criterion while all policy-gradient methods do not. Empirical evidence suggests that such action-value methods are more sample efficient than policy-gradient methods on transfer problems that require only sparse changes to a sequence of previously optimal decisions.
                   </p>
-                  <p></p>
-                  <p>We develop the societal decision-making framework in which a society of primitive agents buy and sell to each other the right to operate on the environment state in a series of auctions. We prove that the Vickrey auction mechanism can be adapted to incentive the society to collectively solve MDPs as an emergent consequence of the primitive agents optimizing their own auction utilities. We propose a class of decentralized reinforcement learning algorithms for training the society that uses credit assignment that is local in space and time. The societal decision-making framework and decentralized reinforcement learning algorithms can be applied not only to standard reinforcement learning, but also for selecting options in semi-MDPs and dynamically composing computation graphs. We find evidence that suggests the potential advantages of a society’s inherent modular structure for more efficient transfer learning.</p>
-                </td>
-              </tr>
+                  </td>
+                </tr>
 
-              <!-- OP3 -->
-              <tr id='op32019'>
-                <td width="25%">
-                  <div class="imgborder">
-                    <img src="./assets/high_level_overview_op3.png" width="100%" height="100%">
-                  </div>
-                </td>
-                <td valign="top" width="75%">
-                  <p>
-                    <a href="https://arxiv.org/abs/1910.12827">
-                      <papertitle>Entity Abstraction in Visual Model-Based Reinforcement Learning</papertitle>
-                    </a>
-                    <br>
-                    <a href=https://sites.google.com/view/rishiv/>Rishi Veerapaneni*</a>, <a href=https://people.eecs.berkeley.edu/~jcoreyes/>John D. Co-Reyes*</a>, <strong>Michael Chang*</strong>, <a href=https://people.eecs.berkeley.edu/~janner/>Michael Janner</a>, <a href=http://people.eecs.berkeley.edu/~cbfinn/>Chelsea Finn</a>, <a href=https://jiajunwu.com/>Jiajun Wu</a>, <a href=http://web.mit.edu/cocosci/josh.html>Joshua B. Tenenbaum</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
-                    <br>
-                    <em>Proceedings of the Conference on Robot Learning (CORL)</em>, 2019
-                    <br>
-                    <a href="https://sites.google.com/view/op3website/">project webpage</a> /
-                    <a href="https://github.com/jcoreyes/OP3">code</a> /
-                    <a href="https://github.com/JannerM/o2p2">environment</a> /
-                    <a href="https://drive.google.com/open?id=1-QBmbGZiiR9Bzg2gIICcDuAl4EVDlwEZ">slides</a>
-                    <br><br> Also in:<br>
+                <!-- Auction -->
+                <tr id='drl2020'>
+                  <td width="25%">
+                    <div class="imgborder">
+                      <img src="./assets/decentralized_gif.gif" width="100%" height="100%">
+                    </div>
+                  </td>
+                  <td valign="top" width="75%">
+                    <p>
+                      <a href="https://arxiv.org/abs/2007.02382">
+                        <papertitle>Decentralized Reinforcement Learning: Global Decision-Making via Local Economic Transactions</papertitle>
+                      </a>
+                      <br>
+                      <strong>Michael Chang</strong>, <a href="mailto: kaushik.sid.99@berkeley.edu">Sid Kaushik</a>, <a href=https://www.cs.princeton.edu/~smattw/>S. Matthew Weinberg</a>, <a href=http://cocosci.princeton.edu/tom/index.php>Thomas Griffiths</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
+                      <br>
+                      <em>Proceedings of the Thirty-seventh International Conference on Machine Learning (ICML)</em>, 2020
+                      <br>
+                      <a href="https://sites.google.com/view/clonedvickreysociety/home">project webpage</a> /
+                      <a href="https://icml.cc/virtual/2020/paper/6293">ICML talk</a> /
+                      <a href="https://drive.google.com/file/d/1uFbVRyrmoCijS4I9VYsju-gdu28QVALy/view?usp=sharing">slides</a> /
+                      <a href="https://bair.berkeley.edu/blog/2020/07/11/auction/">blog post</a> /
+                      <a href="https://github.com/mbchang/decentralized-rl">code</a>
+                    </p>
+                    <p></p>
+                    <p>We develop the societal decision-making framework in which a society of primitive agents buy and sell to each other the right to operate on the environment state in a series of auctions. We prove that the Vickrey auction mechanism can be adapted to incentive the society to collectively solve MDPs as an emergent consequence of the primitive agents optimizing their own auction utilities. We propose a class of decentralized reinforcement learning algorithms for training the society that uses credit assignment that is local in space and time. The societal decision-making framework and decentralized reinforcement learning algorithms can be applied not only to standard reinforcement learning, but also for selecting options in semi-MDPs and dynamically composing computation graphs. We find evidence that suggests the potential advantages of a society’s inherent modular structure for more efficient transfer learning.</p>
+                  </td>
+                </tr>
+
+                <!-- OP3 -->
+                <tr id='op32019'>
+                  <td width="25%">
+                    <div class="imgborder">
+                      <img src="./assets/high_level_overview_op3.png" width="100%" height="100%">
+                    </div>
+                  </td>
+                  <td valign="top" width="75%">
+                    <p>
+                      <a href="https://arxiv.org/abs/1910.12827">
+                        <papertitle>Entity Abstraction in Visual Model-Based Reinforcement Learning</papertitle>
+                      </a>
+                      <br>
+                      <a href=https://sites.google.com/view/rishiv/>Rishi Veerapaneni*</a>, <a href=https://people.eecs.berkeley.edu/~jcoreyes/>John D. Co-Reyes*</a>, <strong>Michael Chang*</strong>, <a href=https://people.eecs.berkeley.edu/~janner/>Michael Janner</a>, <a href=http://people.eecs.berkeley.edu/~cbfinn/>Chelsea Finn</a>, <a href=https://jiajunwu.com/>Jiajun Wu</a>, <a href=http://web.mit.edu/cocosci/josh.html>Joshua B. Tenenbaum</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
+                      <br>
+                      <em>Proceedings of the Conference on Robot Learning (CORL)</em>, 2019
+                      <br>
+                      <a href="https://sites.google.com/view/op3website/">project webpage</a> /
+                      <a href="https://github.com/jcoreyes/OP3">code</a> /
+                      <a href="https://github.com/JannerM/o2p2">environment</a> /
+                      <a href="https://drive.google.com/open?id=1-QBmbGZiiR9Bzg2gIICcDuAl4EVDlwEZ">slides</a>
+                      <br><br> Also in:<br>
                     <a href="https://pgr-workshop.github.io/accepted_papers/"><em>&nbsp&nbsp NeurIPS workshop on Perception as Generative Reasoning</em>, 2019</a> <strong style="color:green">(Spotlight Talk)</strong>
                     <br>
                     <a href="https://sites.google.com/view/deep-rl-workshop-neurips-2019/home?authuser=0"><em>&nbsp&nbsp NeurIPS workshop on Deep Reinforcement Learning</em>, 2019</a>
@@ -722,8 +754,9 @@
               </tr>
             </tbody>
           </table>
+          </section>
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
@@ -814,7 +847,7 @@
             </tbody>
           </table>
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
@@ -899,7 +932,7 @@
           </table>
 
           <!-- Fun Stuff --><!--
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
               <tr>
                 <td width="100%" valign="middle">
@@ -913,20 +946,9 @@
           </table> -->
 
           <!-- Website Credits -->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td>
-                  <br>
-                  <p align="right">
-                    <font size="2">
-                      <a href="http://jonbarron.info/">website template credits</a>
-                    </font>
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <footer class="site-footer">
+            <a href="http://jonbarron.info/">website template credits</a>
+          </footer>
 
 
           <!-- Scripts -->
@@ -958,10 +980,7 @@
             ga('send', 'pageview');
 
           </script>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  </div>
 
 
 </body>
