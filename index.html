@@ -21,6 +21,8 @@
     /*"FangSong", "放鬆", STFangSong, "華文放鬆", */
     sans-serif;
       --body-font-size: 16px;
+      --card-padding-y: 28px;
+      --card-padding-x: 42px;
     }
     body {
       background-image: url("assets/tiger-very-light-flip-fade.png");
@@ -177,7 +179,7 @@
       box-sizing: border-box;
     }
     section.section-card {
-      padding: 20px;
+      padding: var(--card-padding-y) var(--card-padding-x);
     }
     .section-card .section-content {
       margin-bottom: 12px;
@@ -185,6 +187,9 @@
     table.section-card {
       border-collapse: separate;
       border-spacing: 0;
+    }
+    table.section-card td {
+      padding: var(--card-padding-y) var(--card-padding-x);
     }
     .publication-table {
       width: 100%;
