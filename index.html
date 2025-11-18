@@ -80,13 +80,13 @@
     h3 {
       font-size: clamp(18px, 2.5vw, 22px);
       line-height: 1.3;
-      margin-top: 12px;
-      margin-bottom: 10px;
+      margin-top: 4px;
+      margin-bottom: 4px;
     }
     .hero-name {
       font-weight: 600;
       font-size: clamp(20px, 2.3vw, 24px);
-      margin-bottom: 12px;
+      margin: 6px 0 8px;
     }
     .hero-name a {
       color: #141414;
@@ -209,6 +209,28 @@
     }
     .past-publications {
       padding: 36px;
+    }
+    .hero-entry {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+      align-items: flex-start;
+    }
+    .hero-entry:last-of-type {
+      margin-bottom: 0;
+    }
+    .hero-text {
+      flex: 1 1 320px;
+    }
+    .hero-image {
+      flex: 0 0 220px;
+      text-align: center;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 12px;
     }
     .site-footer {
       margin-top: 48px;
@@ -897,89 +919,60 @@
             </tbody>
           </table>
 
-          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td width="100%" valign="middle">
-                  <h2 id="heroes">Heroes</h2>
-                  <p>
-                    Here are some of my heroes that have shaped my worldview.
-                  </p>
-                  <tr>
-                    <td><h3 class="tab hero-name"><a href="https://en.wikipedia.org/wiki/Cheng_Yen">證嚴法師 Master Cheng Yen</a></h3>
-                      <!--http://lovequotes.symphonyoflove.net/master-cheng-yen-love-quotes-and-sayings.html-->
+          <section class="section-card heroes">
+            <div class="section-content">
+              <h2 id="heroes">Heroes</h2>
+              <p>
+                Here are some of my heroes that have shaped my worldview.
+              </p>
 
-                      <p class="tab" ><i>充滿愛心的人最幸福。 <br> Happiest is the person whose heart is filled with love.</i></p><!--good-->
+              <div class="hero-entry">
+                <div class="hero-text">
+                  <h3 class="hero-name"><a href="https://en.wikipedia.org/wiki/Cheng_Yen">證嚴法師 Master Cheng Yen</a></h3>
+                  <p><i>充滿愛心的人最幸福。 <br> Happiest is the person whose heart is filled with love.</i></p>
+                  <p><i>對人有疑心，就無法愛人；對人有疑念，就無法原諒人；對人有疑感，就無法相信人。 <br> We cannot love when filled with suspicion; we cannot forgive when unwilling to believe; we cannot trust when filled with doubts.</i></p>
+                  <p><i>有力量去愛人或被愛的人都是幸福的人。 <br> Blessed are those who have the ability to love and be loved by others.</i></p>
+                  <p><i>問心無愧心最安，能夠付出、助人、救人，最是快樂。 <br> Clear conscience brings peace of mind; the greatest happiness comes from the pleasure of giving and helping others.</i></p>
+                  <p><i>有力量幫助他人，是自己的福。 <br> Having the ability to help others is a blessing.</i></p>
+                  <p><i>原諒別人就是善待自己。 <br> To forgive others is, in fact, being kind to ourselves.</i></p>
+                  <p><i>孝順就是讓父母安心。 <br> Being filial is not making our parents unduly worry about us.</i></p>
+                  <p><i>該做的事，排除萬難也要完成；不該做的事，無論任何困難，也要堅持立場。 <br> Do whatever it takes to do what is right. Do whatever it takes to not do what is wrong.</i></p>
+                  <p><i>生氣是拿別人的錯誤來懲罰自己。 <br> Being angry is a form of torturing ourselves with the mistakes of others.</i></p>
+                  <p><i>人要先點亮自己的心燈，才能引發別人的心燈。 <br> Only when we light up our heart can we inspire others to do the same.</i></p>
+                  <p><i>心無邪思，意無邪念，即常可自在。心正則邪不侵。 <br> If our thoughts are upright and wholesome, we can always be at ease and evil cannot come near.</i></p>
+                  <p><i>心美看什麼都美。 <br> To a beautiful heart, everything appears beautiful.</i></p>
+                  <p><i>人生不怕錯，只怕不改過。 <br> Do not fear making mistakes in life, fear only not correcting them.</i></p>
+                </div>
+                <div class="hero-image">
+                  <img src="./assets/master_cheng_yen.jpg" alt="Master Cheng Yen">
+                </div>
+              </div>
 
-                      <p class="tab" ><i>對人有疑心，就無法愛人；對人有疑念，就無法原諒人；對人有疑感，就無法相信人。 <br> We cannot love when filled with suspicion; we cannot forgive when unwilling to believe; we cannot trust when filled with doubts.</i></p><!--good-->
-
-                      <p class="tab" ><i>有力量去愛人或被愛的人都是幸福的人。 <br> Blessed are those who have the ability to love and be loved by others.</i></p>
-
-                      <p class="tab" ><i>問心無愧心最安，能夠付出、助人、救人，最是快樂。 <br> Clear conscience brings peace of mind; the greatest happiness comes from the pleasure of giving and helping others.</i></p> <!--good-->
-
-                      <p class="tab" ><i>有力量幫助他人，是自己的福。 <br> Having the ability to help others is a blessing.</i></p>
-
-                      <p class="tab" ><i>原諒別人就是善待自己。 <br> To forgive others is, in fact, being kind to ourselves.</i></p>
-
-                      <p class="tab" ><i>孝順就是讓父母安心。 <br> Being filial is not making our parents unduly worry about us.</i></p>
-
-                      <p class="tab" ><i>該做的事，排除萬難也要完成；不該做的事，無論任何困難，也要堅持立場。 <br> Do whatever it takes to do what is right. Do whatever it takes to not do what is wrong.</i></p>
-
-                      <p class="tab" ><i>生氣是拿別人的錯誤來懲罰自己。 <br> Being angry is a form of torturing ourselves with the mistakes of others.</i></p>
-
-                      <p class="tab" ><i>人要先點亮自己的心燈，才能引發別人的心燈。 <br> Only when we light up our heart can we inspire others to do the same.</i></p>
-
-                      <p class="tab" ><i>心無邪思，意無邪念，即常可自在。心正則邪不侵。 <br> If our thoughts are upright and wholesome, we can always be at ease and evil cannot come near.</i></p>
-
-                      <p class="tab" ><i>心美看什麼都美。 <br> To a beautiful heart, everything appears beautiful.</i></p>
-
-                      <p class="tab" ><i>人生不怕錯，只怕不改過。 <br> Do not fear making mistakes in life, fear only not correcting them.</i></p>
-                    </td>
-                    <td width="33%">
-                      <img src="./assets/master_cheng_yen.jpg" width="100%">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><h3 class="tab hero-name"><a href="https://en.wikipedia.org/wiki/Bruce_Lee">李小龍 Bruce Lee</a></h3>
-
-                      <p class="tab" ><i>Knowledge will give you power, but character respect.</i></p>
-
-                      <p class="tab" ><i>As you think, so you shall become.</i></p>
-
-                      <p class="tab" ><i>Mistakes are always forgivable, if one has the courage to admit them.</i></p>
-
-                      <p class="tab" ><i>If you love life, don't waste time, for time is what life is made up of.</i></p>
-
-                      <p class="tab" ><i>The key to immortality is first living a life worth remembering.</i></p>
-
-                      <p class="tab" ><i>Do not pray for an easy life, pray for the strength to endure a difficult one.</i></p>
-
-                      <p class="tab" ><i>The self-sufficient stand alone - most people follow the crowd and imitate.</i></p>
-
-                      <p class="tab" ><i>Notice that that the stiffest tree is easily cracked, while the bamboo or willow survives by bending with the wind.</i></p>
-
-                      <p class="tab" ><i>Patience is not passive; on the contrary it is concentrated strength.</i></p>
-
-                      <p class="tab" ><i>What is defeat? Nothing but education. Nothing but the first step to something better.</i></p>
-
-                      <p class="tab" ><i>Success means doing something sincerely and wholeheartedly.</i></p>
-
-                      <p class="tab" ><i>It is compassion rather than the principle of justice which can guard us against being unjust to our fellow man.</i></p>
-
-                      <p class="tab" ><i>Absorb what is useful. Discard what is not. Add what is uniquely your own.</i></p>
-
-                      <p class="tab"><i>Defeat is a state of mind. No one is ever defeated until defeat accepted as reality.</i></p>
-
-                      <p class="tab"><i>Empty your cup so that it may be filled.</i></p>
-                    </td>
-                    <td width="33%">
-                      <img src="./assets/bruce_lee_600.jpg" width="300px">
-                    </td>
-                  </tr>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+              <div class="hero-entry">
+                <div class="hero-text">
+                  <h3 class="hero-name"><a href="https://en.wikipedia.org/wiki/Bruce_Lee">李小龍 Bruce Lee</a></h3>
+                  <p><i>Knowledge will give you power, but character respect.</i></p>
+                  <p><i>As you think, so you shall become.</i></p>
+                  <p><i>Mistakes are always forgivable, if one has the courage to admit them.</i></p>
+                  <p><i>If you love life, don't waste time, for time is what life is made up of.</i></p>
+                  <p><i>The key to immortality is first living a life worth remembering.</i></p>
+                  <p><i>Do not pray for an easy life, pray for the strength to endure a difficult one.</i></p>
+                  <p><i>The self-sufficient stand alone - most people follow the crowd and imitate.</i></p>
+                  <p><i>Notice that that the stiffest tree is easily cracked, while the bamboo or willow survives by bending with the wind.</i></p>
+                  <p><i>Patience is not passive; on the contrary it is concentrated strength.</i></p>
+                  <p><i>What is defeat? Nothing but education. Nothing but the first step to something better.</i></p>
+                  <p><i>Success means doing something sincerely and wholeheartedly.</i></p>
+                  <p><i>It is compassion rather than the principle of justice which can guard us against being unjust to our fellow man.</i></p>
+                  <p><i>Absorb what is useful. Discard what is not. Add what is uniquely your own.</i></p>
+                  <p><i>Defeat is a state of mind. No one is ever defeated until defeat accepted as reality.</i></p>
+                  <p><i>Empty your cup so that it may be filled.</i></p>
+                </div>
+                <div class="hero-image">
+                  <img src="./assets/bruce_lee_600.jpg" alt="Bruce Lee">
+                </div>
+              </div>
+            </div>
+          </section>
 
           <!-- Fun Stuff --><!--
           <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
