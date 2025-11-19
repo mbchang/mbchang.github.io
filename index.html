@@ -144,8 +144,20 @@
       justify-content: center;
       background: white;
     }
-    .page-container {
+    .page-layout {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .content-column {
+      flex: 0 0 1000px;
       max-width: 1000px;
+      width: 100%;
+      min-width: 0;
+    }
+    .page-container {
+      max-width: 1200px;
       margin: 0 auto;
       padding: 60px 24px 120px;
     }
@@ -250,65 +262,31 @@
     .site-footer a {
       color: inherit;
     }
-    .section-nav {
-      position: sticky;
-      top: 18px;
-      z-index: 10;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      padding: 12px 20px;
-      margin: 0 0 40px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-    }
-    .section-nav a {
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-      color: #585858;
-      padding: 6px 12px;
-      border-radius: 999px;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-    .section-nav a:hover,
-    .section-nav a:focus {
-      color: #000c96;
-      background: rgba(0, 12, 150, 0.08);
-    }
-    .section-nav a.is-active {
-      color: #fff;
-      background: #000c96;
-      box-shadow: 0 8px 18px rgba(0, 12, 150, 0.25);
-    }
     .minimap {
-      position: fixed;
-      top: 200px;
-      right: max(16px, calc((100% - 1000px)/2 - 110px));
-      background: rgba(255, 255, 255, 0.95);
-      padding: 14px 18px;
-      border-radius: 18px;
-      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.12);
+      position: sticky;
+      top: 24px;
+      background: rgba(255, 255, 255, 0.96);
+      padding: 16px 18px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.14);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      color: #444;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      z-index: 8;
+      gap: 6px;
     }
     .minimap-title {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #7a7a7a;
-      margin-bottom: 4px;
+      color: #8e8e8e;
+      margin-bottom: 2px;
     }
     .minimap a {
-      font-size: 0.85rem;
-      color: #555;
+      font-size: 0.78rem;
+      color: #6a6a6a;
       transition: color 0.2s ease;
+      padding: 3px 0;
     }
     .minimap a:hover {
       color: #000c96;
@@ -360,15 +338,12 @@
         margin: 0 auto;
         display: block;
       }
-      .section-nav {
-        position: sticky;
-        top: 12px;
-        border-radius: 16px;
-        gap: 8px;
+      .page-layout {
+        flex-direction: column;
       }
-      .section-nav a {
-        font-size: 0.75rem;
-        padding: 6px 10px;
+      .content-column {
+        flex: 1 1 auto;
+        max-width: 100%;
       }
       .minimap {
         display: none;
@@ -380,6 +355,8 @@
 
 <body>
   <div class="page-container">
+    <div class="page-layout">
+      <div class="content-column">
 
           <!-- About -->
           <section class="hero">
@@ -423,25 +400,6 @@
               <img class="profile-photo" src="./assets/IMG_2558 vertical.jpg" alt="Michael Chang smiling on a plane.">
             </div>
           </section>
-
-          <nav class="section-nav" aria-label="Section navigation">
-            <a href="#news">News</a>
-            <a href="#talks">Talks</a>
-            <a href="#teaching">Teaching</a>
-            <a href="#research">Research</a>
-            <a href="#readings">Readings</a>
-            <a href="#heroes">Heroes</a>
-          </nav>
-
-          <aside class="minimap" aria-label="Page minimap">
-            <span class="minimap-title">Navigate</span>
-            <a href="#news">News</a>
-            <a href="#talks">Talks</a>
-            <a href="#teaching">Teaching</a>
-            <a href="#research">Research</a>
-            <a href="#readings">Readings</a>
-            <a href="#heroes">Heroes</a>
-          </aside>
 
           <section class="section-card">
             <div class="section-content">
@@ -1145,28 +1103,16 @@
           </script>
           <script>
             document.addEventListener('DOMContentLoaded', function(){
-              const navLinks = Array.from(document.querySelectorAll('.section-nav a'));
-              const indicator = document.querySelector('.section-nav-indicator');
+              const navLinks = Array.from(document.querySelectorAll('.minimap a'));
               const sections = navLinks.map(link => {
                 const target = document.querySelector(link.getAttribute('href'));
                 return target ? { link, target } : null;
               }).filter(Boolean);
 
-              const setIndicator = (activeLink) => {
-                if (!indicator || !activeLink) return;
-                const { offsetWidth, offsetLeft } = activeLink;
-                indicator.style.transform = `translateX(${offsetLeft}px)`;
-                indicator.style.width = `${offsetWidth}px`;
-                indicator.style.opacity = 1;
-              };
-
               const setActive = (id) => {
                 navLinks.forEach(link => {
                   const isActive = link.getAttribute('href') === `#${id}`;
                   link.classList.toggle('is-active', isActive);
-                  if (isActive) {
-                    setIndicator(link);
-                  }
                 });
               };
 
@@ -1189,10 +1135,8 @@
 
               sections.forEach(({ target }) => observer.observe(target));
 
-              const initial = navLinks.find(link => link.classList.contains('is-active')) || navLinks[0];
-              if (initial) {
-                initial.classList.add('is-active');
-                setIndicator(initial);
+              if (navLinks[0]) {
+                navLinks[0].classList.add('is-active');
               }
             });
           </script>
@@ -1207,6 +1151,17 @@
             ga('send', 'pageview');
 
           </script>
+      </div>
+      <aside class="minimap" aria-label="Page minimap">
+        <span class="minimap-title">Navigate</span>
+        <a href="#news">News</a>
+        <a href="#talks">Talks</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#research">Research</a>
+        <a href="#readings">Readings</a>
+        <a href="#heroes">Heroes</a>
+      </aside>
+    </div>
   </div>
 
 
