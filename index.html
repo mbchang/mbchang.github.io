@@ -285,6 +285,38 @@
       background: #000c96;
       box-shadow: 0 8px 18px rgba(0, 12, 150, 0.25);
     }
+    .minimap {
+      position: fixed;
+      top: 200px;
+      right: max(16px, calc((100% - 1000px)/2 - 110px));
+      background: rgba(255, 255, 255, 0.95);
+      padding: 14px 18px;
+      border-radius: 18px;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 8;
+    }
+    .minimap-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a7a7a;
+      margin-bottom: 4px;
+    }
+    .minimap a {
+      font-size: 0.85rem;
+      color: #555;
+      transition: color 0.2s ease;
+    }
+    .minimap a:hover {
+      color: #000c96;
+    }
+    .minimap a.is-active {
+      color: #000c96;
+      font-weight: 600;
+    }
     @media (max-width: 768px) {
       .hero {
         padding: 32px;
@@ -337,6 +369,9 @@
       .section-nav a {
         font-size: 0.75rem;
         padding: 6px 10px;
+      }
+      .minimap {
+        display: none;
       }
     }
   </style>
@@ -397,6 +432,16 @@
             <a href="#readings">Readings</a>
             <a href="#heroes">Heroes</a>
           </nav>
+
+          <aside class="minimap" aria-label="Page minimap">
+            <span class="minimap-title">Navigate</span>
+            <a href="#news">News</a>
+            <a href="#talks">Talks</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#research">Research</a>
+            <a href="#readings">Readings</a>
+            <a href="#heroes">Heroes</a>
+          </aside>
 
           <section class="section-card">
             <div class="section-content">
@@ -1101,14 +1146,27 @@
           <script>
             document.addEventListener('DOMContentLoaded', function(){
               const navLinks = Array.from(document.querySelectorAll('.section-nav a'));
+              const indicator = document.querySelector('.section-nav-indicator');
               const sections = navLinks.map(link => {
                 const target = document.querySelector(link.getAttribute('href'));
                 return target ? { link, target } : null;
               }).filter(Boolean);
 
+              const setIndicator = (activeLink) => {
+                if (!indicator || !activeLink) return;
+                const { offsetWidth, offsetLeft } = activeLink;
+                indicator.style.transform = `translateX(${offsetLeft}px)`;
+                indicator.style.width = `${offsetWidth}px`;
+                indicator.style.opacity = 1;
+              };
+
               const setActive = (id) => {
                 navLinks.forEach(link => {
-                  link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
+                  const isActive = link.getAttribute('href') === `#${id}`;
+                  link.classList.toggle('is-active', isActive);
+                  if (isActive) {
+                    setIndicator(link);
+                  }
                 });
               };
 
@@ -1130,6 +1188,12 @@
               }, { rootMargin: '-10% 0px -80% 0px', threshold: [0.15, 0.5, 1] });
 
               sections.forEach(({ target }) => observer.observe(target));
+
+              const initial = navLinks.find(link => link.classList.contains('is-active')) || navLinks[0];
+              if (initial) {
+                initial.classList.add('is-active');
+                setIndicator(initial);
+              }
             });
           </script>
           <!-- Website Tracking -->
