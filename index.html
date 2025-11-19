@@ -1112,13 +1112,22 @@
                 });
               };
 
+              navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                  const targetId = link.getAttribute('href').replace('#', '');
+                  if (targetId) {
+                    setActive(targetId);
+                  }
+                });
+              });
+
               const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                   if (entry.isIntersecting && entry.target.id) {
                     setActive(entry.target.id);
                   }
                 });
-              }, { rootMargin: '-35% 0px -55% 0px', threshold: [0, 0.5, 1] });
+              }, { rootMargin: '-10% 0px -80% 0px', threshold: [0.15, 0.5, 1] });
 
               sections.forEach(({ target }) => observer.observe(target));
             });
