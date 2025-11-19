@@ -24,6 +24,9 @@
       --card-padding-y: 28px;
       --card-padding-x: 42px;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       background-image: url("assets/tiger-very-light-flip-fade.png");
       background-repeat: no-repeat;
@@ -154,15 +157,13 @@
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
       margin-bottom: 40px;
     }
-    .link-row,
-    .section-links {
+    .link-row {
       font-size: 0.95rem;
       text-align: center;
       color: #4a4a4a;
       margin-bottom: 0.8em;
     }
-    .link-row a,
-    .section-links a {
+    .link-row a {
       font-weight: 400;
     }
     .hero-heading {
@@ -246,6 +247,41 @@
     .site-footer a {
       color: inherit;
     }
+    .section-nav {
+      position: sticky;
+      top: 18px;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px 20px;
+      margin: 0 0 40px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+    .section-nav a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #585858;
+      padding: 6px 12px;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .section-nav a:hover,
+    .section-nav a:focus {
+      color: #000c96;
+      background: rgba(0, 12, 150, 0.08);
+    }
+    .section-nav a.is-active {
+      color: #fff;
+      background: #000c96;
+      box-shadow: 0 8px 18px rgba(0, 12, 150, 0.25);
+    }
     @media (max-width: 768px) {
       .hero {
         padding: 32px;
@@ -288,6 +324,16 @@
         max-width: 240px;
         margin: 0 auto;
         display: block;
+      }
+      .section-nav {
+        position: sticky;
+        top: 12px;
+        border-radius: 16px;
+        gap: 8px;
+      }
+      .section-nav a {
+        font-size: 0.75rem;
+        padding: 6px 10px;
       }
     }
   </style>
@@ -334,14 +380,20 @@
                 <a href="https://www.goodreads.com/user/show/69084065-michael-chang">Goodreads</a> &nbsp;/&nbsp;
                 <a href="https://www.collegeswimming.com/swimmer/141629/">Swimming</a>
               </p>
-              <p class="section-links" align="center">
-              [ <a href="#news">News</a> | <a href="#talks">Talks</a> | <a href="#teaching">Teaching</a> | <a href="#research">Research</a> | <a href="#readings">Readings</a> | <a href="#heroes">Heroes</a>]
-              </p>
             </div>
             <div class="hero-photo">
               <img class="profile-photo" src="./assets/IMG_2558 vertical.jpg" alt="Michael Chang smiling on a plane.">
             </div>
           </section>
+
+          <nav class="section-nav" aria-label="Section navigation">
+            <a href="#news">News</a>
+            <a href="#talks">Talks</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#research">Research</a>
+            <a href="#readings">Readings</a>
+            <a href="#heroes">Heroes</a>
+          </nav>
 
           <section class="section-card">
             <div class="section-content">
@@ -1042,6 +1094,31 @@
               };
 
           })();
+          </script>
+          <script>
+            document.addEventListener('DOMContentLoaded', function(){
+              const navLinks = Array.from(document.querySelectorAll('.section-nav a'));
+              const sections = navLinks.map(link => {
+                const target = document.querySelector(link.getAttribute('href'));
+                return target ? { link, target } : null;
+              }).filter(Boolean);
+
+              const setActive = (id) => {
+                navLinks.forEach(link => {
+                  link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
+                });
+              };
+
+              const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting && entry.target.id) {
+                    setActive(entry.target.id);
+                  }
+                });
+              }, { rootMargin: '-45% 0px -45% 0px', threshold: [0, 0.5, 1] });
+
+              sections.forEach(({ target }) => observer.observe(target));
+            });
           </script>
           <!-- Website Tracking -->
           <script>
