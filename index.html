@@ -27,6 +27,9 @@
     html {
       scroll-behavior: smooth;
     }
+    [id] {
+      scroll-margin-top: 140px;
+    }
     body {
       background-image: url("assets/tiger-very-light-flip-fade.png");
       background-repeat: no-repeat;
@@ -1115,7 +1118,7 @@
                     setActive(entry.target.id);
                   }
                 });
-              }, { rootMargin: '-45% 0px -45% 0px', threshold: [0, 0.5, 1] });
+              }, { rootMargin: '-35% 0px -55% 0px', threshold: [0, 0.5, 1] });
 
               sections.forEach(({ target }) => observer.observe(target));
             });
