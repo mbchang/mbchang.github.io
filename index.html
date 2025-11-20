@@ -223,14 +223,61 @@
     section.section-card {
       padding: var(--card-padding-y) var(--card-padding-x);
     }
+    .accordion {
+      padding: 0;
+      overflow: hidden;
+    }
+    .accordion-toggle {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-radius: inherit;
+      padding: var(--card-padding-y) var(--card-padding-x);
+      text-align: left;
+      font-family: var(--font-family);
+      font-size: clamp(20px, 2.2vw, 26px);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--color-text);
+      cursor: pointer;
+    }
+    .accordion-toggle:focus-visible {
+      outline: 3px solid var(--color-primary-light);
+      outline-offset: 4px;
+    }
+    .accordion-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      transition: transform 0.2s ease;
+    }
+    .accordion-toggle[aria-expanded="true"] .accordion-icon {
+      transform: rotate(180deg);
+    }
+    .accordion-panel {
+      padding: var(--card-padding-y) var(--card-padding-x);
+      border-top: 1px solid var(--color-border);
+    }
+    .accordion-panel[hidden] {
+      display: none;
+    }
     .section-card .section-content {
       margin-bottom: 12px;
     }
-    table.section-card {
+    .table-card {
+      width: 100%;
       border-collapse: separate;
       border-spacing: 0;
     }
-    table.section-card td {
+    .table-card td {
       padding: var(--card-padding-y) var(--card-padding-x);
     }
     .publication-table {
@@ -411,189 +458,237 @@
             </div>
           </section>
 
-          <section class="section-card">
-            <div class="section-content">
-              <h2 id="current-work">My Current Work</h2>
-              <h3><b>Sora</b></h3>
-              <p>I work on pretraining for <a href="https://openai.com/sora/">Sora</a>. Sign up <a href="https://sora.chatgpt.com/onboarding?redirect=/explore">here</a>!</p>
+          <section class="section-card accordion" id="current-work">
+            <button class="accordion-toggle" type="button" aria-expanded="true" aria-controls="current-work-panel">
+              <span>My Current Work</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="current-work-panel">
+              <div class="section-content">
+                <h2>My Current Work</h2>
+                <h3><b>Sora</b></h3>
+                <p>I work on pretraining for <a href="https://openai.com/sora/">Sora</a>. Sign up <a href="https://sora.chatgpt.com/onboarding?redirect=/explore">here</a>!</p>
+              </div>
             </div>
           </section>
 
-          <section class="section-card">
-            <div class="section-content">
-              <h2 id="past-work">My Past Work</h2>
-              <h3><b>Chat-Tree</b></h3>
-              <p>A tree-structured chat. Play with it <a href="https://chat-tree-inky.vercel.app//">here</a>!</p>
+          <section class="section-card accordion" id="past-work">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="past-work-panel">
+              <span>My Past Work</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="past-work-panel" hidden>
+              <div class="section-content">
+                <h2>My Past Work</h2>
+                <h3><b>Chat-Tree</b></h3>
+                <p>A tree-structured chat. Play with it <a href="https://chat-tree-inky.vercel.app//">here</a>!</p>
 
-              <h3><b>Project Astra</b></h3>
-              <p>I led the long memory, low latency, interruption, and event-detection capabilities of the real-time multimodal assistant that was demonstrated at <a href="https://io.google/2024/">Google IO 2024</a>.</p>
-              <p>See the <a href="https://www.youtube.com/watch?v=nXVvvRhiGjI">official video</a>, where you can find demonstrations of proactive response to visual stimuli (0:10-0:18) and long memory (1:20-1:34).</p>
-              <p>I co-watched the Google I/O keynote livestream with Astra, which was then <a href="https://twitter.com/GoogleDeepMind/status/1790463259822420239">posted immediately after the main keynote</a> and <a href="https://youtu.be/ddcZnW1HKUY?t=4000">appended to the developer keynote</a>.</p>
-              <p>I also similarly co-watched OpenAI's GPT4o announcement a day earlier, and a clip of that can be found <a href="https://twitter.com/mmmbchang/status/1790473581018939663">here</a>.</p>
-              <h3><b>Gemini</b></h3>
-              <p>I worked on evaluating Gemini's hours-long video understanding capabilities, where I was co-responsible for the results shown in <a href="https://arxiv.org/pdf/2403.05530">Fig. 9, Fig. 15, Fig. 28, and Table 47 of the Gemini 1.5 Pro paper.</a></p>
+                <h3><b>Project Astra</b></h3>
+                <p>I led the long memory, low latency, interruption, and event-detection capabilities of the real-time multimodal assistant that was demonstrated at <a href="https://io.google/2024/">Google IO 2024</a>.</p>
+                <p>See the <a href="https://www.youtube.com/watch?v=nXVvvRhiGjI">official video</a>, where you can find demonstrations of proactive response to visual stimuli (0:10-0:18) and long memory (1:20-1:34).</p>
+                <p>I co-watched the Google I/O keynote livestream with Astra, which was then <a href="https://twitter.com/GoogleDeepMind/status/1790463259822420239">posted immediately after the main keynote</a> and <a href="https://youtu.be/ddcZnW1HKUY?t=4000">appended to the developer keynote</a>.</p>
+                <p>I also similarly co-watched OpenAI's GPT4o announcement a day earlier, and a clip of that can be found <a href="https://twitter.com/mmmbchang/status/1790473581018939663">here</a>.</p>
+                <h3><b>Gemini</b></h3>
+                <p>I worked on evaluating Gemini's hours-long video understanding capabilities, where I was co-responsible for the results shown in <a href="https://arxiv.org/pdf/2403.05530">Fig. 9, Fig. 15, Fig. 28, and Table 47 of the Gemini 1.5 Pro paper.</a></p>
+              </div>
             </div>
           </section>
 
-          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td width="100%" valign="middle">
-                  <h2 id="beliefs">What I Believe</h2>
-                  <h3><b>The artificial programmer is the drosophila of AGI</b></h3>
-                  <p>
-                    I define AGI as the capacity to create new knowledge.
-                    The process of knowledge creation is the iterative cycle of conjecture and criticism.</p>
-                  <p>
-                    Similarly, the process of programming, and debugging, is also an iterative cycle of conjecture and criticism, where the knowledge is encoded as the program.
-                    We conjecture programs for achieving a certain functionality and we criticize those programs by running them through tests.
-                    If the code fails, we conjecture reasons for why the code does do not what we want, and we criticize those reasons by comparing what we expect the values of the variables to be with what the values actually turn out to be.
-                  <p>
-                    The processes of programming and of knowledge creation are isomorphic.
-                  </p>
-                  <p>
-                    Therefore, I believe that the artificial programmer is the drosophila of AGI: studying the process of writing and debugging code can teach us the fundamental principles for building self-improving knowledge-creating AGI systems.
-                  </p>
-                  <p>
-                    Code is also cheap, verifiable, and valuable, so I believe that the shortest path to AGI is through the goal of building artificial programmers.
-                  </p>
-                  <h3><b>The "No-Push" Principle</b></h3>
-                  <p>
-                    A large fraction of our relationship with information-processing machines has been to spoon-feed machines information <i>that they already have access to</i>.
-                  </p>
-                  <p>
-                    Examples include doing taxes, copying data from one spreadsheet to another, and filling out forms.
-                  </p>
-                  <p>
-                    Such tasks <i>reduce humans to mindless communication channels</i>. They stifle our creative potential.
-                  </p>
-                  <p>
-                    I therefore propose the <b>No-Push Principle</b>: <i>Humans should not have to push information to machines that is already there. The machines should pull that information on its own.</i>
-                  </p>
-                  <p>
-                    A good example of software that has evolved in accordance to the No-Push Principle is navigation software.
-                    A few decades ago, if we wanted to go somewhere we needed to manually type in our current location to get a route to our destination.
-                    Now our phones automatically pull our location information without us having to specify it.
-                    This is good. Trends like this should continue.
-                  </p>
-                  <p>
-                    Principles like the No-Push Principle give us a way to bifurcate the world and identify problems to solve.
-                    Next time when you interact with computers, ask yourself, "Am I unnecessarily pushing information to the machine that it should already know about?" If yes, then that's a problem to solve.
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <section class="section-card accordion" id="beliefs">
+            <button class="accordion-toggle" type="button" aria-expanded="true" aria-controls="beliefs-panel">
+              <span>What I Believe</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="beliefs-panel">
+              <div class="section-content">
+                <h3><b>The artificial programmer is the drosophila of AGI</b></h3>
+                <p>
+                  I define AGI as the capacity to create new knowledge.
+                  The process of knowledge creation is the iterative cycle of conjecture and criticism.</p>
+                <p>
+                  Similarly, the process of programming, and debugging, is also an iterative cycle of conjecture and criticism, where the knowledge is encoded as the program.
+                  We conjecture programs for achieving a certain functionality and we criticize those programs by running them through tests.
+                  If the code fails, we conjecture reasons for why the code does do not what we want, and we criticize those reasons by comparing what we expect the values of the variables to be with what the values actually turn out to be.
+                <p>
+                  The processes of programming and of knowledge creation are isomorphic.
+                </p>
+                <p>
+                  Therefore, I believe that the artificial programmer is the drosophila of AGI: studying the process of writing and debugging code can teach us the fundamental principles for building self-improving knowledge-creating AGI systems.
+                </p>
+                <p>
+                  Code is also cheap, verifiable, and valuable, so I believe that the shortest path to AGI is through the goal of building artificial programmers.
+                </p>
+                <h3><b>The "No-Push" Principle</b></h3>
+                <p>
+                  A large fraction of our relationship with information-processing machines has been to spoon-feed machines information <i>that they already have access to</i>.
+                </p>
+                <p>
+                  Examples include doing taxes, copying data from one spreadsheet to another, and filling out forms.
+                </p>
+                <p>
+                  Such tasks <i>reduce humans to mindless communication channels</i>. They stifle our creative potential.
+                </p>
+                <p>
+                  I therefore propose the <b>No-Push Principle</b>: <i>Humans should not have to push information to machines that is already there. The machines should pull that information on its own.</i>
+                </p>
+                <p>
+                  A good example of software that has evolved in accordance to the No-Push Principle is navigation software.
+                  A few decades ago, if we wanted to go somewhere we needed to manually type in our current location to get a route to our destination.
+                  Now our phones automatically pull our location information without us having to specify it.
+                  This is good. Trends like this should continue.
+                </p>
+                <p>
+                  Principles like the No-Push Principle give us a way to bifurcate the world and identify problems to solve.
+                  Next time when you interact with computers, ask yourself, "Am I unnecessarily pushing information to the machine that it should already know about?" If yes, then that's a problem to solve.
+                </p>
+              </div>
+            </div>
+          </section>
 
-          <!-- Research Header -->
-          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td width="100%" valign="middle">
-                  <h2 id="phd-research">My Ph.D. Research</h2>
-<!--                   <p>
-                    I am broadly interested in designing machine learners that generalize in similar ways that humans do. I want to understand the virtuous cycle between how abstraction improves learning and how learning improves abstraction. My burning question is: how can we build neural learners that automatically instantiate, compose, and abstract their own primitive computations and representations in a way that can be used to accelerate future learning and improvise solutions to novel problems? These primitives, means of composition, and means of abstraction constitute the <a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-25.html#%_chap_4">language</a> that the learner designs for itself to model the world and solve problems. In pursuit of this question, I am exploring and learning about ideas in information theory, game theory, causality, and programming languages.
-                  </p> -->
-                  <p>
-                    Our neural networks today are strikingly similar to what computing was like a hundred years ago.
-                    Back then we designed specialized electronic circuits for each different task; in the past decade we have been training specialized neural circuits for each different task.
-                    In the 1940s we developed the von Neumann architecture for computing; now our <a href="https://www.deepmind.com/publications/improving-language-models-by-retrieving-from-trillions-of-tokens">retrieval augmented transformers</a> are doing essentially the same thing.
-                    <b>Just as software abstractions were key to scaling our electronic circuits to the modern software stack, I believe that to shift artificial intelligence research from building learning circuits to building learning software, we also need to invent the analog of software abstractions for neural networks.</b>
-                  </p>
-                  <p>
-                  My research is on what I call <b>neural software abstractions</b>: understanding the principles that make abstractions in traditional software powerful, and translating these principles into deep learning algorithms to enable neural learners to construct their own abstractions for modeling and manipulating systems.
-                  Examples include:
-                  </p>
-                  <ul>
-                    <li><a href="#implicit2022">How <b>digital abstraction</b>, or the discretization of continuous representations, can be implemented via the <b>principle of error correction</b>.</a></li>
-                    <li><a href="#op32019">How <b>variable abstraction</b>, or the construction of placeholders for datapoints, can be implemented via the <b>principle of symmetry</b>.</a></li>
-                    <li><a href="#acl2021">How <b>function abstraction</b>, or the representation of reusable computations, can be implemented via the <b>principle of independence</b>.</a></li>
-                    <li><a href="#drl2020">How <b>problem abstraction</b>, or the coordination of local modules for exhibiting global behaviors, can be implemented via the <b>principle of competition</b>.</a></li>
-                  </ul>
-                  To build learning algorithms that automatically model and manipulate systems, much of my research has focused on the <b>unsupervised learning of representations of objects and their relations</b>, because studying how to model and manipulate physical systems confers various advantages:
-                  <ul>
-                    <li>Objects and relations are intuitive abstractions that are present in everyday experience.</li>
-                    <li>A general-purpose solution for solving physical tasks would provide much economic and societal value.</li>
-                    <li><a href="https://arxiv.org/abs/1604.00289">Literature</a> in cognitive science studying how infants acquire physical common sense can offer inspiration for developing agents with similar capabilities.
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <section class="section-card accordion" id="phd-research">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="phd-research-panel">
+              <span>My Ph.D. Research</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="phd-research-panel" hidden>
+              <table class="table-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+                <tbody>
+                  <tr>
+                    <td width="100%" valign="middle">
+                      <h2>My Ph.D. Research</h2>
+  <!--                   <p>
+                      I am broadly interested in designing machine learners that generalize in similar ways that humans do. I want to understand the virtuous cycle between how abstraction improves learning and how learning improves abstraction. My burning question is: how can we build neural learners that automatically instantiate, compose, and abstract their own primitive computations and representations in a way that can be used to accelerate future learning and improvise solutions to novel problems? These primitives, means of composition, and means of abstraction constitute the <a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-25.html#%_chap_4">language</a> that the learner designs for itself to model the world and solve problems. In pursuit of this question, I am exploring and learning about ideas in information theory, game theory, causality, and programming languages.
+                    </p> -->
+                      <p>
+                        Our neural networks today are strikingly similar to what computing was like a hundred years ago.
+                        Back then we designed specialized electronic circuits for each different task; in the past decade we have been training specialized neural circuits for each different task.
+                        In the 1940s we developed the von Neumann architecture for computing; now our <a href="https://www.deepmind.com/publications/improving-language-models-by-retrieving-from-trillions-of-tokens">retrieval augmented transformers</a> are doing essentially the same thing.
+                        <b>Just as software abstractions were key to scaling our electronic circuits to the modern software stack, I believe that to shift artificial intelligence research from building learning circuits to building learning software, we also need to invent the analog of software abstractions for neural networks.</b>
+                      </p>
+                      <p>
+                      My research is on what I call <b>neural software abstractions</b>: understanding the principles that make abstractions in traditional software powerful, and translating these principles into deep learning algorithms to enable neural learners to construct their own abstractions for modeling and manipulating systems.
+                      Examples include:
+                      </p>
+                      <ul>
+                        <li><a href="#implicit2022">How <b>digital abstraction</b>, or the discretization of continuous representations, can be implemented via the <b>principle of error correction</b>.</a></li>
+                        <li><a href="#op32019">How <b>variable abstraction</b>, or the construction of placeholders for datapoints, can be implemented via the <b>principle of symmetry</b>.</a></li>
+                        <li><a href="#acl2021">How <b>function abstraction</b>, or the representation of reusable computations, can be implemented via the <b>principle of independence</b>.</a></li>
+                        <li><a href="#drl2020">How <b>problem abstraction</b>, or the coordination of local modules for exhibiting global behaviors, can be implemented via the <b>principle of competition</b>.</a></li>
+                      </ul>
+                      To build learning algorithms that automatically model and manipulate systems, much of my research has focused on the <b>unsupervised learning of representations of objects and their relations</b>, because studying how to model and manipulate physical systems confers various advantages:
+                      <ul>
+                        <li>Objects and relations are intuitive abstractions that are present in everyday experience.</li>
+                        <li>A general-purpose solution for solving physical tasks would provide much economic and societal value.</li>
+                        <li><a href="https://arxiv.org/abs/1604.00289">Literature</a> in cognitive science studying how infants acquire physical common sense can offer inspiration for developing agents with similar capabilities.
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
           <!-- News -->
-          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td width="100%" valign="middle">
-                  <h2 id="news">News</h2>
-                  <ul>
-                    <li><b>June 2023</b>: I began working at <a href="https://deepmind.google/">Google DeepMind</a> as a Research Scientist.</li>
-                    <li><b>April 2022</b>: <strong style="color:green">Oral Presentation</strong> - Our paper <a href="https://sites.google.com/view/implicit-slot-attention/home">Object Representations as Fixed Points: Training Iterative Inference Algorithms with Implicit Differentiation</a> was selected for a oral presentation at the ICLR 2022 Workshop on Elements of Reasoning: Objects, Structure, and Causality.
-                    <li><b>July 2021</b>: <strong style="color:green">Oral Presentation</strong> - Our paper <a href="https://sites.google.com/view/modularcreditassignment">Modularity in Reinforcement Learning via Algorithmic Independence in Credit Assignment</a> was selected for a long oral presentation at ICML 2021.
-                    <li><b>December 2020</b>: <strong style="color:#33C1FF">Workshop</strong> - I co-organized a NeurIPS 2020 workshop on <a href="https://orlrworkshop.github.io/">Object Representations for Learning and Reasoning</a>.
-                    <li><b>June 2019</b>: <strong style="color:#33C1FF">Workshop</strong> - I co-organized an ICML 2019 workshop on <a href="https://sites.google.com/view/mbrl-icml2019/home?authuser=0">Generative Modeling and Model-Based Reasoning for Robotics and AI</a>.
-                    <li><b>May 2018</b>: <strong style="color:purple">Press Article</strong> - <a href="https://arxiv.org/abs/1612.00341">"A Compositional Object-Based Approach to Learning Physical Dynamics"</a> featured in <a href="http://www.sciencemag.org/news/2018/05/how-researchers-are-teaching-ai-learn-child?utm_source=general_public&utm_medium=youtube&utm_campaign=vid-ai-kid-19551">Science Magazine</a> (<a href="https://youtu.be/79zHbBuFHmw">accompany video</a> | <a href="https://youtu.be/79zHbBuFHmw?t=123">featured segment</a>). </li>
-                    <li><b>April 2018</b>: <strong style="color:purple">Press Article</strong> - <a href="https://arxiv.org/abs/1802.10353">"Relational Neural Expectation Maximization: Unsupervised Discovery of Objects and their Interactions"</a> featured in an <a href="https://blogs.nvidia.com/blog/2018/04/30/nvail-deep-learning-iclr/">NVIDIA blog post.</a></li>
-                    <li><b>December 2017</b>: <strong style="color:green">Award</strong> -  Our NIPS <a href="https://sites.google.com/view/ciai2017/home">workshop</a> paper on <a href="https://drive.google.com/file/d/0B9x3IewnhkK1R0VfQ1E5ZTRsYWM/view">Relational Neural Expectation Maximization</a> received the <i>Outstanding Paper Award</i> sponsored by <a href="https://www.oculus.com/">Oculus</a>.</li>
-                    <li><b>March 2015</b>: <strong style="color:purple">Press Article</strong> - <a href="http://news.mit.edu/2015/finger-mounted-reading-device-blind-0310">Finger-Mounted Reading Device for the Blind</a>, with <a href="http://hi.cs.stonybrook.edu/">Roy Shilkrot</a> and <a href="https://www.linkedin.com/in/marcel-polanco-87a6627b/">Marcelo Polanco</a>.</li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <section class="section-card accordion" id="news">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="news-panel">
+              <span>News</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="news-panel" hidden>
+              <table class="table-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+                <tbody>
+                  <tr>
+                    <td width="100%" valign="middle">
+                      <h2>News</h2>
+                      <ul>
+                        <li><b>June 2023</b>: I began working at <a href="https://deepmind.google/">Google DeepMind</a> as a Research Scientist.</li>
+                        <li><b>April 2022</b>: <strong style="color:green">Oral Presentation</strong> - Our paper <a href="https://sites.google.com/view/implicit-slot-attention/home">Object Representations as Fixed Points: Training Iterative Inference Algorithms with Implicit Differentiation</a> was selected for a oral presentation at the ICLR 2022 Workshop on Elements of Reasoning: Objects, Structure, and Causality.</li>
+                        <li><b>July 2021</b>: <strong style="color:green">Oral Presentation</strong> - Our paper <a href="https://sites.google.com/view/modularcreditassignment">Modularity in Reinforcement Learning via Algorithmic Independence in Credit Assignment</a> was selected for a long oral presentation at ICML 2021.</li>
+                        <li><b>December 2020</b>: <strong style="color:#33C1FF">Workshop</strong> - I co-organized a NeurIPS 2020 workshop on <a href="https://orlrworkshop.github.io/">Object Representations for Learning and Reasoning</a>.</li>
+                        <li><b>June 2019</b>: <strong style="color:#33C1FF">Workshop</strong> - I co-organized an ICML 2019 workshop on <a href="https://sites.google.com/view/mbrl-icml2019/home?authuser=0">Generative Modeling and Model-Based Reasoning for Robotics and AI</a>.</li>
+                        <li><b>May 2018</b>: <strong style="color:purple">Press Article</strong> - <a href="https://arxiv.org/abs/1612.00341">"A Compositional Object-Based Approach to Learning Physical Dynamics"</a> featured in <a href="http://www.sciencemag.org/news/2018/05/how-researchers-are-teaching-ai-learn-child?utm_source=general_public&utm_medium=youtube&utm_campaign=vid-ai-kid-19551">Science Magazine</a> (<a href="https://youtu.be/79zHbBuFHmw">accompany video</a> | <a href="https://youtu.be/79zHbBuFHmw?t=123">featured segment</a>). </li>
+                        <li><b>April 2018</b>: <strong style="color:purple">Press Article</strong> - <a href="https://arxiv.org/abs/1802.10353">"Relational Neural Expectation Maximization: Unsupervised Discovery of Objects and their Interactions"</a> featured in an <a href="https://blogs.nvidia.com/blog/2018/04/30/nvail-deep-learning-iclr/">NVIDIA blog post.</a></li>
+                        <li><b>December 2017</b>: <strong style="color:green">Award</strong> -  Our NIPS <a href="https://sites.google.com/view/ciai2017/home">workshop</a> paper on <a href="https://drive.google.com/file/d/0B9x3IewnhkK1R0VfQ1E5ZTRsYWM/view">Relational Neural Expectation Maximization</a> received the <i>Outstanding Paper Award</i> sponsored by <a href="https://www.oculus.com/">Oculus</a>.</li>
+                        <li><b>March 2015</b>: <strong style="color:purple">Press Article</strong> - <a href="http://news.mit.edu/2015/finger-mounted-reading-device-blind-0310">Finger-Mounted Reading Device for the Blind</a>, with <a href="http://hi.cs.stonybrook.edu/">Roy Shilkrot</a> and <a href="https://www.linkedin.com/in/marcel-polanco-87a6627b/">Marcelo Polanco</a>.</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
           <!-- Talks -->
-          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td width="100%" valign="middle">
-                  <h2 id="talks">Talks</h2>
-                  <ul>
-                    <li><b>Dissertation Talk</b>: "Neural Software Abstractions: Learning to Automatically Model and Manipulate Systems." [<a href="https://www.youtube.com/watch?v=CzK1ah74PBs">video</a>] </li>
-                    <li><b>April 2022</b>: <a href="https://icml.cc/Conferences/2021/Schedule?showEvent=8697">Generally Intelligent</a>. "Object Representations as Fixed Points: Training Iterative Inference Algorithms with Implicit Differentiation." [<a href="https://www.youtube.com/watch?v=hxGNnfZRuB8">video</a>] </li>
-                    <li><b>July 2021</b>: <a href="https://icml.cc/Conferences/2021/Schedule?showEvent=8697">International Conference on Machine Learning (2021)</a>. "Modularity in Reinforcement Learning via Algorithmic Independence in Credit Assignment." [<a href="https://drive.google.com/file/d/1uFbVRyrmoCijS4I9VYsju-gdu28QVALy/view?usp=sharing">slides</a>] [<a href="https://www.youtube.com/watch?v=_KXdjWxJ2Ow">video</a>]  </li>
-                    <li><b>July 2020</b>: <a href="https://sites.google.com/view/berkeleymarl/home">Berkeley Multi-Agent Reinforcement Learning Seminar</a>. "Decentralized Reinforcement Learning: Global Decision-Making via Local Economic Transactions." [<a href="https://drive.google.com/file/d/1EjLKbC9T73ByTtyG2C7zHLP0cqbZLstI/view?usp=sharing">slides</a>] </li>
-                    <li><b>February 2020</b>: MIT <a href="http://cocosci.mit.edu/">CoCoSci</a>, <a href="https://people.csail.mit.edu/pulkitag/">Improbable AI Lab</a>, <a href="http://lis.csail.mit.edu/">Learning and Intelligent Systems Group</a>. "Entity Abstraction in Visual Model-Based Reinforcement Learning." [<a href="https://drive.google.com/open?id=1-QBmbGZiiR9Bzg2gIICcDuAl4EVDlwEZ">slides</a>] </li>
-                    <li><b>October 2019</b>: <a href="http://cocolab.stanford.edu/">Stanford Computation & Cognition Lab</a>. "Automatically Composing Representation Transformations as a Means for Generalization." [<a href="https://drive.google.com/file/d/1myDjRKf_Tq8DHNDqWSc2mEKXO5jle5Vl/view?usp=sharing">slides</a>] </li>
-                    <li><b>August 2019</b>: <a href="https://ai.google/research/teams/brain/">Google Brain, Mountain View</a>. "Automatically Composing Represenation Transformations as a Means for Generalization." [<a href="https://drive.google.com/file/d/1myDjRKf_Tq8DHNDqWSc2mEKXO5jle5Vl/view?usp=sharing">slides</a>] </li>
-                    <li><b>November 2018</b>: <a href="http://cocosci.mit.edu/">MIT CoCoSci</a>. "Leveraging Compositional Inductive Biases to Help Deep Learning Methods Extrapolate"</li>
-                    <li><b>April 2018</b>: <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-ai/">Microsoft Research, Redmond</a>. "Unsupervised Discovery of Objects and the Interactions"</li>
-                    <li><b>May 2017</b>: <a href="https://mila.umontreal.ca/en/">Montreal Institute for Learning Algorithms</a>. "Learning Visual and Physical Models of the Environment"</li>
-                    <li><b>March 2017</b>: <a href="https://openai.com/">OpenAI</a>. "A Compositional Object-Based Approach to Learning Physical Dynamics"</li>
-                    <li><b>February 2017</b>: <a href="http://nlp.seas.harvard.edu/">Harvard NLP</a>. "Learning Visual and Physical Models of the Environment"</li>
-                    <li><b>January 2017</b>: <a href="https://research.google.com/">Google, Cambridge</a>. "Learning Visual and Physical Models of the Environment"</li>
-                    <li><b>April 2016</b>: <a href="http://eecscon.mit.edu/">MIT EECScon</a>. "Understanding Visual Concepts with Continuation Learning"</li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <section class="section-card accordion" id="talks">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="talks-panel">
+              <span>Talks</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="talks-panel" hidden>
+              <table class="table-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+                <tbody>
+                  <tr>
+                    <td width="100%" valign="middle">
+                      <h2>Talks</h2>
+                      <ul>
+                        <li><b>Dissertation Talk</b>: "Neural Software Abstractions: Learning to Automatically Model and Manipulate Systems." [<a href="https://www.youtube.com/watch?v=CzK1ah74PBs">video</a>] </li>
+                        <li><b>April 2022</b>: <a href="https://icml.cc/Conferences/2021/Schedule?showEvent=8697">Generally Intelligent</a>. "Object Representations as Fixed Points: Training Iterative Inference Algorithms with Implicit Differentiation." [<a href="https://www.youtube.com/watch?v=hxGNnfZRuB8">video</a>] </li>
+                        <li><b>July 2021</b>: <a href="https://icml.cc/Conferences/2021/Schedule?showEvent=8697">International Conference on Machine Learning (2021)</a>. "Modularity in Reinforcement Learning via Algorithmic Independence in Credit Assignment." [<a href="https://drive.google.com/file/d/1uFbVRyrmoCijS4I9VYsju-gdu28QVALy/view?usp=sharing">slides</a>] [<a href="https://www.youtube.com/watch?v=_KXdjWxJ2Ow">video</a>]  </li>
+                        <li><b>July 2020</b>: <a href="https://sites.google.com/view/berkeleymarl/home">Berkeley Multi-Agent Reinforcement Learning Seminar</a>. "Decentralized Reinforcement Learning: Global Decision-Making via Local Economic Transactions." [<a href="https://drive.google.com/file/d/1EjLKbC9T73ByTtyG2C7zHLP0cqbZLstI/view?usp=sharing">slides</a>] </li>
+                        <li><b>February 2020</b>: MIT <a href="http://cocosci.mit.edu/">CoCoSci</a>, <a href="https://people.csail.mit.edu/pulkitag/">Improbable AI Lab</a>, <a href="http://lis.csail.mit.edu/">Learning and Intelligent Systems Group</a>. "Entity Abstraction in Visual Model-Based Reinforcement Learning." [<a href="https://drive.google.com/open?id=1-QBmbGZiiR9Bzg2gIICcDuAl4EVDlwEZ">slides</a>] </li>
+                        <li><b>October 2019</b>: <a href="http://cocolab.stanford.edu/">Stanford Computation & Cognition Lab</a>. "Automatically Composing Representation Transformations as a Means for Generalization." [<a href="https://drive.google.com/file/d/1myDjRKf_Tq8DHNDqWSc2mEKXO5jle5Vl/view?usp=sharing">slides</a>] </li>
+                        <li><b>August 2019</b>: <a href="https://ai.google/research/teams/brain/">Google Brain, Mountain View</a>. "Automatically Composing Represenation Transformations as a Means for Generalization." [<a href="https://drive.google.com/file/d/1myDjRKf_Tq8DHNDqWSc2mEKXO5jle5Vl/view?usp=sharing">slides</a>] </li>
+                        <li><b>November 2018</b>: <a href="http://cocosci.mit.edu/">MIT CoCoSci</a>. "Leveraging Compositional Inductive Biases to Help Deep Learning Methods Extrapolate"</li>
+                        <li><b>April 2018</b>: <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-ai/">Microsoft Research, Redmond</a>. "Unsupervised Discovery of Objects and the Interactions"</li>
+                        <li><b>May 2017</b>: <a href="https://mila.umontreal.ca/en/">Montreal Institute for Learning Algorithms</a>. "Learning Visual and Physical Models of the Environment"</li>
+                        <li><b>March 2017</b>: <a href="https://openai.com/">OpenAI</a>. "A Compositional Object-Based Approach to Learning Physical Dynamics"</li>
+                        <li><b>February 2017</b>: <a href="http://nlp.seas.harvard.edu/">Harvard NLP</a>. "Learning Visual and Physical Models of the Environment"</li>
+                        <li><b>January 2017</b>: <a href="https://research.google.com/">Google, Cambridge</a>. "Learning Visual and Physical Models of the Environment"</li>
+                        <li><b>April 2016</b>: <a href="http://eecscon.mit.edu/">MIT EECScon</a>. "Understanding Visual Concepts with Continuation Learning"</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
           <!-- Teaching -->
-          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td width="100%" valign="middle">
-                  <h2 id="teaching">Teaching</h2>
-                  <ul>
-                    <li><a href="https://inst.eecs.berkeley.edu/~cs188/sp19/">CS188: Introduction to Artificial Intelligence - Spring 2019:</a> Graduate Student Instructor</li>
-                    <li><a href="http://rail.eecs.berkeley.edu/deeprlcourse/">CS294-112: Deep Reinforcement Learning - Fall 2018:</a> Graduate Student Instructor</li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <section class="section-card accordion" id="teaching">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="teaching-panel">
+              <span>Teaching</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="teaching-panel" hidden>
+              <table class="table-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+                <tbody>
+                  <tr>
+                    <td width="100%" valign="middle">
+                      <h2>Teaching</h2>
+                      <ul>
+                        <li><a href="https://inst.eecs.berkeley.edu/~cs188/sp19/">CS188: Introduction to Artificial Intelligence - Spring 2019:</a> Graduate Student Instructor</li>
+                        <li><a href="http://rail.eecs.berkeley.edu/deeprlcourse/">CS294-112: Deep Reinforcement Learning - Fall 2018:</a> Graduate Student Instructor</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
           <!-- Research Header -->
-          <section class="section-card past-publications">
-            <div class="section-content">
-              <h2 id="research">Past Publications</h2>
-              <p>
-                The list below highlights my publications during and before my Ph.D. For an updated list of my most recent publications, please see my <a href="https://scholar.google.com/citations?user=vgfGtykAAAAJ&hl=en">Google Scholar</a>.
-              </p>
-            </div>
-          <table class="publication-table" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+          <section class="section-card accordion past-publications" id="research">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="research-panel">
+              <span>Past Publications</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="research-panel" hidden>
+              <div class="section-content">
+                <p>
+                  The list below highlights my publications during and before my Ph.D. For an updated list of my most recent publications, please see my <a href="https://scholar.google.com/citations?user=vgfGtykAAAAJ&hl=en">Google Scholar</a>.
+                </p>
+              </div>
+            <table class="publication-table" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
               <tbody>
 
                 <!-- Modularity -->
@@ -924,150 +1019,166 @@
                 </td>
               </tr>
             </tbody>
-          </table>
-          </section>
-
-          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-            <tbody>
-              <tr>
-                <td width="100%" valign="middle">
-                  <h2 id="readings">Readings</h2>
-                  <p>
-                    Here are some of my past and current readings that have changed the way I think.
-                  </p>
-
-                  <br><h3 class="tab">Longer Works</h3>
-
-                  <p class="tab"><a href="https://www.amazon.com/Newbery-Vladimir-Radunsky-Bagram-Ibatoulline/dp/B0055L0Y32/">Holes</a> - Louis Sachar</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Harry-Potter-Paperback-Box-Books/dp/0545162076">Harry Potter</a> - J. K. Rowling</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Society-Mind-Marvin-Minsky/dp/0671657135">The Society of Mind</a> - Marvin Minsky</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Three-Kingdoms-Historical-Guanzhong-Luo/dp/0520282167">三國演義 Romance of the Three Kingdoms</a> - 羅貫中 Luo Guanzhong</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Beginning-Infinity-Explanations-Transform-World/dp/0143121359">The Beginning of Infinity</a> - David Deutsch</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Little-Prince-Antoine-Saint-Exup%C3%A9ry/dp/0156012197/ref=pd_lpo_sbs_14_t_0?_encoding=UTF8&psc=1&refRID=TZSP8PQWMETQSVS3H9PN">The Little Prince</a> - Antoine de Saint-Exupéry</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Zhuangzi-Essential-Selections-Traditional-Commentaries/dp/0872209113/ref=asap_bc?ie=UTF8">莊子 Zhuangzi</a> - 莊子 Zhuangzi</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Structure-Scientific-Revolutions-Thomas-Kuhn/dp/0226458083">The Structure of Scientific Revolutions</a> - Thomas Kuhn</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Hegemony-Survival-Americas-Dominance-American/dp/0805076883">Hegemony or Survival</a> - Noam Chomsky</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/G%C3%B6del-Escher-Bach-Eternal-Golden/dp/0465026567">Gödel, Escher, Bach: an Eternal Golden Braid</a> - Douglas Hofstadter</p>
-
-                  <p class="tab"><a href="https://mitpress.mit.edu/sicp/">Structure and Interpretation of Computer Programs</a> - Harold Abelson and Gerald Sussman with Julie Sussman</p>
-
-                  <p class="tab"><a href="http://www.feynmanlectures.caltech.edu/">The Feynman Lectures on Physics</a> - Richard P. Feynman, Robert B. Leighton, Matthew Sands</p>
-
-                  <p class="tab"><a href="https://www.gutenberg.org/files/1497/1497-h/1497-h.htm">Republic</a> - Plato</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Tao-Te-Ching-Laozi/dp/1535229330">道德經 Tao Te Ching</a> - 老子 Laozi</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Discussions-Youth-Leaders-Future-Diasaku/dp/1932911936">Discussions on Youth</a> - Diasaku Ikeda</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Nonzero-Logic-Destiny-Robert-Wright/dp/0679758941">Nonzero: The Logic of Human Destiny</a> - Robert Wright</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Order-Time-Carlo-Rovelli/dp/0735216118/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=">The Order of Time</a> - Carlo Rovelli</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Reality-Not-What-Seems-Journey/dp/0735213925">Reality is Not What it Seems</a> - Carlo Rovelli</p>
-
-                  <p class="tab"><a href="https://www.amazon.com/Talking-Daughter-about-Economy-Capitalism/dp/1847924441">Talking to My Daughter about the Economy: A Brief History of Capitalism</a> - Yanis Varoufakis</p>
-
-                  <br><h3 class="tab">Shorter Works</h3>
-
-                  <p class="tab"><a href="http://www.columbia.edu/itc/english/f1124y-001/resources/Longfellow.pdf">A Psalm of Life</a> - Henry Wadsworth Longfellow</p>
-
-                  <p class="tab"><a href="http://www.cs.virginia.edu/~robins/YouAndYourResearch.pdf">You and Your Research</a> - Richard Hamming</p>
-
-                  <p class="tab"><a href="https://arxiv.org/abs/1604.00289">Building Machines that Think and Learn Like People</a> - Brendan M. Lake, Tomer D. Ullman, Joshua B. Tenenbaum, Samuel J. Gershman</p>
-
-                  <p class="tab"><a href="https://courses.csail.mit.edu/6.803/pdf/steps.pdf">Steps Toward Artificial Intelligence</a> - Marvin Minsky</p>
-
-                  <p class="tab"><a href="http://web.mit.edu/STS.035/www/PDFs/think.pdf">As We May Think</a> - Vannevar Bush</p>
-
-                  <p class="tab"><a href="http://xroads.virginia.edu/~hyper/poe/composition.html">The Philosophy of Composition</a> - Edgar Allan Poe</p>
-
-                  <p class="tab"><a href="http://togelius.blogspot.com/2016/04/the-differences-between-tinkering-and.html">The Differences Between Tinkering and Research</a> - Julian Togelius</p>
-
-                  <br><h3 class="tab">Others' Reading Lists</h3>
-                  <p class="tab"><a href="https://docs.lucasem.com/readings/">Lucas Morales' reading list</a></p>
-
-                  <p class="tab"><a href="http://probcomp.csail.mit.edu/reading-list/">MIT Probabilistic Computing Project's reading list</a></p>
-
-                  <p class="tab"><a href="https://www.reddit.com/r/MachineLearning/comments/2xcyrl/i_am_j%C3%BCrgen_schmidhuber_ama/cp5c0py/">Jürgen Schmidhuber's recommended readings</a></p>
-
-                  <p class="tab"><a href="http://aurellem.org/thoughts/html/sussman-reading-list.html">Gerry Sussman's reading list</a></p>
-
-                  <p class="tab"><a href="http://www.hutter1.net/ai/introref.htm">Marcus Hutter's reading list</a></p>
-
-                  <p class="tab"><a href="http://web.archive.org/web/20170731011854/https://courses.csail.mit.edu/6.803/">Patrick Winston's reading list</a></p>
-
-                  <p class="tab"><a href="http://cocosci.berkeley.edu/tom/bayes.html">Tom Griffiths' reading list</a></p>
-
-                  <p class="tab"><a href="https://www.scottaaronson.com/blog/?p=3679">Scott Aaronson's reading list</a></p>
-
-                  <br><h3 class="tab">Blogs</h3>
-                  <p class="tab"><a href="https://www.scottaaronson.com/blog/">Scott Aaronson's blog</a></p>
-                  <p class="tab"><a href="http://worrydream.com/">Bret Victor's blog</a></p>
-
-                </td>
-              </tr>
             </tbody>
           </table>
+          </div>
+          </section>
 
-          <section class="section-card heroes">
-            <div class="section-content">
-              <h2 id="heroes">Heroes</h2>
-              <p>
-                Here are some of my heroes that have shaped my worldview.
-              </p>
+          <section class="section-card accordion" id="readings">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="readings-panel">
+              <span>Readings</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="readings-panel" hidden>
+              <table class="table-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+                <tbody>
+                  <tr>
+                    <td width="100%" valign="middle">
+                      <h2>Readings</h2>
+                      <p>
+                        Here are some of my past and current readings that have changed the way I think.
+                      </p>
 
-              <div class="hero-entry" id="hero-chengyen">
-                <div class="hero-text">
-                  <h3 class="hero-name"><a href="https://en.wikipedia.org/wiki/Cheng_Yen">證嚴法師 Master Cheng Yen</a></h3>
-                  <p><i>充滿愛心的人最幸福。 <br> Happiest is the person whose heart is filled with love.</i></p>
-                  <p><i>對人有疑心，就無法愛人；對人有疑念，就無法原諒人；對人有疑感，就無法相信人。 <br> We cannot love when filled with suspicion; we cannot forgive when unwilling to believe; we cannot trust when filled with doubts.</i></p>
-                  <p><i>有力量去愛人或被愛的人都是幸福的人。 <br> Blessed are those who have the ability to love and be loved by others.</i></p>
-                  <p><i>問心無愧心最安，能夠付出、助人、救人，最是快樂。 <br> Clear conscience brings peace of mind; the greatest happiness comes from the pleasure of giving and helping others.</i></p>
-                  <p><i>有力量幫助他人，是自己的福。 <br> Having the ability to help others is a blessing.</i></p>
-                  <p><i>原諒別人就是善待自己。 <br> To forgive others is, in fact, being kind to ourselves.</i></p>
-                  <p><i>孝順就是讓父母安心。 <br> Being filial is not making our parents unduly worry about us.</i></p>
-                  <p><i>該做的事，排除萬難也要完成；不該做的事，無論任何困難，也要堅持立場。 <br> Do whatever it takes to do what is right. Do whatever it takes to not do what is wrong.</i></p>
-                  <p><i>生氣是拿別人的錯誤來懲罰自己。 <br> Being angry is a form of torturing ourselves with the mistakes of others.</i></p>
-                  <p><i>人要先點亮自己的心燈，才能引發別人的心燈。 <br> Only when we light up our heart can we inspire others to do the same.</i></p>
-                  <p><i>心無邪思，意無邪念，即常可自在。心正則邪不侵。 <br> If our thoughts are upright and wholesome, we can always be at ease and evil cannot come near.</i></p>
-                  <p><i>心美看什麼都美。 <br> To a beautiful heart, everything appears beautiful.</i></p>
-                  <p><i>人生不怕錯，只怕不改過。 <br> Do not fear making mistakes in life, fear only not correcting them.</i></p>
-                </div>
-                <div class="hero-image">
-                  <img src="./assets/master_cheng_yen.jpg" alt="Master Cheng Yen">
-                </div>
-              </div>
+                      <br><h3 class="tab">Longer Works</h3>
 
-              <div class="hero-entry" id="hero-brucelee">
-                <div class="hero-text">
-                  <h3 class="hero-name"><a href="https://en.wikipedia.org/wiki/Bruce_Lee">李小龍 Bruce Lee</a></h3>
-                  <p><i>Knowledge will give you power, but character respect.</i></p>
-                  <p><i>As you think, so you shall become.</i></p>
-                  <p><i>Mistakes are always forgivable, if one has the courage to admit them.</i></p>
-                  <p><i>If you love life, don't waste time, for time is what life is made up of.</i></p>
-                  <p><i>The key to immortality is first living a life worth remembering.</i></p>
-                  <p><i>Do not pray for an easy life, pray for the strength to endure a difficult one.</i></p>
-                  <p><i>The self-sufficient stand alone - most people follow the crowd and imitate.</i></p>
-                  <p><i>Notice that that the stiffest tree is easily cracked, while the bamboo or willow survives by bending with the wind.</i></p>
-                  <p><i>Patience is not passive; on the contrary it is concentrated strength.</i></p>
-                  <p><i>What is defeat? Nothing but education. Nothing but the first step to something better.</i></p>
-                  <p><i>Success means doing something sincerely and wholeheartedly.</i></p>
-                  <p><i>It is compassion rather than the principle of justice which can guard us against being unjust to our fellow man.</i></p>
-                  <p><i>Absorb what is useful. Discard what is not. Add what is uniquely your own.</i></p>
-                  <p><i>Defeat is a state of mind. No one is ever defeated until defeat accepted as reality.</i></p>
-                  <p><i>Empty your cup so that it may be filled.</i></p>
+                      <p class="tab"><a href="https://www.amazon.com/Newbery-Vladimir-Radunsky-Bagram-Ibatoulline/dp/B0055L0Y32/">Holes</a> - Louis Sachar</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Harry-Potter-Paperback-Box-Books/dp/0545162076">Harry Potter</a> - J. K. Rowling</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Society-Mind-Marvin-Minsky/dp/0671657135">The Society of Mind</a> - Marvin Minsky</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Three-Kingdoms-Historical-Guanzhong-Luo/dp/0520282167">三國演義 Romance of the Three Kingdoms</a> - 羅貫中 Luo Guanzhong</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Beginning-Infinity-Explanations-Transform-World/dp/0143121359">The Beginning of Infinity</a> - David Deutsch</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Little-Prince-Antoine-Saint-Exup%C3%A9ry/dp/0156012197/ref=pd_lpo_sbs_14_t_0?_encoding=UTF8&psc=1&refRID=TZSP8PQWMETQSVS3H9PN">The Little Prince</a> - Antoine de Saint-Exupéry</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Zhuangzi-Essential-Selections-Traditional-Commentaries/dp/0872209113/ref=asap_bc?ie=UTF8">莊子 Zhuangzi</a> - 莊子 Zhuangzi</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Structure-Scientific-Revolutions-Thomas-Kuhn/dp/0226458083">The Structure of Scientific Revolutions</a> - Thomas Kuhn</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Hegemony-Survival-Americas-Dominance-American/dp/0805076883">Hegemony or Survival</a> - Noam Chomsky</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/G%C3%B6del-Escher-Bach-Eternal-Golden/dp/0465026567">Gödel, Escher, Bach: an Eternal Golden Braid</a> - Douglas Hofstadter</p>
+
+                      <p class="tab"><a href="https://mitpress.mit.edu/sicp/">Structure and Interpretation of Computer Programs</a> - Harold Abelson and Gerald Sussman with Julie Sussman</p>
+
+                      <p class="tab"><a href="http://www.feynmanlectures.caltech.edu/">The Feynman Lectures on Physics</a> - Richard P. Feynman, Robert B. Leighton, Matthew Sands</p>
+
+                      <p class="tab"><a href="https://www.gutenberg.org/files/1497/1497-h/1497-h.htm">Republic</a> - Plato</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Tao-Te-Ching-Laozi/dp/1535229330">道德經 Tao Te Ching</a> - 老子 Laozi</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Discussions-Youth-Leaders-Future-Diasaku/dp/1932911936">Discussions on Youth</a> - Diasaku Ikeda</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Nonzero-Logic-Destiny-Robert-Wright/dp/0679758941">Nonzero: The Logic of Human Destiny</a> - Robert Wright</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Order-Time-Carlo-Rovelli/dp/0735216118/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=">The Order of Time</a> - Carlo Rovelli</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Reality-Not-What-Seems-Journey/dp/0735213925">Reality is Not What it Seems</a> - Carlo Rovelli</p>
+
+                      <p class="tab"><a href="https://www.amazon.com/Talking-Daughter-about-Economy-Capitalism/dp/1847924441">Talking to My Daughter about the Economy: A Brief History of Capitalism</a> - Yanis Varoufakis</p>
+
+                      <br><h3 class="tab">Shorter Works</h3>
+
+                      <p class="tab"><a href="http://www.columbia.edu/itc/english/f1124y-001/resources/Longfellow.pdf">A Psalm of Life</a> - Henry Wadsworth Longfellow</p>
+
+                      <p class="tab"><a href="http://www.cs.virginia.edu/~robins/YouAndYourResearch.pdf">You and Your Research</a> - Richard Hamming</p>
+
+                      <p class="tab"><a href="https://arxiv.org/abs/1604.00289">Building Machines that Think and Learn Like People</a> - Brendan M. Lake, Tomer D. Ullman, Joshua B. Tenenbaum, Samuel J. Gershman</p>
+
+                      <p class="tab"><a href="https://courses.csail.mit.edu/6.803/pdf/steps.pdf">Steps Toward Artificial Intelligence</a> - Marvin Minsky</p>
+
+                      <p class="tab"><a href="http://web.mit.edu/STS.035/www/PDFs/think.pdf">As We May Think</a> - Vannevar Bush</p>
+
+                      <p class="tab"><a href="http://xroads.virginia.edu/~hyper/poe/composition.html">The Philosophy of Composition</a> - Edgar Allan Poe</p>
+
+                      <p class="tab"><a href="http://togelius.blogspot.com/2016/04/the-differences-between-tinkering-and.html">The Differences Between Tinkering and Research</a> - Julian Togelius</p>
+
+                      <br><h3 class="tab">Others' Reading Lists</h3>
+                      <p class="tab"><a href="https://docs.lucasem.com/readings/">Lucas Morales' reading list</a></p>
+
+                      <p class="tab"><a href="http://probcomp.csail.mit.edu/reading-list/">MIT Probabilistic Computing Project's reading list</a></p>
+
+                      <p class="tab"><a href="https://www.reddit.com/r/MachineLearning/comments/2xcyrl/i_am_j%C3%BCrgen_schmidhuber_ama/cp5c0py/">Jürgen Schmidhuber's recommended readings</a></p>
+
+                      <p class="tab"><a href="http://aurellem.org/thoughts/html/sussman-reading-list.html">Gerry Sussman's reading list</a></p>
+
+                      <p class="tab"><a href="http://www.hutter1.net/ai/introref.htm">Marcus Hutter's reading list</a></p>
+
+                      <p class="tab"><a href="http://web.archive.org/web/20170731011854/https://courses.csail.mit.edu/6.803/">Patrick Winston's reading list</a></p>
+
+                      <p class="tab"><a href="http://cocosci.berkeley.edu/tom/bayes.html">Tom Griffiths' reading list</a></p>
+
+                      <p class="tab"><a href="https://www.scottaaronson.com/blog/?p=3679">Scott Aaronson's reading list</a></p>
+
+                      <br><h3 class="tab">Blogs</h3>
+                      <p class="tab"><a href="https://www.scottaaronson.com/blog/">Scott Aaronson's blog</a></p>
+                      <p class="tab"><a href="http://worrydream.com/">Bret Victor's blog</a></p>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="section-card accordion heroes" id="heroes">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="heroes-panel">
+              <span>Heroes</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="heroes-panel" hidden>
+              <div class="section-content">
+                <h2>Heroes</h2>
+                <p>
+                  Here are some of my heroes that have shaped my worldview.
+                </p>
+
+                <div class="hero-entry" id="hero-chengyen">
+                  <div class="hero-text">
+                    <h3 class="hero-name"><a href="https://en.wikipedia.org/wiki/Cheng_Yen">證嚴法師 Master Cheng Yen</a></h3>
+                    <p><i>充滿愛心的人最幸福。 <br> Happiest is the person whose heart is filled with love.</i></p>
+                    <p><i>對人有疑心，就無法愛人；對人有疑念，就無法原諒人；對人有疑感，就無法相信人。 <br> We cannot love when filled with suspicion; we cannot forgive when unwilling to believe; we cannot trust when filled with doubts.</i></p>
+                    <p><i>有力量去愛人或被愛的人都是幸福的人。 <br> Blessed are those who have the ability to love and be loved by others.</i></p>
+                    <p><i>問心無愧心最安，能夠付出、助人、救人，最是快樂。 <br> Clear conscience brings peace of mind; the greatest happiness comes from the pleasure of giving and helping others.</i></p>
+                    <p><i>有力量幫助他人，是自己的福。 <br> Having the ability to help others is a blessing.</i></p>
+                    <p><i>原諒別人就是善待自己。 <br> To forgive others is, in fact, being kind to ourselves.</i></p>
+                    <p><i>孝順就是讓父母安心。 <br> Being filial is not making our parents unduly worry about us.</i></p>
+                    <p><i>該做的事，排除萬難也要完成；不該做的事，無論任何困難，也要堅持立場。 <br> Do whatever it takes to do what is right. Do whatever it takes to not do what is wrong.</i></p>
+                    <p><i>生氣是拿別人的錯誤來懲罰自己。 <br> Being angry is a form of torturing ourselves with the mistakes of others.</i></p>
+                    <p><i>人要先點亮自己的心燈，才能引發別人的心燈。 <br> Only when we light up our heart can we inspire others to do the same.</i></p>
+                    <p><i>心無邪思，意無邪念，即常可自在。心正則邪不侵。 <br> If our thoughts are upright and wholesome, we can always be at ease and evil cannot come near.</i></p>
+                    <p><i>心美看什麼都美。 <br> To a beautiful heart, everything appears beautiful.</i></p>
+                    <p><i>人生不怕錯，只怕不改過。 <br> Do not fear making mistakes in life, fear only not correcting them.</i></p>
+                  </div>
+                  <div class="hero-image">
+                    <img src="./assets/master_cheng_yen.jpg" alt="Master Cheng Yen">
+                  </div>
                 </div>
-                <div class="hero-image">
-                  <img src="./assets/bruce_lee_600.jpg" alt="Bruce Lee">
+
+                <div class="hero-entry" id="hero-brucelee">
+                  <div class="hero-text">
+                    <h3 class="hero-name"><a href="https://en.wikipedia.org/wiki/Bruce_Lee">李小龍 Bruce Lee</a></h3>
+                    <p><i>Knowledge will give you power, but character respect.</i></p>
+                    <p><i>As you think, so you shall become.</i></p>
+                    <p><i>Mistakes are always forgivable, if one has the courage to admit them.</i></p>
+                    <p><i>If you love life, don't waste time, for time is what life is made up of.</i></p>
+                    <p><i>The key to immortality is first living a life worth remembering.</i></p>
+                    <p><i>Do not pray for an easy life, pray for the strength to endure a difficult one.</i></p>
+                    <p><i>The self-sufficient stand alone - most people follow the crowd and imitate.</i></p>
+                    <p><i>Notice that that the stiffest tree is easily cracked, while the bamboo or willow survives by bending with the wind.</i></p>
+                    <p><i>Patience is not passive; on the contrary it is concentrated strength.</i></p>
+                    <p><i>What is defeat? Nothing but education. Nothing but the first step to something better.</i></p>
+                    <p><i>Success means doing something sincerely and wholeheartedly.</i></p>
+                    <p><i>It is compassion rather than the principle of justice which can guard us against being unjust to our fellow man.</i></p>
+                    <p><i>Absorb what is useful. Discard what is not. Add what is uniquely your own.</i></p>
+                    <p><i>Defeat is a state of mind. No one is ever defeated until defeat accepted as reality.</i></p>
+                    <p><i>Empty your cup so that it may be filled.</i></p>
+                  </div>
+                  <div class="hero-image">
+                    <img src="./assets/bruce_lee_600.jpg" alt="Bruce Lee">
+                  </div>
                 </div>
               </div>
             </div>
@@ -1113,6 +1224,46 @@
           </script>
           <script>
             document.addEventListener('DOMContentLoaded', function(){
+              const accordionToggles = Array.from(document.querySelectorAll('.accordion-toggle'));
+
+              const updateAccordionState = (toggle, shouldExpand) => {
+                const panel = toggle.nextElementSibling;
+                if (!panel) return;
+                toggle.setAttribute('aria-expanded', shouldExpand.toString());
+                panel.hidden = !shouldExpand;
+              };
+
+              const openAccordionForSection = (element) => {
+                if (!element) return;
+                const sectionEl = element.classList.contains('accordion')
+                  ? element
+                  : element.closest('.accordion');
+                if (!sectionEl) return;
+                const toggle = sectionEl.querySelector('.accordion-toggle');
+                if (toggle) {
+                  updateAccordionState(toggle, true);
+                }
+              };
+
+              accordionToggles.forEach(toggle => {
+                const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                updateAccordionState(toggle, expanded);
+                toggle.addEventListener('click', () => {
+                  const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+                  updateAccordionState(toggle, !isExpanded);
+                });
+              });
+
+              const handleDeepLink = () => {
+                if (window.location.hash) {
+                  const hashTarget = document.querySelector(window.location.hash);
+                  openAccordionForSection(hashTarget);
+                }
+              };
+
+              handleDeepLink();
+              window.addEventListener('hashchange', handleDeepLink);
+
               const navLinks = Array.from(document.querySelectorAll('.minimap a'));
               const sections = navLinks.map(link => {
                 const target = document.querySelector(link.getAttribute('href'));
@@ -1134,6 +1285,8 @@
                   if (targetId) {
                     pendingTarget = targetId;
                     setActive(targetId);
+                    const sectionEl = document.getElementById(targetId);
+                    openAccordionForSection(sectionEl);
                   }
                 });
               });
@@ -1144,6 +1297,7 @@
                     if (pendingTarget && entry.target.id !== pendingTarget) {
                       return;
                     }
+                    openAccordionForSection(entry.target);
                     setActive(entry.target.id);
                     pendingTarget = null;
                   }
