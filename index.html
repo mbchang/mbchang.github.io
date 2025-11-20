@@ -275,7 +275,7 @@
       display: flex;
       flex-direction: column;
       gap: 28px;
-      max-width: 700px;
+      max-width: 100%;
       margin: 0 auto;
       width: 100%;
     }
@@ -287,15 +287,26 @@
     .featured-section .accordion-panel {
       padding: 30px 32px 34px;
     }
+    .tweet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      width: 100%;
+    }
+    .tweet-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
     .tweet-embed {
       width: 100%;
-      max-width: 620px;
-      margin: 0 auto;
+      max-width: 100%;
+      margin: 0;
       border-radius: 28px;
       overflow: hidden;
       box-shadow: 0 18px 40px rgba(9, 17, 45, 0.1);
       background: #fff;
-      padding: 26px 30px;
+      padding: 22px 24px;
       box-sizing: border-box;
       display: flex;
       justify-content: center;
@@ -513,19 +524,24 @@
             </button>
             <div class="accordion-panel" id="featured-work-panel">
               <div class="section-content">
-                <h3>Sora</h3>
-                <div class="tweet-embed">
-                  <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
-                    <a href="https://twitter.com/mmmbchang/status/1973078365214056718"></a>
-                  </blockquote>
+                <div class="tweet-grid">
+                  <div class="tweet-card">
+                    <h3>Sora</h3>
+                    <div class="tweet-embed">
+                      <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+                        <a href="https://twitter.com/mmmbchang/status/1973078365214056718"></a>
+                      </blockquote>
+                    </div>
+                  </div>
+                  <div class="tweet-card">
+                    <h3>Astra</h3>
+                    <div class="tweet-embed">
+                      <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+                        <a href="https://twitter.com/mmmbchang/status/1790464430389751953"></a>
+                      </blockquote>
+                    </div>
+                  </div>
                 </div>
-                <h3>Astra</h3>
-                <div class="tweet-embed">
-                  <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
-                    <a href="https://twitter.com/mmmbchang/status/1790464430389751953"></a>
-                  </blockquote>
-                </div>
-
               </div>
             </div>
           </section>
