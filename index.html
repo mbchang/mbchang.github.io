@@ -459,11 +459,11 @@
           </section>
 
           <section class="section-card accordion" id="current-work">
-            <button class="accordion-toggle" type="button" aria-expanded="true" aria-controls="current-work-panel">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="current-work-panel">
               <span>My Current Work</span>
               <span class="accordion-icon" aria-hidden="true">▾</span>
             </button>
-            <div class="accordion-panel" id="current-work-panel">
+            <div class="accordion-panel" id="current-work-panel" hidden>
               <div class="section-content">
                 <h2>My Current Work</h2>
                 <h3><b>Sora</b></h3>
@@ -495,11 +495,11 @@
           </section>
 
           <section class="section-card accordion" id="beliefs">
-            <button class="accordion-toggle" type="button" aria-expanded="true" aria-controls="beliefs-panel">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="beliefs-panel">
               <span>What I Believe</span>
               <span class="accordion-icon" aria-hidden="true">▾</span>
             </button>
-            <div class="accordion-panel" id="beliefs-panel">
+            <div class="accordion-panel" id="beliefs-panel" hidden>
               <div class="section-content">
                 <h3><b>The artificial programmer is the drosophila of AGI</b></h3>
                 <p>
@@ -1233,18 +1233,6 @@
                 panel.hidden = !shouldExpand;
               };
 
-              const openAccordionForSection = (element) => {
-                if (!element) return;
-                const sectionEl = element.classList.contains('accordion')
-                  ? element
-                  : element.closest('.accordion');
-                if (!sectionEl) return;
-                const toggle = sectionEl.querySelector('.accordion-toggle');
-                if (toggle) {
-                  updateAccordionState(toggle, true);
-                }
-              };
-
               accordionToggles.forEach(toggle => {
                 const expanded = toggle.getAttribute('aria-expanded') === 'true';
                 updateAccordionState(toggle, expanded);
@@ -1253,16 +1241,6 @@
                   updateAccordionState(toggle, !isExpanded);
                 });
               });
-
-              const handleDeepLink = () => {
-                if (window.location.hash) {
-                  const hashTarget = document.querySelector(window.location.hash);
-                  openAccordionForSection(hashTarget);
-                }
-              };
-
-              handleDeepLink();
-              window.addEventListener('hashchange', handleDeepLink);
 
               const navLinks = Array.from(document.querySelectorAll('.minimap a'));
               const sections = navLinks.map(link => {
@@ -1285,8 +1263,6 @@
                   if (targetId) {
                     pendingTarget = targetId;
                     setActive(targetId);
-                    const sectionEl = document.getElementById(targetId);
-                    openAccordionForSection(sectionEl);
                   }
                 });
               });
@@ -1297,7 +1273,6 @@
                     if (pendingTarget && entry.target.id !== pendingTarget) {
                       return;
                     }
-                    openAccordionForSection(entry.target);
                     setActive(entry.target.id);
                     pendingTarget = null;
                   }
