@@ -229,13 +229,15 @@
       flex: 1 1 360px;
     }
     .hero-photo {
-      flex: 0 0 260px;
+      flex: 0 0 auto;
       display: flex;
       justify-content: center;
+      align-items: flex-start;
     }
     .profile-photo {
       width: 220px;
       max-width: 100%;
+      height: auto;
       display: block;
       margin: 0 auto;
       border-radius: 18px;
@@ -505,6 +507,61 @@
         flex: 1 1 100%;
       }
     }
+    /* Extra small screens - tighter padding */
+    @media (max-width: 400px) {
+      .hero {
+        padding: 24px 20px;
+      }
+      .section-card {
+        border-radius: 18px;
+      }
+      .profile-photo {
+        width: 140px;
+      }
+      h2 {
+        font-size: 22px;
+      }
+      .hero-name-title {
+        font-size: 36px;
+      }
+    }
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 48px;
+      height: 48px;
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: var(--shadow-card);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: opacity 0.3s ease, transform 0.2s ease;
+      opacity: 0;
+    }
+    .back-to-top.visible {
+      display: flex;
+      opacity: 1;
+    }
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 50px rgba(9, 17, 45, 0.15);
+    }
+    .back-to-top:active {
+      transform: translateY(0);
+    }
+    @media (min-width: 769px) {
+      .back-to-top {
+        display: none !important;
+      }
+    }
   </style>
   <title>Michael Chang</title>
 </head>
@@ -553,7 +610,10 @@
               </p>
             </div>
             <div class="hero-photo">
-              <img class="profile-photo" src="./assets/IMG_2558 vertical.jpg" alt="Michael Chang smiling on a plane.">
+              <img class="profile-photo"
+                   src="./assets/IMG_2558 vertical.jpg"
+                   loading="lazy"
+                   alt="Michael Chang smiling on a plane.">
             </div>
           </section>
 
@@ -1402,6 +1462,18 @@
               if (navLinks[0]) {
                 navLinks[0].classList.add('is-active');
               }
+
+              // Back to top button visibility
+              const backToTopBtn = document.querySelector('.back-to-top');
+              if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                  if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                  } else {
+                    backToTopBtn.classList.remove('visible');
+                  }
+                });
+              }
             });
           </script>
           <!-- Website Tracking -->
@@ -1433,6 +1505,10 @@
     </div>
   </div>
 
+  <!-- Back to Top Button (mobile only) -->
+  <button class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑
+  </button>
 
 </body>
 
