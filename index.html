@@ -78,6 +78,11 @@
       padding: 0;
       line-height: 1.65;
       color: var(--color-text);
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    body.loaded {
+      opacity: 1;
     }
     a {
       color: var(--color-primary);
@@ -343,6 +348,8 @@
       justify-content: center;
       background: transparent;
       padding: 0;
+      min-height: 400px;
+      position: relative;
     }
     .tweet-embed blockquote,
     .tweet-embed iframe {
@@ -350,6 +357,50 @@
       width: 100% !important;
       max-width: 560px !important;
       flex: 0 1 560px;
+    }
+    /* Loading skeleton for tweets */
+    .tweet-embed::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 560px;
+      height: 400px;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.06) 0%,
+        rgba(0, 0, 0, 0.08) 50%,
+        rgba(0, 0, 0, 0.06) 100%
+      );
+      background-size: 200% 100%;
+      border-radius: 12px;
+      animation: shimmer 1.5s infinite;
+      z-index: 1;
+    }
+    .tweet-embed.loaded::before {
+      display: none;
+    }
+    @keyframes shimmer {
+      0% {
+        background-position: -200% 0;
+      }
+      100% {
+        background-position: 200% 0;
+      }
+    }
+    /* Fade-in animation for sections */
+    .section-card,
+    .hero {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .section-card.fade-in,
+    .hero.fade-in {
+      opacity: 1;
+      transform: translateY(0);
     }
     .section-card .section-content {
       margin-bottom: 12px;
@@ -1403,7 +1454,48 @@
           })();
           </script>
           <script>
+            // Page load fade-in animation
+            window.addEventListener('load', function() {
+              document.body.classList.add('loaded');
+            });
+
             document.addEventListener('DOMContentLoaded', function(){
+              // Fade in sections on scroll
+              const allSections = document.querySelectorAll('.section-card, .hero');
+              const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    fadeInObserver.unobserve(entry.target);
+                  }
+                });
+              }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+              });
+
+              allSections.forEach(section => {
+                fadeInObserver.observe(section);
+              });
+
+              // Mark tweets as loaded when they render
+              const tweetEmbeds = document.querySelectorAll('.tweet-embed');
+              tweetEmbeds.forEach(embed => {
+                const checkTweetLoaded = setInterval(() => {
+                  const iframe = embed.querySelector('iframe');
+                  if (iframe) {
+                    embed.classList.add('loaded');
+                    clearInterval(checkTweetLoaded);
+                  }
+                }, 100);
+
+                // Stop checking after 10 seconds
+                setTimeout(() => {
+                  embed.classList.add('loaded');
+                  clearInterval(checkTweetLoaded);
+                }, 10000);
+              });
+
               const accordionToggles = Array.from(document.querySelectorAll('.accordion-toggle'));
 
               const updateAccordionState = (toggle, shouldExpand) => {
