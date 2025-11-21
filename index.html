@@ -255,15 +255,22 @@
     section.section-card {
       padding: var(--card-padding-y) min(var(--card-padding-x), max(16px, 6vw));
     }
+    section.section-card.accordion {
+      padding: 0;
+    }
     .accordion {
       padding: 0;
       overflow: hidden;
+      transition: box-shadow 0.2s ease;
+    }
+    .accordion:hover {
+      box-shadow: 0 20px 45px rgba(9, 17, 45, 0.12);
     }
     .accordion-toggle {
       width: 100%;
       background: transparent;
       border: none;
-      border-radius: inherit;
+      border-radius: 28px;
       padding: var(--card-padding-y) var(--card-padding-x);
       text-align: left;
       font-family: var(--font-family);
@@ -274,22 +281,32 @@
       justify-content: space-between;
       color: var(--color-text);
       cursor: pointer;
+      transition: border-radius 0.2s ease;
+      position: relative;
+    }
+    .accordion-toggle[aria-expanded="true"] {
+      border-radius: 28px 28px 0 0;
     }
     .accordion-toggle:focus-visible {
       outline: 3px solid var(--color-primary-light);
       outline-offset: 4px;
     }
     .accordion-icon {
-      width: 20px;
-      height: 20px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
       background: var(--color-primary-light);
       color: var(--color-primary);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
-      transition: transform 0.2s ease;
+      font-size: 14px;
+      transition: transform 0.3s ease, background-color 0.2s ease;
+      flex-shrink: 0;
+    }
+    .accordion-toggle:hover .accordion-icon {
+      background: var(--color-primary);
+      color: white;
     }
     .accordion-toggle[aria-expanded="true"] .accordion-icon {
       transform: rotate(180deg);
@@ -297,9 +314,17 @@
     .accordion-panel {
       padding: var(--card-padding-y) min(var(--card-padding-x), max(16px, 6vw));
       border-top: 1px solid var(--color-border);
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+      max-height: 5000px;
+      opacity: 1;
     }
     .accordion-panel[hidden] {
-      display: none;
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      border-top: none;
     }
     .featured-section .section-content {
       display: flex;
@@ -1408,7 +1433,19 @@
                 const panel = toggle.nextElementSibling;
                 if (!panel) return;
                 toggle.setAttribute('aria-expanded', shouldExpand.toString());
-                panel.hidden = !shouldExpand;
+
+                if (shouldExpand) {
+                  panel.hidden = false;
+                  // Force reflow to trigger animation
+                  void panel.offsetHeight;
+                } else {
+                  // Wait for animation to finish before hiding
+                  setTimeout(() => {
+                    if (toggle.getAttribute('aria-expanded') === 'false') {
+                      panel.hidden = true;
+                    }
+                  }, 300); // Match CSS transition duration
+                }
               };
 
               accordionToggles.forEach(toggle => {
