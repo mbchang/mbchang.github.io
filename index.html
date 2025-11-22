@@ -551,6 +551,20 @@
         font-size: 36px;
       }
     }
+    .hobby-image {
+      width: 100%;
+      height: 500px; /* Fixed height for uniformity */
+      object-fit: cover; /* Crop to fill */
+      object-position: center;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .hobby-image {
+        height: 300px; /* Smaller height on mobile */
+      }
+    }
+
     /* Back to top button */
     .back-to-top {
       position: fixed;
@@ -995,6 +1009,42 @@
             </div>
           </section>
 
+          <section class="section-card accordion" id="swimming">
+            <button class="accordion-toggle" type="button" aria-expanded="true" aria-controls="swimming-panel">
+              <span>Swimming</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="swimming-panel">
+              <div class="section-content" style="display: flex; justify-content: center;">
+                <img src="./assets/swimming.jpg" alt="Swimming" class="hobby-image">
+              </div>
+            </div>
+          </section>
+
+          <section class="section-card accordion" id="pilates">
+            <button class="accordion-toggle" type="button" aria-expanded="true" aria-controls="pilates-panel">
+              <span>Pilates</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="pilates-panel">
+              <div class="section-content" style="display: flex; justify-content: center;">
+                <img src="./assets/pilates.jpg" alt="Pilates" class="hobby-image" style="object-position: center 65%;">
+              </div>
+            </div>
+          </section>
+
+          <section class="section-card accordion" id="dance">
+            <button class="accordion-toggle" type="button" aria-expanded="true" aria-controls="dance-panel">
+              <span>Dance</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="dance-panel">
+              <div class="section-content" style="display: flex; justify-content: center;">
+                <img src="./assets/dance.jpg" alt="Dance" class="hobby-image" style="object-position: center 80%;">
+              </div>
+            </div>
+          </section>
+
           <!-- Fun Stuff --><!--
           <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
             <tbody>
@@ -1263,6 +1313,18 @@
 
     <div class="nav-item" data-target="#heroes" onclick="document.getElementById('heroes').scrollIntoView({behavior: 'smooth'})">
       <span class="nav-label">Heroes</span>
+    </div>
+
+    <div class="nav-item" data-target="#swimming" onclick="document.getElementById('swimming').scrollIntoView({behavior: 'smooth'})">
+      <span class="nav-label">Swimming</span>
+    </div>
+
+    <div class="nav-item" data-target="#pilates" onclick="document.getElementById('pilates').scrollIntoView({behavior: 'smooth'})">
+      <span class="nav-label">Pilates</span>
+    </div>
+
+    <div class="nav-item" data-target="#dance" onclick="document.getElementById('dance').scrollIntoView({behavior: 'smooth'})">
+      <span class="nav-label">Dance</span>
     </div>
   </nav>
 
