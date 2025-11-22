@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
       toggleBtn.innerHTML = theme === 'dark' ? sunIcon : moonIcon;
     };
 
-    // Check for saved theme or system preference
+    // Check for saved theme
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    let currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+    // Default to light mode unless saved otherwise
+    let currentTheme = savedTheme || 'light';
 
     // Apply initial theme
     document.documentElement.setAttribute('data-theme', currentTheme);
@@ -53,6 +53,58 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   initThemeToggle();
+
+  // Mobile Navigation
+  const initMobileNav = () => {
+    // Create toggle button
+    const navToggle = document.createElement('button');
+    navToggle.className = 'mobile-nav-toggle';
+    navToggle.innerHTML = '☰'; // Hamburger icon
+    navToggle.setAttribute('aria-label', 'Menu');
+    document.body.appendChild(navToggle);
+
+    // Create overlay
+    const navOverlay = document.createElement('div');
+    navOverlay.className = 'mobile-nav-overlay';
+    document.body.appendChild(navOverlay);
+
+    // Populate with links from vertical nav
+    const desktopNavItems = document.querySelectorAll('.vertical-nav .nav-item');
+    desktopNavItems.forEach(item => {
+      const label = item.querySelector('.nav-label').textContent;
+      const targetSelector = item.getAttribute('data-target');
+
+      const link = document.createElement('a');
+      link.className = 'mobile-nav-item';
+      link.textContent = label;
+
+      link.addEventListener('click', () => {
+        const target = document.querySelector(targetSelector);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+          // Close menu
+          navOverlay.classList.remove('active');
+          navToggle.innerHTML = '☰';
+        }
+      });
+
+      navOverlay.appendChild(link);
+    });
+
+    // Toggle logic
+    navToggle.addEventListener('click', () => {
+      const isActive = navOverlay.classList.contains('active');
+      if (isActive) {
+        navOverlay.classList.remove('active');
+        navToggle.innerHTML = '☰';
+      } else {
+        navOverlay.classList.add('active');
+        navToggle.innerHTML = '✕'; // Close icon
+      }
+    });
+  };
+
+  initMobileNav();
 
   // Make external links open in new tab
   const links = document.querySelectorAll('a[href]');
