@@ -586,9 +586,9 @@
       top: 10vh;
       height: 80vh;
       right: 40px;
-      width: 20px;
+      width: 160px; /* Width for the labels */
       z-index: 100;
-      pointer-events: none; /* Allow clicking through the container */
+      pointer-events: none;
     }
 
     /* Connecting dotted line */
@@ -597,8 +597,7 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      right: 0; /* Align line to the right */
       width: 1px;
       border-left: 2px dotted rgba(0, 0, 0, 0.15);
       z-index: -1;
@@ -606,60 +605,60 @@
 
     .nav-item {
       position: absolute;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      right: 0; /* Align items to the dotted line */
+      transform: translateY(-50%);
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
       cursor: pointer;
-      pointer-events: auto; /* Re-enable clicks on items */
-      width: 20px;
+      pointer-events: auto;
       height: 20px;
+      padding-right: 15px; /* Space between text and line */
     }
 
-    .nav-dot {
-      width: 10px;
-      height: 10px;
+    /* Small tick mark on the line */
+    .nav-item::after {
+      content: '';
+      position: absolute;
+      right: -4px; /* Center on the dotted line */
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
       background-color: #fff;
       border: 2px solid rgba(0, 0, 0, 0.2);
       border-radius: 50%;
       transition: all 0.3s ease;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
-    .nav-item:hover .nav-dot {
+    .nav-item:hover::after {
       border-color: var(--color-primary);
       background-color: var(--color-primary);
-      transform: scale(1.2);
     }
 
-    .nav-item.active .nav-dot {
+    .nav-item.active::after {
       background-color: var(--color-primary);
       border-color: var(--color-primary);
-      transform: scale(1.4);
+      transform: translateY(-50%) scale(1.2);
     }
 
     .nav-label {
-      position: absolute;
-      right: 30px;
-      top: 50%;
-      transform: translateY(-50%);
       white-space: nowrap;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--color-text);
-      opacity: 0;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--color-muted);
       transition: all 0.3s ease;
-      padding: 4px 8px;
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 4px;
-      pointer-events: none;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
 
     .nav-item:hover .nav-label {
-      opacity: 1;
-      right: 35px;
+      color: var(--color-primary);
+      transform: translateX(-5px);
+    }
+
+    .nav-item.active .nav-label {
+      color: var(--color-primary);
+      font-weight: 600;
+      transform: translateX(-5px);
     }
 
     @media (max-width: 1200px) {
@@ -1442,34 +1441,28 @@
 
   <!-- Vertical Navigation -->
   <nav class="vertical-nav">
-    <div class="nav-item" data-target=".hero" onclick="document.querySelector('.hero').scrollIntoView({behavior: 'smooth'})" title="About">
+    <div class="nav-item" data-target=".hero" onclick="document.querySelector('.hero').scrollIntoView({behavior: 'smooth'})">
       <span class="nav-label">About</span>
-      <div class="nav-dot"></div>
     </div>
 
-    <div class="nav-item" data-target="#phd-research" onclick="document.getElementById('phd-research').scrollIntoView({behavior: 'smooth'})" title="My Ph.D. Research">
+    <div class="nav-item" data-target="#phd-research" onclick="document.getElementById('phd-research').scrollIntoView({behavior: 'smooth'})">
       <span class="nav-label">My Ph.D. Research</span>
-      <div class="nav-dot"></div>
     </div>
 
-    <div class="nav-item" data-target="#news" onclick="document.getElementById('news').scrollIntoView({behavior: 'smooth'})" title="News">
+    <div class="nav-item" data-target="#news" onclick="document.getElementById('news').scrollIntoView({behavior: 'smooth'})">
       <span class="nav-label">News</span>
-      <div class="nav-dot"></div>
     </div>
 
-    <div class="nav-item" data-target="#talks" onclick="document.getElementById('talks').scrollIntoView({behavior: 'smooth'})" title="Talks">
+    <div class="nav-item" data-target="#talks" onclick="document.getElementById('talks').scrollIntoView({behavior: 'smooth'})">
       <span class="nav-label">Talks</span>
-      <div class="nav-dot"></div>
     </div>
 
-    <div class="nav-item" data-target="#teaching" onclick="document.getElementById('teaching').scrollIntoView({behavior: 'smooth'})" title="Teaching">
+    <div class="nav-item" data-target="#teaching" onclick="document.getElementById('teaching').scrollIntoView({behavior: 'smooth'})">
       <span class="nav-label">Teaching</span>
-      <div class="nav-dot"></div>
     </div>
 
-    <div class="nav-item" data-target="#research" onclick="document.getElementById('research').scrollIntoView({behavior: 'smooth'})" title="Past Publications">
+    <div class="nav-item" data-target="#research" onclick="document.getElementById('research').scrollIntoView({behavior: 'smooth'})">
       <span class="nav-label">Past Publications</span>
-      <div class="nav-dot"></div>
     </div>
   </nav>
 
