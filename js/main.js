@@ -200,4 +200,56 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
   });
+
+  // Lightbox Implementation
+  const createLightbox = () => {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+      <button class="lightbox-close">&times;</button>
+      <img class="lightbox-content" src="" alt="Full screen view">
+    `;
+    document.body.appendChild(lightbox);
+    return lightbox;
+  };
+
+  const lightbox = createLightbox();
+  const lightboxImg = lightbox.querySelector('.lightbox-content');
+  const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+  const openLightbox = (src) => {
+    lightboxImg.src = src;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+    setTimeout(() => {
+      lightboxImg.src = '';
+    }, 300); // Clear source after transition
+  };
+
+  // Add click listeners to hobby images
+  const hobbyImages = document.querySelectorAll('.hobby-image');
+  hobbyImages.forEach(img => {
+    img.addEventListener('click', () => {
+      openLightbox(img.src);
+    });
+  });
+
+  // Close on click outside or close button
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target === lightboxClose) {
+      closeLightbox();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
 });
