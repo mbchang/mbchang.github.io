@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html class="">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Michael Chang is a Research Scientist at OpenAI working on Sora. Previously at Google DeepMind on Project Astra and Gemini. Ph.D. from Berkeley AI Research.">
+  <meta name="author" content="Michael Chang">
+  <meta name="keywords" content="Michael Chang, AI Research, OpenAI, Sora, Google DeepMind, Project Astra, Gemini, Berkeley AI Research, Machine Learning, Artificial Intelligence">
+
+  <!-- Open Graph Meta Tags (Facebook, LinkedIn, etc.) -->
+  <meta property="og:title" content="Michael Chang - AI Research Scientist">
+  <meta property="og:description" content="Research Scientist at OpenAI working on Sora. Previously at Google DeepMind on Project Astra and Gemini. Ph.D. from Berkeley AI Research (BAIR).">
+  <meta property="og:image" content="https://mbchang.github.io/assets/IMG_2558 vertical.jpg">
+  <meta property="og:url" content="https://mbchang.github.io">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Michael Chang">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@mmmbchang">
+  <meta name="twitter:creator" content="@mmmbchang">
+  <meta name="twitter:title" content="Michael Chang - AI Research Scientist">
+  <meta name="twitter:description" content="Research Scientist at OpenAI working on Sora. Previously at Google DeepMind on Project Astra and Gemini. Ph.D. from Berkeley AI Research.">
+  <meta name="twitter:image" content="https://mbchang.github.io/assets/IMG_2558 vertical.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/IMG_2558 cropped.jpg">
+
+  <!-- Preconnect to external domains for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Load fonts with font-display: swap for better performance -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&family=Arvo:wght@700&display=swap" rel="stylesheet">
+  <link href="./css/css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+    /* Color scheme stolen from Sergey Karayev */
+
+    :root {
+      --bkgd-multiplier: 200%;
+      --font-weight: 300;
+      --font-family: 'Source Sans Pro', 'Inter', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    "KaiTi", "楷體", STKaiti, "華文楷體",
+    /*"FangSong", "放鬆", STFangSong, "華文放鬆", */
+    sans-serif;
+      --body-font-size: 16px;
+      --card-padding-y: 28px;
+      --card-padding-x: 42px;
+      --color-bg: #f5f6fb;
+      --color-card-bg: #ffffff;
+      --color-text: #12131a;
+      --color-muted: #63677b;
+      --color-primary: #1c3ed0;
+      --color-primary-light: #e1e6ff;
+      --color-border: rgba(4, 15, 68, 0.08);
+      --shadow-soft: 0 25px 60px rgba(14, 24, 63, 0.12);
+      --shadow-card: 0 18px 40px rgba(9, 17, 45, 0.1);
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    [id] {
+      scroll-margin-top: 140px;
+    }
+    body {
+      background-image: url("assets/tiger-very-light-flip-fade.png");
+      background-repeat: no-repeat;
+      background-position: top;
+      background-attachment: fixed;
+      background-size: var(--bkgd-multiplier);
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      line-height: 1.65;
+      color: var(--color-text);
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+    }
+    body.loaded {
+      opacity: 1;
+    }
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+    a:focus,a:hover {
+      color: #142bbf;
+      text-decoration: none;
+    }
+    body,td,th,tr,p,a {
+      font-family: var(--font-family);
+      font-size: var(--body-font-size);
+      font-weight: var(--font-weight);
+    }
+    p,li {
+      color: var(--color-text);
+      margin-top: 0;
+      margin-bottom: 1.1em;
+    }
+    li {
+      line-height: 1.55;
+    }
+    ul {
+      padding-left: 20px;
+      margin-top: 0.05em;
+      margin-bottom: 0.05em;
+    }
+    strong {
+      font-family: var(--font-family);
+      font-size: var(--body-font-size);
+      font-weight: 400;
+    }
+    h2, h3 {
+      font-family: var(--font-family);
+      color: #0d0d0d;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-top: 0;
+    }
+    h2 {
+      font-size: clamp(24px, 3vw, 30px);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    h3 {
+      font-size: clamp(18px, 2.5vw, 22px);
+      line-height: 1.3;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+    .hero-name {
+      font-weight: 600;
+      font-size: clamp(20px, 2.3vw, 24px);
+      margin: 6px 0 8px;
+    }
+    .hero-name a {
+      color: #141414;
+      font-size: inherit;
+      font-weight: inherit;
+    }
+    .paper-title {
+      font-family: var(--font-family);
+      font-size: var(--body-font-size);
+      font-weight: 500;
+    }
+    .hero-name-title {
+      font-family: 'Inter', 'Source Sans Pro', var(--font-family);
+      font-size: clamp(40px, 5vw, 62px);
+      color: black;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .tab {
+      margin-left: 40px;
+    }
+    .imgborder {
+      border: 1px solid white;
+      display: flex;
+      justify-content: center;
+      background: white;
+    }
+    .page-layout {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .content-column {
+      flex: 0 0 1000px;
+      max-width: 1000px;
+      width: 100%;
+      min-width: 0;
+    }
+    .page-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 24px 120px;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      align-items: center;
+      background: var(--color-card-bg);
+      border-radius: 32px;
+      padding: 48px;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 40px;
+    }
+    .link-row {
+      font-size: 0.95rem;
+      text-align: center;
+      color: var(--color-muted);
+      margin-bottom: 0.8em;
+    }
+    .link-row a {
+      font-weight: 400;
+    }
+    .hero-heading {
+      flex: 1 1 100%;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .hero-text {
+      flex: 1 1 360px;
+    }
+    .hero-photo {
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .profile-photo {
+      width: 220px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    .section-card {
+      width: 100%;
+      border-radius: 28px;
+      background: var(--color-card-bg);
+      box-shadow: var(--shadow-card);
+      margin-bottom: 32px;
+      box-sizing: border-box;
+      border: 1px solid var(--color-border);
+    }
+    section.section-card {
+      padding: var(--card-padding-y) min(var(--card-padding-x), max(16px, 6vw));
+    }
+    section.section-card.accordion {
+      padding: 0;
+    }
+    .accordion {
+      padding: 0;
+      overflow: hidden;
+      transition: box-shadow 0.2s ease;
+    }
+    .accordion:hover {
+      box-shadow: 0 20px 45px rgba(9, 17, 45, 0.12);
+    }
+    .accordion-toggle {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-radius: 28px;
+      padding: var(--card-padding-y) var(--card-padding-x);
+      text-align: left;
+      font-family: var(--font-family);
+      font-size: clamp(20px, 2.2vw, 26px);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--color-text);
+      cursor: pointer;
+      transition: border-radius 0.2s ease;
+      position: relative;
+    }
+    .accordion-toggle[aria-expanded="true"] {
+      border-radius: 28px 28px 0 0;
+    }
+    .accordion-toggle:focus-visible {
+      outline: 3px solid var(--color-primary-light);
+      outline-offset: 4px;
+    }
+    .accordion-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--color-primary-light);
+      color: var(--color-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: transform 0.3s ease, background-color 0.2s ease;
+      flex-shrink: 0;
+    }
+    .accordion-toggle:hover .accordion-icon {
+      background: var(--color-primary);
+      color: white;
+    }
+    .accordion-toggle[aria-expanded="true"] .accordion-icon {
+      transform: rotate(180deg);
+    }
+    .accordion-panel {
+      padding: var(--card-padding-y) min(var(--card-padding-x), max(16px, 6vw));
+      border-top: 1px solid var(--color-border);
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+      max-height: 5000px;
+      opacity: 1;
+    }
+    .accordion-panel[hidden] {
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      border-top: none;
+    }
+    .featured-section .section-content {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      max-width: 100%;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .section-card.featured-section {
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .featured-section .accordion-panel {
+      padding: 30px min(32px, max(16px, 6vw)) 34px;
+    }
+    .tweet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      width: 100%;
+    }
+    .tweet-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .tweet-embed {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      border-radius: 0;
+      overflow: visible;
+      box-shadow: none;
+      display: flex;
+      justify-content: center;
+      background: transparent;
+      padding: 0;
+      min-height: 400px;
+      position: relative;
+    }
+    .tweet-embed blockquote,
+    .tweet-embed iframe {
+      margin: 0 !important;
+      width: 100% !important;
+      max-width: 560px !important;
+      flex: 0 1 560px;
+    }
+    /* Loading skeleton for tweets */
+    .tweet-embed::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 560px;
+      height: 400px;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.06) 0%,
+        rgba(0, 0, 0, 0.08) 50%,
+        rgba(0, 0, 0, 0.06) 100%
+      );
+      background-size: 200% 100%;
+      border-radius: 12px;
+      animation: shimmer 1.5s infinite;
+      z-index: 1;
+    }
+    .tweet-embed.loaded::before {
+      display: none;
+    }
+    @keyframes shimmer {
+      0% {
+        background-position: -200% 0;
+      }
+      100% {
+        background-position: 200% 0;
+      }
+    }
+    /* Fade-in animation for sections */
+    .section-card,
+    .hero {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .section-card.fade-in,
+    .hero.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section-card .section-content {
+      margin-bottom: 12px;
+      padding-top: 6px;
+    }
+    .section-card .section-content > :first-child {
+      margin-top: 0;
+    }
+    .section-card .section-content > :last-child {
+      margin-bottom: 0;
+    }
+    .table-card {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    .table-card td {
+      padding: var(--card-padding-y) var(--card-padding-x);
+    }
+    .publication-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    .past-publications {
+      padding: 36px;
+    }
+    .hero-entry {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+      align-items: flex-start;
+    }
+    .hero-entry:last-of-type {
+      margin-bottom: 0;
+    }
+    .hero-text {
+      flex: 1 1 320px;
+    }
+    .hero-image {
+      flex: 0 0 220px;
+      text-align: center;
+    }
+    .hero-image img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 12px;
+    }
+    .site-footer {
+      margin-top: 48px;
+      text-align: right;
+      font-size: 13px;
+      color: #5b5b5b;
+    }
+    .site-footer a {
+      color: inherit;
+    }
+    .minimap {
+      position: sticky;
+      top: 24px;
+      background: var(--color-card-bg);
+      padding: 16px 18px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(9, 17, 45, 0.18);
+      border: 1px solid var(--color-border);
+      color: var(--color-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .minimap-title {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8e8e8e;
+      margin-bottom: 2px;
+    }
+    .minimap a {
+      font-size: 0.78rem;
+      color: var(--color-muted);
+      transition: color 0.2s ease;
+      padding: 3px 0;
+    }
+    .minimap a:hover {
+      color: var(--color-primary);
+    }
+    .minimap a.is-active {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        padding: 32px;
+        flex-direction: column;
+      }
+      .hero-heading {
+        order: 0;
+      }
+      .hero-photo {
+        order: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 12px 0;
+      }
+      .hero-text {
+        order: 2;
+      }
+      .profile-photo {
+        width: 160px;
+      }
+      .section-card {
+        border-radius: 22px;
+      }
+      .publication-table tr {
+        display: block;
+        margin-bottom: 28px;
+      }
+      .publication-table tr:last-of-type {
+        margin-bottom: 0;
+      }
+      .publication-table td {
+        display: block;
+        width: 100% !important;
+      }
+      .publication-table td:first-child {
+        margin-bottom: 14px;
+      }
+      .imgborder img {
+        max-width: 240px;
+        margin: 0 auto;
+        display: block;
+      }
+      .page-layout {
+        flex-direction: column;
+      }
+      .content-column {
+        flex: 1 1 auto;
+        max-width: 100%;
+      }
+      .minimap {
+        display: none;
+      }
+      .tweet-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .tweet-card {
+        padding: 0;
+        width: 100%;
+      }
+      .tweet-embed blockquote,
+      .tweet-embed iframe {
+        max-width: 100% !important;
+        flex: 1 1 100%;
+      }
+    }
+    /* Extra small screens - tighter padding */
+    @media (max-width: 400px) {
+      .hero {
+        padding: 24px 20px;
+      }
+      .section-card {
+        border-radius: 18px;
+      }
+      .profile-photo {
+        width: 140px;
+      }
+      h2 {
+        font-size: 22px;
+      }
+      .hero-name-title {
+        font-size: 36px;
+      }
+    }
+    /* Back to top button */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 48px;
+      height: 48px;
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: var(--shadow-card);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: opacity 0.3s ease, transform 0.2s ease;
+      opacity: 0;
+    }
+    .back-to-top.visible {
+      display: flex;
+      opacity: 1;
+    }
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 50px rgba(9, 17, 45, 0.15);
+    }
+    .back-to-top:active {
+      transform: translateY(0);
+    }
+    @media (min-width: 769px) {
+      .back-to-top {
+        display: none !important;
+      }
+    }
+  </style>
+  <title>Michael Chang - Ph.D. Research</title>
+</head>
+
+<body>
+  <div class="page-container">
+    <div class="page-layout">
+      <div class="content-column">
+
+          <!-- About -->
+          <section class="hero">
+            <div class="hero-heading">
+              <h1 class="hero-name-title">Michael Chang</h1>
+            </div>
+            <div class="hero-text">
+              <p>
+                I graduated from my Ph.D. from <a href="http://bair.berkeley.edu/">Berkeley AI Research (BAIR)</a> in 2023, advised by Professors <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine</a> and <a href="http://cocosci.princeton.edu/tom/tom.php">Tom Griffiths</a>, and funded by the <a href="https://www.nsfgrfp.org/">NSF Graduate Research Felowship</a>.
+                My dissertation talk can be found <a href="https://www.youtube.com/watch?v=CzK1ah74PBs">here</a>.
+              </p>
+              <p>
+                During my Ph.D., I was fortunate to have interned at <a href="https://www.deepmind.com/">DeepMind</a> and <a href="https://ai.facebook.com/">Meta AI</a>.
+                Besides my Ph.D. advisors, I have been fortunate to have received mentorship from
+                <a href="http://people.idsia.ch/~juergen/">Jürgen Schmidhuber</a>,
+                <a href="http://web.mit.edu/cocosci/josh.html">Josh Tenenbaum</a>,
+                <a href="http://web.mit.edu/torralba/www">Antonio Torralba</a>,
+                <a href="http://web.eecs.umich.edu/~honglak/">Honglak Lee</a>,
+                <a href="https://willwhitney.com/">Will Whitney</a>,
+                <a href="https://tejasdkulkarni.github.io/">Tejas Kulkarni</a>,
+                <a href="http://rubenvillegas.me/">Ruben Villegas</a>,
+                and <a href="https://www.ytzhang.net/">Yuting Zhang</a>, who helped me begin my path into AI research.
+              </p>
+              <p>
+                For more about my current work, see my <a href="index.html">main page</a>.
+              </p>
+              <p class="link-row" align="center">
+                <!-- <a href="./cv.pdf">CV</a> &nbsp;/&nbsp; -->
+                <a href="https://scholar.google.com/citations?user=vgfGtykAAAAJ&hl=en">Google Scholar</a> &nbsp;/&nbsp;
+                <a href="https://www.linkedin.com/in/mbchang">LinkedIn</a> &nbsp;/&nbsp;
+                <a href="https://github.com/mbchang">Github</a> &nbsp;/&nbsp;
+                <a href="https://twitter.com/mmmbchang">Twitter</a> &nbsp;/&nbsp;
+                <a href="https://www.goodreads.com/user/show/69084065-michael-chang">Goodreads</a> &nbsp;/&nbsp;
+                <a href="https://www.collegeswimming.com/swimmer/141629/">Swimming</a> &nbsp;/&nbsp;
+                <a href="https://x.com/mmmbchang/status/1987684721107812649">Cameo</a>
+              </p>
+            </div>
+            <div class="hero-photo">
+              <img class="profile-photo"
+                   src="./assets/IMG_2558 vertical.jpg"
+                   loading="lazy"
+                   alt="Michael Chang smiling on a plane.">
+            </div>
+          </section>
+
+
+
+
+
+          <section class="section-card accordion" id="phd-research">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="phd-research-panel">
+              <span>My Ph.D. Research</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="phd-research-panel" hidden>
+              <table class="table-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+                <tbody>
+                  <tr>
+                    <td width="100%" valign="middle">
+                      <p>
+                        Our neural networks today are strikingly similar to what computing was like a hundred years ago.
+                        Back then we designed specialized electronic circuits for each different task; in the past decade we have been training specialized neural circuits for each different task.
+                        In the 1940s we developed the von Neumann architecture for computing; now our <a href="https://www.deepmind.com/publications/improving-language-models-by-retrieving-from-trillions-of-tokens">retrieval augmented transformers</a> are doing essentially the same thing.
+                        <b>Just as software abstractions were key to scaling our electronic circuits to the modern software stack, I believe that to shift artificial intelligence research from building learning circuits to building learning software, we also need to invent the analog of software abstractions for neural networks.</b>
+                      </p>
+                      <p>
+                      My research is on what I call <b>neural software abstractions</b>: understanding the principles that make abstractions in traditional software powerful, and translating these principles into deep learning algorithms to enable neural learners to construct their own abstractions for modeling and manipulating systems.
+                      Examples include:
+                      </p>
+                      <ul>
+                        <li><a href="#implicit2022">How <b>digital abstraction</b>, or the discretization of continuous representations, can be implemented via the <b>principle of error correction</b>.</a></li>
+                        <li><a href="#op32019">How <b>variable abstraction</b>, or the construction of placeholders for datapoints, can be implemented via the <b>principle of symmetry</b>.</a></li>
+                        <li><a href="#acl2021">How <b>function abstraction</b>, or the representation of reusable computations, can be implemented via the <b>principle of independence</b>.</a></li>
+                        <li><a href="#drl2020">How <b>problem abstraction</b>, or the coordination of local modules for exhibiting global behaviors, can be implemented via the <b>principle of competition</b>.</a></li>
+                      </ul>
+                      To build learning algorithms that automatically model and manipulate systems, much of my research has focused on the <b>unsupervised learning of representations of objects and their relations</b>, because studying how to model and manipulate physical systems confers various advantages:
+                      <ul>
+                        <li>Objects and relations are intuitive abstractions that are present in everyday experience.</li>
+                        <li>A general-purpose solution for solving physical tasks would provide much economic and societal value.</li>
+                        <li><a href="https://arxiv.org/abs/1604.00289">Literature</a> in cognitive science studying how infants acquire physical common sense can offer inspiration for developing agents with similar capabilities.
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- News -->
+          <section class="section-card accordion" id="news">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="news-panel">
+              <span>News</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="news-panel" hidden>
+              <table class="table-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+                <tbody>
+                  <tr>
+                    <td width="100%" valign="middle">
+                      <ul>
+                        <li><b>June 2023</b>: I began working at <a href="https://deepmind.google/">Google DeepMind</a> as a Research Scientist.</li>
+                        <li><b>April 2022</b>: <strong style="color:green">Oral Presentation</strong> - Our paper <a href="https://sites.google.com/view/implicit-slot-attention/home">Object Representations as Fixed Points: Training Iterative Inference Algorithms with Implicit Differentiation</a> was selected for a oral presentation at the ICLR 2022 Workshop on Elements of Reasoning: Objects, Structure, and Causality.</li>
+                        <li><b>July 2021</b>: <strong style="color:green">Oral Presentation</strong> - Our paper <a href="https://sites.google.com/view/modularcreditassignment">Modularity in Reinforcement Learning via Algorithmic Independence in Credit Assignment</a> was selected for a long oral presentation at ICML 2021.</li>
+                        <li><b>December 2020</b>: <strong style="color:#33C1FF">Workshop</strong> - I co-organized a NeurIPS 2020 workshop on <a href="https://orlrworkshop.github.io/">Object Representations for Learning and Reasoning</a>.</li>
+                        <li><b>June 2019</b>: <strong style="color:#33C1FF">Workshop</strong> - I co-organized an ICML 2019 workshop on <a href="https://sites.google.com/view/mbrl-icml2019/home?authuser=0">Generative Modeling and Model-Based Reasoning for Robotics and AI</a>.</li>
+                        <li><b>May 2018</b>: <strong style="color:purple">Press Article</strong> - <a href="https://arxiv.org/abs/1612.00341">"A Compositional Object-Based Approach to Learning Physical Dynamics"</a> featured in <a href="http://www.sciencemag.org/news/2018/05/how-researchers-are-teaching-ai-learn-child?utm_source=general_public&utm_medium=youtube&utm_campaign=vid-ai-kid-19551">Science Magazine</a> (<a href="https://youtu.be/79zHbBuFHmw">accompany video</a> | <a href="https://youtu.be/79zHbBuFHmw?t=123">featured segment</a>). </li>
+                        <li><b>April 2018</b>: <strong style="color:purple">Press Article</strong> - <a href="https://arxiv.org/abs/1802.10353">"Relational Neural Expectation Maximization: Unsupervised Discovery of Objects and their Interactions"</a> featured in an <a href="https://blogs.nvidia.com/blog/2018/04/30/nvail-deep-learning-iclr/">NVIDIA blog post.</a></li>
+                        <li><b>December 2017</b>: <strong style="color:green">Award</strong> -  Our NIPS <a href="https://sites.google.com/view/ciai2017/home">workshop</a> paper on <a href="https://drive.google.com/file/d/0B9x3IewnhkK1R0VfQ1E5ZTRsYWM/view">Relational Neural Expectation Maximization</a> received the <i>Outstanding Paper Award</i> sponsored by <a href="https://www.oculus.com/">Oculus</a>.</li>
+                        <li><b>March 2015</b>: <strong style="color:purple">Press Article</strong> - <a href="http://news.mit.edu/2015/finger-mounted-reading-device-blind-0310">Finger-Mounted Reading Device for the Blind</a>, with <a href="http://hi.cs.stonybrook.edu/">Roy Shilkrot</a> and <a href="https://www.linkedin.com/in/marcel-polanco-87a6627b/">Marcelo Polanco</a>.</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Talks -->
+          <section class="section-card accordion" id="talks">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="talks-panel">
+              <span>Talks</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="talks-panel" hidden>
+              <table class="table-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+                <tbody>
+                  <tr>
+                    <td width="100%" valign="middle">
+                      <ul>
+                        <li><b>Dissertation Talk</b>: "Neural Software Abstractions: Learning to Automatically Model and Manipulate Systems." [<a href="https://www.youtube.com/watch?v=CzK1ah74PBs">video</a>] </li>
+                        <li><b>April 2022</b>: <a href="https://icml.cc/Conferences/2021/Schedule?showEvent=8697">Generally Intelligent</a>. "Object Representations as Fixed Points: Training Iterative Inference Algorithms with Implicit Differentiation." [<a href="https://www.youtube.com/watch?v=hxGNnfZRuB8">video</a>] </li>
+                        <li><b>July 2021</b>: <a href="https://icml.cc/Conferences/2021/Schedule?showEvent=8697">International Conference on Machine Learning (2021)</a>. "Modularity in Reinforcement Learning via Algorithmic Independence in Credit Assignment." [<a href="https://drive.google.com/file/d/1uFbVRyrmoCijS4I9VYsju-gdu28QVALy/view?usp=sharing">slides</a>] [<a href="https://www.youtube.com/watch?v=_KXdjWxJ2Ow">video</a>]  </li>
+                        <li><b>July 2020</b>: <a href="https://sites.google.com/view/berkeleymarl/home">Berkeley Multi-Agent Reinforcement Learning Seminar</a>. "Decentralized Reinforcement Learning: Global Decision-Making via Local Economic Transactions." [<a href="https://drive.google.com/file/d/1EjLKbC9T73ByTtyG2C7zHLP0cqbZLstI/view?usp=sharing">slides</a>] </li>
+                        <li><b>February 2020</b>: MIT <a href="http://cocosci.mit.edu/">CoCoSci</a>, <a href="https://people.csail.mit.edu/pulkitag/">Improbable AI Lab</a>, <a href="http://lis.csail.mit.edu/">Learning and Intelligent Systems Group</a>. "Entity Abstraction in Visual Model-Based Reinforcement Learning." [<a href="https://drive.google.com/open?id=1-QBmbGZiiR9Bzg2gIICcDuAl4EVDlwEZ">slides</a>] </li>
+                        <li><b>October 2019</b>: <a href="http://cocolab.stanford.edu/">Stanford Computation & Cognition Lab</a>. "Automatically Composing Representation Transformations as a Means for Generalization." [<a href="https://drive.google.com/file/d/1myDjRKf_Tq8DHNDqWSc2mEKXO5jle5Vl/view?usp=sharing">slides</a>] </li>
+                        <li><b>August 2019</b>: <a href="https://ai.google/research/teams/brain/">Google Brain, Mountain View</a>. "Automatically Composing Represenation Transformations as a Means for Generalization." [<a href="https://drive.google.com/file/d/1myDjRKf_Tq8DHNDqWSc2mEKXO5jle5Vl/view?usp=sharing">slides</a>] </li>
+                        <li><b>November 2018</b>: <a href="http://cocosci.mit.edu/">MIT CoCoSci</a>. "Leveraging Compositional Inductive Biases to Help Deep Learning Methods Extrapolate"</li>
+                        <li><b>April 2018</b>: <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-ai/">Microsoft Research, Redmond</a>. "Unsupervised Discovery of Objects and the Interactions"</li>
+                        <li><b>May 2017</b>: <a href="https://mila.umontreal.ca/en/">Montreal Institute for Learning Algorithms</a>. "Learning Visual and Physical Models of the Environment"</li>
+                        <li><b>March 2017</b>: <a href="https://openai.com/">OpenAI</a>. "A Compositional Object-Based Approach to Learning Physical Dynamics"</li>
+                        <li><b>February 2017</b>: <a href="http://nlp.seas.harvard.edu/">Harvard NLP</a>. "Learning Visual and Physical Models of the Environment"</li>
+                        <li><b>January 2017</b>: <a href="https://research.google.com/">Google, Cambridge</a>. "Learning Visual and Physical Models of the Environment"</li>
+                        <li><b>April 2016</b>: <a href="http://eecscon.mit.edu/">MIT EECScon</a>. "Understanding Visual Concepts with Continuation Learning"</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Teaching -->
+          <section class="section-card accordion" id="teaching">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="teaching-panel">
+              <span>Teaching</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="teaching-panel" hidden>
+              <table class="table-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+                <tbody>
+                  <tr>
+                    <td width="100%" valign="middle">
+                      <ul>
+                        <li><a href="https://inst.eecs.berkeley.edu/~cs188/sp19/">CS188: Introduction to Artificial Intelligence - Spring 2019:</a> Graduate Student Instructor</li>
+                        <li><a href="http://rail.eecs.berkeley.edu/deeprlcourse/">CS294-112: Deep Reinforcement Learning - Fall 2018:</a> Graduate Student Instructor</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Research Header -->
+          <section class="section-card accordion past-publications" id="research">
+            <button class="accordion-toggle" type="button" aria-expanded="false" aria-controls="research-panel">
+              <span>Past Publications</span>
+              <span class="accordion-icon" aria-hidden="true">▾</span>
+            </button>
+            <div class="accordion-panel" id="research-panel" hidden>
+              <div class="section-content">
+                <p>
+                  The list below highlights my publications during and before my Ph.D. For an updated list of my most recent publications, please see my <a href="https://scholar.google.com/citations?user=vgfGtykAAAAJ&hl=en">Google Scholar</a>.
+                </p>
+              </div>
+            <table class="publication-table" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+              <tbody>
+
+                <!-- Modularity -->
+                <tr id='implicit2022'>
+                  <td width="25%">
+                    <div class="imgborder">
+                      <img src="./assets/teaser_slot_attention.png" width="100%" height="100%">
+                    </div>
+                  </td>
+                  <td valign="top" width="75%">
+                    <p>
+                      <a href="https://arxiv.org/pdf/2207.00787.pdf">
+                        <span class="paper-title">Object Representations as Fixed Points: Training Iterative Inference Algorithms with Implicit Differentiation</span>
+                      </a>
+                      <br>
+                      <strong>Michael Chang</strong>, <a href=http://cocosci.princeton.edu/tom/index.php>Thomas Griffiths</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
+                      <br>
+                      <em>Proceedings of the Thirty-sixth Conference on Neural Information Processing Systems (NeurIPS)</em>, 2022
+                      <br>
+                      <a href="https://sites.google.com/view/implicit-slot-attention/home">project webpage</a> /
+                      <a href="https://www.youtube.com/watch?v=59ZVjYVVmcs">talk</a>
+                      <br><br> Also in:<br>
+                      <a href="https://iclr.cc/virtual/2022/workshop/4554#wse-detail-8051"><em>&nbsp&nbsp ICLR Workshop on the Elements of Reasoning: Objects, Structure, and Causality</em>, 2019</a> <strong style="color:green">(Oral Presentation)</strong>
+                      <!-- / <a href="https://drive.google.com/file/d/1YtagDu5gF1y7ed6K-adTOV29bIdLuMpO/view?usp=sharing">slides</a> -->
+                    <p></p>
+                    <p>
+                    Deep generative models, particularly those that aim to factorize the observations into discrete entities (such as objects), must often use iterative inference procedures that break symmetries among equally plausible explanations for the data. Such inference procedures include variants of the expectation-maximization algorithm and structurally resemble clustering algorithms in a latent space. However, combining such methods with deep neural networks necessitates differentiating through the inference process, which can make optimization exceptionally challenging. We observe that such iterative amortized inference methods can be made differentiable by means of the implicit function theorem, and develop an implicit differentiation approach that improves the stability and tractability of training such models by decoupling the forward and backward passes. This connection enables us to apply recent advances in optimizing implicit layers to not only improve the stability and optimization of the slot attention module in SLATE, a state-of-the-art method for learning entity representations, but do so with constant space and time complexity in backpropagation and only one additional line of code.
+                  </p>
+                  </td>
+                </tr>
+
+                <!-- Modularity -->
+                <tr id='acl2021'>
+                  <td width="25%">
+                    <div class="imgborder">
+                      <img src="./assets/modularity_in_rl.gif" width="100%" height="100%">
+                    </div>
+                  </td>
+                  <td valign="top" width="75%">
+                    <p>
+                      <a href="https://arxiv.org/abs/2106.14993">
+                        <span class="paper-title">Modularity in Reinforcement Learning via Algorithmic Independence in Credit Assignment</span>
+                      </a>
+                      <br>
+                      <strong>Michael Chang*</strong>, <a href="mailto: kaushik.sid.99@berkeley.edu">Sid Kaushik*</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>, <a href=http://cocosci.princeton.edu/tom/index.php>Thomas Griffiths</a>
+                      <br>
+                      <em>Proceedings of the Thirty-eighth International Conference on Machine Learning (ICML)</em>, 2021
+                      <br>
+                      <strong style="color:green">Long Presentation (166 out of 5513)</strong>
+                      <br>
+                      <a href="https://sites.google.com/view/modularcreditassignment">project webpage</a> /
+                      <a href="https://www.youtube.com/watch?v=_KXdjWxJ2Ow">talk</a> /
+                      <a href="https://drive.google.com/file/d/1YtagDu5gF1y7ed6K-adTOV29bIdLuMpO/view?usp=sharing">slides</a>
+                    <p></p>
+                    <p>
+                    Many transfer problems require re-using previously optimal decisions for solving new tasks, which suggests the need for learning algorithms that can modify the mechanisms for choosing certain actions independently of those for choosing others. However, there is currently no formalism nor theory for how to achieve this kind of modular credit assignment. To answer this question, we define modular credit assignment as a constraint on minimizing the algorithmic mutual information among feedback signals for different decisions. We introduce what we call the modularity criterion for testing whether a learning algorithm satisfies this constraint by performing causal analysis on the algorithm itself. We generalize the recently proposed societal decision-making framework as a more granular formalism than the Markov decision process to prove that for decision sequences that do not contain cycles, certain single-step temporal difference action-value methods meet this criterion while all policy-gradient methods do not. Empirical evidence suggests that such action-value methods are more sample efficient than policy-gradient methods on transfer problems that require only sparse changes to a sequence of previously optimal decisions.
+                  </p>
+                  </td>
+                </tr>
+
+                <!-- Auction -->
+                <tr id='drl2020'>
+                  <td width="25%">
+                    <div class="imgborder">
+                      <img src="./assets/decentralized_gif.gif" width="100%" height="100%">
+                    </div>
+                  </td>
+                  <td valign="top" width="75%">
+                    <p>
+                      <a href="https://arxiv.org/abs/2007.02382">
+                        <span class="paper-title">Decentralized Reinforcement Learning: Global Decision-Making via Local Economic Transactions</span>
+                      </a>
+                      <br>
+                      <strong>Michael Chang</strong>, <a href="mailto: kaushik.sid.99@berkeley.edu">Sid Kaushik</a>, <a href=https://www.cs.princeton.edu/~smattw/>S. Matthew Weinberg</a>, <a href=http://cocosci.princeton.edu/tom/index.php>Thomas Griffiths</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
+                      <br>
+                      <em>Proceedings of the Thirty-seventh International Conference on Machine Learning (ICML)</em>, 2020
+                      <br>
+                      <a href="https://sites.google.com/view/clonedvickreysociety/home">project webpage</a> /
+                      <a href="https://icml.cc/virtual/2020/paper/6293">ICML talk</a> /
+                      <a href="https://drive.google.com/file/d/1uFbVRyrmoCijS4I9VYsju-gdu28QVALy/view?usp=sharing">slides</a> /
+                      <a href="https://bair.berkeley.edu/blog/2020/07/11/auction/">blog post</a> /
+                      <a href="https://github.com/mbchang/decentralized-rl">code</a>
+                    </p>
+                    <p></p>
+                    <p>We develop the societal decision-making framework in which a society of primitive agents buy and sell to each other the right to operate on the environment state in a series of auctions. We prove that the Vickrey auction mechanism can be adapted to incentive the society to collectively solve MDPs as an emergent consequence of the primitive agents optimizing their own auction utilities. We propose a class of decentralized reinforcement learning algorithms for training the society that uses credit assignment that is local in space and time. The societal decision-making framework and decentralized reinforcement learning algorithms can be applied not only to standard reinforcement learning, but also for selecting options in semi-MDPs and dynamically composing computation graphs. We find evidence that suggests the potential advantages of a society’s inherent modular structure for more efficient transfer learning.</p>
+                  </td>
+                </tr>
+
+                <!-- OP3 -->
+                <tr id='op32019'>
+                  <td width="25%">
+                    <div class="imgborder">
+                      <img src="./assets/high_level_overview_op3.png" width="100%" height="100%">
+                    </div>
+                  </td>
+                  <td valign="top" width="75%">
+                    <p>
+                      <a href="https://arxiv.org/abs/1910.12827">
+                        <span class="paper-title">Entity Abstraction in Visual Model-Based Reinforcement Learning</span>
+                      </a>
+                      <br>
+                      <a href=https://sites.google.com/view/rishiv/>Rishi Veerapaneni*</a>, <a href=https://people.eecs.berkeley.edu/~jcoreyes/>John D. Co-Reyes*</a>, <strong>Michael Chang*</strong>, <a href=https://people.eecs.berkeley.edu/~janner/>Michael Janner</a>, <a href=http://people.eecs.berkeley.edu/~cbfinn/>Chelsea Finn</a>, <a href=https://jiajunwu.com/>Jiajun Wu</a>, <a href=http://web.mit.edu/cocosci/josh.html>Joshua B. Tenenbaum</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
+                      <br>
+                      <em>Proceedings of the Conference on Robot Learning (CORL)</em>, 2019
+                      <br>
+                      <a href="https://sites.google.com/view/op3website/">project webpage</a> /
+                      <a href="https://github.com/jcoreyes/OP3">code</a> /
+                      <a href="https://github.com/JannerM/o2p2">environment</a> /
+                      <a href="https://drive.google.com/open?id=1-QBmbGZiiR9Bzg2gIICcDuAl4EVDlwEZ">slides</a>
+                      <br><br> Also in:<br>
+                    <a href="https://pgr-workshop.github.io/accepted_papers/"><em>&nbsp&nbsp NeurIPS workshop on Perception as Generative Reasoning</em>, 2019</a> <strong style="color:green">(Spotlight Talk)</strong>
+                    <br>
+                    <a href="https://sites.google.com/view/deep-rl-workshop-neurips-2019/home?authuser=0"><em>&nbsp&nbsp NeurIPS workshop on Deep Reinforcement Learning</em>, 2019</a>
+                    <br>
+                    <a href="https://www.svrhm2019.com/call-for-papers"><em>&nbsp&nbsp NeurIPS workshop on Shared Visual Representations in Human & Machine Intelligence</em>, 2019</a>
+                    <br>
+                    <a href="https://sites.google.com/view/mbrl-icml2019/home?authuser=0"><em>&nbsp&nbsp ICML workshop on Generative Modeling and Model-Based Reasoning for Robotics and AI</em>, 2019</a>
+                  </p>
+                  <p></p>
+                  <p>We present object-centric perception, prediction, and planning (OP3), which to the best of our knowledge is the first entity-centric dynamic latent variable framework for model-based reinforcement learning that acquires entity representations from raw visual observations without supervision and uses them to predict and plan. OP3 enforces entity-abstraction -- symmetric processing of each entity representation with the same locally-scoped function -- which enables it to scale to model different numbers and configurations of objects from those in training. Our approach to solving the key technical challenge of grounding these entity representations to actual objects in the environment is to frame this variable binding problem as an inference problem, and we developing an interactive inference algorithm that uses temporal continuity and interactive feedback to bind information about object properties to the entity variables.</p>
+                </td>
+              </tr>
+
+              <!-- MCP -->
+              <tr id='mcp2019'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/mcp.gif" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1905.09808">
+                      <span class="paper-title">MCP: Learning Composable Hierarchical Control with Multiplicative Compositional Policies</span>
+                    </a>
+                    <br>
+                    <a href=https://xbpeng.github.io>Jason Peng</a>, <strong>Michael Chang</strong>, <a href="mailto: grace.zhang@berkeley.edu">Grace Zhang</a>, <a href=https://people.eecs.berkeley.edu/~pabbeel/>Pieter Abbeel</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>
+                    <br>
+                    <em>Proceedings of the Thirty-third Conference on Neural Information Processing Systems</em>, 2019
+                    <br>
+                    <a href="https://xbpeng.github.io/projects/MCP/index.html">project webpage</a>
+                  </p>
+                  <p></p>
+                  <p>We propose multiplicative compositional policies (MCP), a method for learning reusable motor skills that can be composed to produce a range of complex behaviors. Our method factorizes an agent's skills into a collection of primitives, where multiple primitives can be activated simultaneously via multiplicative composition. This flexibility allows the primitives to be transferred and recombined to elicit new behaviors as necessary for novel tasks. We demonstrate that MCP is able to extract composable skills for highly complex simulated characters from pre-training tasks, such as motion imitation, and then reuse these skills to solve challenging continuous control tasks, such as dribbling a soccer ball to a goal, and picking up an object and transporting it to a target location.</p>
+                </td>
+              </tr>
+
+
+              <!-- COBEHA Doing more with less -->
+              <tr id='cobeha2019'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/cobeha2019.jpg" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://authors.elsevier.com/c/1Ye0-8MqMiUmwg">
+                      <span class="paper-title">Doing more with less: meta-reasoning and meta-learning in humans and machines</span>
+                    </a>
+                    <br>
+                    <a href=http://cocosci.berkeley.edu/tom/index.php>Thomas Griffiths</a>, <a href=http://fredcallaway.com/>Frederick Callaway</a>, <strong>Michael Chang</strong>, <a href=https://people.eecs.berkeley.edu/~eringrant/>Erin Grant</a>, Paul M. Krueger, <a href=https://sites.google.com/site/falklieder/home?authuser=0>Falk Lieder</a>
+                    <br>
+                    <em>Current Opinion in Behavioral Sciences</em>, Volume 29, 2019
+                    <br>
+                  </p>
+                  <p></p>
+                  <p>Artificial intelligence systems use an increasing amount of computation and data to solve very specific problems. By contrast, human minds solve a wide range of problems using a fixed amount of computation and limited experience. We identify two abilities that we see as crucial to this kind of general intelligence: meta-reasoning (deciding how to allocate computational resources) and meta-learning (modeling the learning environment to make better use of limited data). We summarize the relevant AI literature and relate the resulting ideas to recent work in psychology.</p>
+                </td>
+              </tr>
+
+              <!-- CRL ICLR 2019 -->
+              <tr id='crl'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/fsm.png" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1807.04640">
+                      <span class="paper-title">Automatically Composing Representation Transformations as a Means for Generalization</span>
+                    </a>
+                    <br>
+                    <strong>Michael Chang</strong>, <a href=https://people.eecs.berkeley.edu/~abhigupta/>Abhishek Gupta</a>, <a href=http://people.eecs.berkeley.edu/~svlevine/>Sergey Levine</a>, <a href=http://cocosci.berkeley.edu/tom/index.php>Thomas Griffiths</a>
+                    <br>
+                    <!-- <em>ICML workshop Neural Abstract Machines & Program Induction v2</em>, 2018 -->
+                    <em>Proceedings of the International Conference on Learning Representations (ICLR) </em>, 2019
+                    <br>
+                    <a href="https://sites.google.com/view/compositionalrecursivelearner/home">project webpage</a> /
+                    <a href="https://github.com/mbchang/crl">code</a> /
+                    <a href="./assets/crl-poster.pdf">poster</a> /
+                    <a href="https://drive.google.com/file/d/1myDjRKf_Tq8DHNDqWSc2mEKXO5jle5Vl/view?usp=sharing">slides</a>
+                  </p>
+                  <p></p>
+                  <p>This paper connects and synthesizes ideas from reformulation, metareasoning, program induction, hierarchical reinforcement learning, and self-organizing neural networks. The key perspective of this paper is to recast the problem of generalization to a problem of learning algorithmic procedures over representation transformations: discovering the structure of a family of problems amounts to learning a set of reusable primitive transformations and their means of composition. Our formulation enables the learner to learn the structure and parameters of its own computation graph with sparse supervision, make analogies between problems by transforming one problem representation to another, and exploit modularity and reuse to scale to problems of varying complexity.</p>
+                </td>
+              </tr>
+
+              <!-- Lightbot Cogsci 2018 -->
+              <tr id='lbot'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/puzzle_reference.jpg" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1807.07134">
+                      <span class="paper-title">Representational Efficiency Outweighs Action Efficiency in Human Program Induction</span>
+                    </a>
+                    <br>
+                    <a href="https://github.com/sophiaas">Sophia Sanborn</a>, <a href="https://www.linkedin.com/in/david-bourgin/">David Bourgin</a>, <strong>Michael Chang</strong>, <a href=http://cocosci.berkeley.edu/tom/index.php>Thomas Griffiths</a>
+                    <br>
+                    <em>Proceedings of the 40th Annual Conference of the Cognitive Science Society</em>, 2018
+                    <br>
+                  </p>
+                  <p></p>
+                  <p>
+                    This paper introduces Lightbot, a problem-solving domain that explores the link between problem solving and program induction. This paper departs from work in hierarchical learning that hypothesize that hierarchies accelerates the discovery of shortest-path solutions to a problem by segmenting the solution into subgoals. Instead, we investigate a setting in which the hierarchical solutions that humans discover minimize the complexity of the underlying program that generated the solution rather than minimize the length of the solution itself.
+                  </p>
+                </td>
+              </tr>
+
+              <!-- Relational Neural Expectation Maximization ICLR -->
+              <tr id='rnem'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/rnem.gif" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1802.10353">
+                      <span class="paper-title">Relational Neural Expectation Maximization: Unsupervised Discovery of Objects and their Interactions</span>
+                    </a>
+                    <br>
+                    <a href=http://www.sjoerdvansteenkiste.com/>Sjoerd van Steenkiste</a>, <strong>Michael Chang</strong>, <a href=https://qwlouse.github.io//>Klaus Greff</a>, <a href=http://people.idsia.ch/~juergen/>Jürgen Schmidhuber</a>
+                    <br>
+                    <em>Proceedings of the International Conference on Learning Representations (ICLR)</em>, 2018
+                    <br>
+                    <strong style="color:purple">Press:</strong> <a href="https://blogs.nvidia.com/blog/2018/04/30/nvail-deep-learning-iclr/">NVIDIA article</a>
+                    <br>
+                    <a href="https://sites.google.com/view/r-nem-gifs/">project webpage</a> /
+                    <a href="https://github.com/sjoerdvansteenkiste/Relational-NEM">code</a>
+                  </p>
+                  <p></p>
+                  <p>We present a novel method that learns to discover objects and model their physical interactions from raw visual images in a purely unsupervised fashion. It incorporates prior knowledge about the compositional nature of human perception to factor interactions between object-pairs and learn efficiently. On videos of bouncing balls we show the superior modeling capabilities of our method compared to other unsupervised neural approaches that do not incorporate such prior knowledge.</p>
+                </td>
+              </tr>
+
+              <!-- Relational Neural Expectation Maximization NIPS-->
+              <tr id='rnem_workshop'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/rnem_diagram.png" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://drive.google.com/file/d/0B9x3IewnhkK1R0VfQ1E5ZTRsYWM/view">
+                      <span class="paper-title">Relational Neural Expectation Maximization</span>
+                    </a>
+                    <br>
+                    <a href=http://www.sjoerdvansteenkiste.com/>Sjoerd van Steenkiste</a>, <strong>Michael Chang</strong>, <a href=https://qwlouse.github.io//>Klaus Greff</a>, <a href=http://people.idsia.ch/~juergen/>Jürgen Schmidhuber</a>
+                    <br>
+                    <em>NIPS workshop on Cognitively Informed Artificial Intelligence</em>, 2017
+                    <br>
+                    <strong style="color:green">Oral Presentation, Oculus Outstanding Paper Award</strong>
+                    <br>
+                  </p>
+                  <p></p>
+                  <p>We propose a novel approach to common-sense physical reasoning that learns physical interactions between objects from raw visual images in a purely unsupervised fashion. Our method incorporates prior knowledge about the compositional nature of human perception, enabling it to discover objects, factor interactions between object-pairs to learn efficiently, and generalize to new environments without re-training.</p>
+                </td>
+              </tr>
+
+              <!-- A Compositional Object-Based Approach to Learning Physical Dynamics -->
+              <tr id='npe'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/balls_n7_npe_pred_batch0_ex0.gif" width="100%" height="100%">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1612.00341">
+                      <span class="paper-title">A Compositional Object-Based Approach to Learning Physical Dynamics</span>
+                    </a>
+                    <br>
+                    <strong>Michael B. Chang</strong>, <a href=http://www.mit.edu/~tomeru/>Tomer D. Ullman<a/>, <a href=http://web.mit.edu/torralba/www/>Antonio Torralba</a>, <a href=http://web.mit.edu/cocosci/josh.html>Joshua B. Tenenbaum</a>
+                    <br>
+                    <em>Proceedings of the International Conference on Learning Representations (ICLR)</em>, 2017
+                    <br>
+                    <strong style="color:purple">Press:</strong> <a href="http://www.sciencemag.org/news/2018/05/how-researchers-are-teaching-ai-learn-child?utm_source=general_public&utm_medium=youtube&utm_campaign=vid-ai-kid-19551">Science Magazine article</a> (<a href="https://youtu.be/79zHbBuFHmw">accompany video</a> | <a href="https://youtu.be/79zHbBuFHmw?t=123">featured segment</a>)
+                    <br>
+                    <a href="http://mbchang.github.io/npe/">project webpage</a> /
+                    <a href="https://github.com/mbchang/dynamics">code</a> /
+                    <a href="./assets/npe-poster.pdf">poster</a> /
+                    <a href="https://www.youtube.com/watch?v=ifMRtHRMQe8&feature=youtu.be">spotlight talk (NIPS Intuitive Physics Workshop)</a>
+                  </p>
+                  <p></p>
+                  <p>The Neural Physics Engine (NPE) frames learning a simulator of intuitive physics as learning a compositional program over objects and interactions. This allows the NPE to naturally generalize across variable object count and different scene configurations.</p>
+                </td>
+              </tr>
+
+              <!-- Understanding Visual Concepts with Continuation Learning -->
+              <tr id='udcign'>
+                <td width="25%">
+                  <div class="imgborder">
+                    <img src="./assets/uvc-face.gif" height="100%" align="middle">
+                  </div>
+                </td>
+                <td valign="top" width="75%">
+                  <p>
+                    <a href="https://arxiv.org/abs/1602.06822">
+                      <span class="paper-title">Understanding Visual Concepts with Continuation Learning</span>
+                    </a>
+                    <br>
+                    <a href="http://www.willwhitney.com">William F. Whitney</a>, <strong>Michael B. Chang</strong>, <a href=https://tejasdkulkarni.github.io/>Tejas D. Kulkarni</a>, <a href=http://web.mit.edu/cocosci/josh.html>Joshua B. Tenenbaum</a>
+                    <br>
+                    <em>International Conference on Learning Representations (ICLR) workshop</em>, 2016
+                    <br>
+                    <a href="http://willwhitney.github.io/understanding-visual-concepts/">project webpage</a> /
+                    <a href="https://github.com/willwhitney/understanding-visual-concepts">code</a>
+                  </p>
+                  <p></p>
+                  <p>This paper presents an unsupervised approach to learning factorized symbolic representations of high-level visual concepts by exploiting temporal continuity in the scene.</p>
+                </td>
+              </tr>
+            </tbody>
+            </tbody>
+          </table>
+          </div>
+          </section>
+
+
+          <!-- Fun Stuff --><!--
+          <table class="section-card" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+            <tbody>
+              <tr>
+                <td width="100%" valign="middle">
+                  <h2 id="research">Fun</h2>
+                  <p>
+                    <a href="https://neurotree.org/neurotree/tree.php?pid=737469">My academic family tree</a>
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table> -->
+
+          <!-- Website Credits -->
+          <footer class="site-footer">
+            <a href="http://jonbarron.info/">website template credits</a>
+          </footer>
+
+
+          <!-- Scripts -->
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <script>
+            (function(){
+              var htmlStyles = window.getComputedStyle(document.querySelector("html"));
+              var bkgd_multiplier = parseFloat(htmlStyles.getPropertyValue("--bkgd-multiplier"))/100.0;
+              var parallax = document.querySelectorAll("body"),
+                  speed = 0.5;
+              window.onscroll = function(){
+                [].slice.call(parallax).forEach(function(el,i){
+                  var windowYOffset = window.pageYOffset,
+                      elBackgrounPos = "50% " + (-windowYOffset * speed) + "px";
+                  el.style.backgroundPosition = elBackgrounPos;
+
+                });
+              };
+
+          })();
+          </script>
+          <script>
+            // Page load fade-in animation
+            window.addEventListener('load', function() {
+              document.body.classList.add('loaded');
+            });
+
+            document.addEventListener('DOMContentLoaded', function(){
+              // Make external links open in new tab
+              const links = document.querySelectorAll('a[href]');
+              links.forEach(link => {
+                const href = link.getAttribute('href');
+                // Check if link is external (starts with http/https and not same domain)
+                if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+                  const currentDomain = window.location.hostname;
+                  try {
+                    const linkDomain = new URL(href).hostname;
+                    if (linkDomain !== currentDomain) {
+                      link.setAttribute('target', '_blank');
+                      link.setAttribute('rel', 'noopener noreferrer');
+                    }
+                  } catch (e) {
+                    // Invalid URL, skip
+                  }
+                }
+              });
+
+              // Fade in sections on scroll
+              const allSections = document.querySelectorAll('.section-card, .hero');
+              const fadeInObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    fadeInObserver.unobserve(entry.target);
+                  }
+                });
+              }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+              });
+
+              allSections.forEach(section => {
+                fadeInObserver.observe(section);
+              });
+
+              // Mark tweets as loaded when they render
+              const tweetEmbeds = document.querySelectorAll('.tweet-embed');
+              tweetEmbeds.forEach(embed => {
+                const checkTweetLoaded = setInterval(() => {
+                  const iframe = embed.querySelector('iframe');
+                  if (iframe) {
+                    embed.classList.add('loaded');
+                    clearInterval(checkTweetLoaded);
+                  }
+                }, 100);
+
+                // Stop checking after 10 seconds
+                setTimeout(() => {
+                  embed.classList.add('loaded');
+                  clearInterval(checkTweetLoaded);
+                }, 10000);
+              });
+
+              const accordionToggles = Array.from(document.querySelectorAll('.accordion-toggle'));
+
+              const updateAccordionState = (toggle, shouldExpand) => {
+                const panel = toggle.nextElementSibling;
+                if (!panel) return;
+                toggle.setAttribute('aria-expanded', shouldExpand.toString());
+
+                if (shouldExpand) {
+                  panel.hidden = false;
+                  // Force reflow to trigger animation
+                  void panel.offsetHeight;
+                } else {
+                  // Wait for animation to finish before hiding
+                  setTimeout(() => {
+                    if (toggle.getAttribute('aria-expanded') === 'false') {
+                      panel.hidden = true;
+                    }
+                  }, 300); // Match CSS transition duration
+                }
+              };
+
+              accordionToggles.forEach(toggle => {
+                const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                updateAccordionState(toggle, expanded);
+                toggle.addEventListener('click', () => {
+                  const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+                  updateAccordionState(toggle, !isExpanded);
+                });
+              });
+
+              const navLinks = Array.from(document.querySelectorAll('.minimap a'));
+              const sections = navLinks.map(link => {
+                const target = document.querySelector(link.getAttribute('href'));
+                return target ? { link, target } : null;
+              }).filter(Boolean);
+
+              let pendingTarget = null;
+
+              const setActive = (id) => {
+                navLinks.forEach(link => {
+                  const isActive = link.getAttribute('href') === `#${id}`;
+                  link.classList.toggle('is-active', isActive);
+                });
+              };
+
+              navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                  const targetId = link.getAttribute('href').replace('#', '');
+                  if (targetId) {
+                    pendingTarget = targetId;
+                    setActive(targetId);
+                  }
+                });
+              });
+
+              const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting && entry.target.id) {
+                    if (pendingTarget && entry.target.id !== pendingTarget) {
+                      return;
+                    }
+                    setActive(entry.target.id);
+                    pendingTarget = null;
+                  }
+                });
+              }, { rootMargin: '-10% 0px -80% 0px', threshold: [0.15, 0.5, 1] });
+
+              sections.forEach(({ target }) => observer.observe(target));
+
+              if (navLinks[0]) {
+                navLinks[0].classList.add('is-active');
+              }
+
+              // Back to top button visibility
+              const backToTopBtn = document.querySelector('.back-to-top');
+              if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                  if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                  } else {
+                    backToTopBtn.classList.remove('visible');
+                  }
+                });
+              }
+            });
+          </script>
+          <!-- Google Analytics (GA4) -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-7GNPTVXYWV"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-7GNPTVXYWV');
+          </script>
+      </div>
+        <aside class="minimap" aria-label="Page minimap">
+        <span class="minimap-title">Navigate</span>
+         <a href="#phd-research">Ph.D. Research</a>
+        <a href="#news">News</a>
+        <a href="#talks">Talks</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#research">Publications</a>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Back to Top Button (mobile only) -->
+  <button class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    ↑
+  </button>
+
+</body>
+
+</html>
