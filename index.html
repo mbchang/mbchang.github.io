@@ -1157,7 +1157,8 @@
                 }
 
                 const startY = getOffsetTop(firstTarget);
-                const endY = getOffsetTop(lastTarget);
+                // Use the bottom of the last element as the end point
+                const endY = getOffsetTop(lastTarget) + lastTarget.offsetHeight;
                 const totalDist = endY - startY;
 
                 if (totalDist <= 0) return;
