@@ -61,8 +61,13 @@
       --shadow-soft: 0 25px 60px rgba(14, 24, 63, 0.12);
       --shadow-card: 0 18px 40px rgba(9, 17, 45, 0.1);
     }
+    * {
+      box-sizing: border-box;
+    }
     html {
       scroll-behavior: smooth;
+      overflow-y: scroll;
+      overflow-x: hidden;
     }
     [id] {
       scroll-margin-top: 140px;
@@ -80,6 +85,7 @@
       color: var(--color-text);
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
+      overflow-x: hidden;
     }
     body.loaded {
       opacity: 1;
@@ -168,20 +174,15 @@
       background: white;
     }
     .page-layout {
-      display: flex;
-      gap: 32px;
-      align-items: flex-start;
-      justify-content: space-between;
+      width: 100%;
     }
     .content-column {
-      flex: 0 0 1000px;
-      max-width: 1000px;
+      max-width: 900px;
       width: 100%;
-      min-width: 0;
+      margin: 0 auto;
     }
     .page-container {
-      max-width: 1200px;
-      margin: 0 auto;
+      width: 100%;
       padding: 60px 24px 120px;
     }
     .hero {
@@ -459,39 +460,6 @@
     .site-footer a {
       color: inherit;
     }
-    .minimap {
-      position: sticky;
-      top: 24px;
-      background: var(--color-card-bg);
-      padding: 16px 18px;
-      border-radius: 20px;
-      box-shadow: 0 15px 30px rgba(9, 17, 45, 0.18);
-      border: 1px solid var(--color-border);
-      color: var(--color-muted);
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .minimap-title {
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #8e8e8e;
-      margin-bottom: 2px;
-    }
-    .minimap a {
-      font-size: 0.78rem;
-      color: var(--color-muted);
-      transition: color 0.2s ease;
-      padding: 3px 0;
-    }
-    .minimap a:hover {
-      color: var(--color-primary);
-    }
-    .minimap a.is-active {
-      color: var(--color-primary);
-      font-weight: 600;
-    }
     @media (max-width: 768px) {
       .hero {
         padding: 32px;
@@ -541,9 +509,6 @@
       .content-column {
         flex: 1 1 auto;
         max-width: 100%;
-      }
-      .minimap {
-        display: none;
       }
       .tweet-grid {
         grid-template-columns: 1fr;
@@ -1057,49 +1022,6 @@
                 });
               });
 
-              const navLinks = Array.from(document.querySelectorAll('.minimap a'));
-              const sections = navLinks.map(link => {
-                const target = document.querySelector(link.getAttribute('href'));
-                return target ? { link, target } : null;
-              }).filter(Boolean);
-
-              let pendingTarget = null;
-
-              const setActive = (id) => {
-                navLinks.forEach(link => {
-                  const isActive = link.getAttribute('href') === `#${id}`;
-                  link.classList.toggle('is-active', isActive);
-                });
-              };
-
-              navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                  const targetId = link.getAttribute('href').replace('#', '');
-                  if (targetId) {
-                    pendingTarget = targetId;
-                    setActive(targetId);
-                  }
-                });
-              });
-
-              const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                  if (entry.isIntersecting && entry.target.id) {
-                    if (pendingTarget && entry.target.id !== pendingTarget) {
-                      return;
-                    }
-                    setActive(entry.target.id);
-                    pendingTarget = null;
-                  }
-                });
-              }, { rootMargin: '-10% 0px -80% 0px', threshold: [0.15, 0.5, 1] });
-
-              sections.forEach(({ target }) => observer.observe(target));
-
-              if (navLinks[0]) {
-                navLinks[0].classList.add('is-active');
-              }
-
               // Back to top button visibility
               const backToTopBtn = document.querySelector('.back-to-top');
               if (backToTopBtn) {
@@ -1122,14 +1044,6 @@
             gtag('config', 'G-7GNPTVXYWV');
           </script>
       </div>
-        <aside class="minimap" aria-label="Page minimap">
-        <span class="minimap-title">Navigate</span>
-        <a href="#featured">Featured</a>
-        <a href="#my-work">My Work</a>
-        <a href="#beliefs">Technical Beliefs</a>
-        <a href="#readings">Readings</a>
-        <a href="#heroes">Heroes</a>
-      </aside>
     </div>
   </div>
 
