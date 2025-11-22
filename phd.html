@@ -579,6 +579,83 @@
         display: none !important;
       }
     }
+
+    /* Vertical Navigation Styles */
+    .vertical-nav {
+      position: fixed;
+      top: 50%;
+      right: 40px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      z-index: 100;
+      mix-blend-mode: multiply;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      position: relative;
+      group: hover;
+    }
+
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .nav-item:hover .nav-dot {
+      background-color: var(--color-primary);
+      transform: scale(1.2);
+    }
+
+    .nav-item.active .nav-dot {
+      background-color: var(--color-primary);
+      transform: scale(1.4);
+    }
+
+    .nav-label {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      white-space: nowrap;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text);
+      opacity: 0;
+      transition: all 0.3s ease;
+      padding: 4px 8px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 4px;
+      pointer-events: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .nav-item:hover .nav-label {
+      opacity: 1;
+      right: 25px;
+    }
+
+    .nav-separator {
+      width: 1px;
+      height: 20px;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 1200px) {
+      .vertical-nav {
+        display: none;
+      }
+    }
   </style>
   <title>Michael Chang - Ph.D. Research</title>
 </head>
@@ -1251,6 +1328,40 @@
                   }
                 });
               }
+
+              // Vertical Navigation Active State
+              const observerOptions = {
+                root: null,
+                rootMargin: '-50% 0px -50% 0px', // Trigger when element is in middle of viewport
+                threshold: 0
+              };
+
+              const observerCallback = (entries) => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                    // Remove active class from all nav items
+                    document.querySelectorAll('.nav-item').forEach(item => {
+                      item.classList.remove('active');
+                    });
+
+                    // Add active class to corresponding nav item
+                    const id = entry.target.id;
+                    const navItem = document.querySelector(`.nav-item[onclick*="${id}"]`) ||
+                                  (entry.target.classList.contains('hero') ? document.querySelector('.nav-item:first-child') : null);
+
+                    if (navItem) {
+                      navItem.classList.add('active');
+                    }
+                  }
+                });
+              };
+
+              const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+              // Observe all sections
+              document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+              });
             });
           </script>
           <!-- Google Analytics (GA4) -->
@@ -1269,6 +1380,44 @@
   <button class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
     ↑
   </button>
+
+  <!-- Vertical Navigation -->
+  <nav class="vertical-nav">
+    <div class="nav-item" onclick="document.querySelector('.hero').scrollIntoView({behavior: 'smooth'})" title="About">
+      <span class="nav-label">About</span>
+      <div class="nav-dot"></div>
+    </div>
+    <div class="nav-separator"></div>
+
+    <div class="nav-item" onclick="document.getElementById('phd-research').scrollIntoView({behavior: 'smooth'})" title="My Ph.D. Research">
+      <span class="nav-label">My Ph.D. Research</span>
+      <div class="nav-dot"></div>
+    </div>
+    <div class="nav-separator"></div>
+
+    <div class="nav-item" onclick="document.getElementById('news').scrollIntoView({behavior: 'smooth'})" title="News">
+      <span class="nav-label">News</span>
+      <div class="nav-dot"></div>
+    </div>
+    <div class="nav-separator"></div>
+
+    <div class="nav-item" onclick="document.getElementById('talks').scrollIntoView({behavior: 'smooth'})" title="Talks">
+      <span class="nav-label">Talks</span>
+      <div class="nav-dot"></div>
+    </div>
+    <div class="nav-separator"></div>
+
+    <div class="nav-item" onclick="document.getElementById('teaching').scrollIntoView({behavior: 'smooth'})" title="Teaching">
+      <span class="nav-label">Teaching</span>
+      <div class="nav-dot"></div>
+    </div>
+    <div class="nav-separator"></div>
+
+    <div class="nav-item" onclick="document.getElementById('research').scrollIntoView({behavior: 'smooth'})" title="Past Publications">
+      <span class="nav-label">Past Publications</span>
+      <div class="nav-dot"></div>
+    </div>
+  </nav>
 
 </body>
 
