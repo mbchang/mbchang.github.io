@@ -296,6 +296,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <button class="lightbox-close">&times;</button>
       <button class="lightbox-nav lightbox-prev">&lsaquo;</button>
       <button class="lightbox-nav lightbox-next">&rsaquo;</button>
+      <div class="lightbox-caption"></div>
       <img class="lightbox-content" src="" alt="Full screen view">
     `;
     document.body.appendChild(lightbox);
@@ -304,6 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const lightbox = createLightbox();
   const lightboxImg = lightbox.querySelector('.lightbox-content');
+  const lightboxCaption = lightbox.querySelector('.lightbox-caption');
   const lightboxClose = lightbox.querySelector('.lightbox-close');
   const lightboxPrev = lightbox.querySelector('.lightbox-prev');
   const lightboxNext = lightbox.querySelector('.lightbox-next');
@@ -317,6 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
     currentImageIndex = index;
     const img = hobbyImages[index];
     lightboxImg.src = img.src;
+    lightboxCaption.textContent = img.alt;
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden'; // Prevent scrolling
   };
@@ -326,6 +329,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflow = ''; // Restore scrolling
     setTimeout(() => {
       lightboxImg.src = '';
+      lightboxCaption.textContent = '';
     }, 300); // Clear source after transition
   };
 

@@ -876,6 +876,25 @@ section.section-card.accordion {
   right: 20px;
 }
 
+/* Lightbox Caption */
+.lightbox-caption {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 30px;
+  z-index: 2001;
+  text-align: center;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.5px;
+}
+
 /* Helper classes for colored tags */
 .tag-green { color: var(--color-tag-green); }
 .tag-purple { color: var(--color-tag-purple); }
