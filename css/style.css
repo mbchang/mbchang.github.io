@@ -846,6 +846,36 @@ section.section-card.accordion {
   color: var(--color-primary-light);
 }
 
+/* Lightbox Navigation */
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  padding: 20px 15px;
+  line-height: 1;
+  z-index: 2001;
+  transition: background-color 0.2s ease;
+  border-radius: 4px;
+}
+
+.lightbox-nav:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--color-primary-light);
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
+
 /* Helper classes for colored tags */
 .tag-green { color: var(--color-tag-green); }
 .tag-purple { color: var(--color-tag-purple); }

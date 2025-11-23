@@ -294,6 +294,8 @@ document.addEventListener('DOMContentLoaded', function() {
     lightbox.className = 'lightbox';
     lightbox.innerHTML = `
       <button class="lightbox-close">&times;</button>
+      <button class="lightbox-nav lightbox-prev">&lsaquo;</button>
+      <button class="lightbox-nav lightbox-next">&rsaquo;</button>
       <img class="lightbox-content" src="" alt="Full screen view">
     `;
     document.body.appendChild(lightbox);
@@ -303,9 +305,18 @@ document.addEventListener('DOMContentLoaded', function() {
   const lightbox = createLightbox();
   const lightboxImg = lightbox.querySelector('.lightbox-content');
   const lightboxClose = lightbox.querySelector('.lightbox-close');
+  const lightboxPrev = lightbox.querySelector('.lightbox-prev');
+  const lightboxNext = lightbox.querySelector('.lightbox-next');
 
-  const openLightbox = (src) => {
-    lightboxImg.src = src;
+  // Add click listeners to hobby images
+  const hobbyImages = Array.from(document.querySelectorAll('.hobby-image'));
+  let currentImageIndex = 0;
+
+  const openLightbox = (index) => {
+    if (index < 0 || index >= hobbyImages.length) return;
+    currentImageIndex = index;
+    const img = hobbyImages[index];
+    lightboxImg.src = img.src;
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden'; // Prevent scrolling
   };
@@ -318,13 +329,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 300); // Clear source after transition
   };
 
-  // Add click listeners to hobby images
-  const hobbyImages = document.querySelectorAll('.hobby-image');
-  hobbyImages.forEach(img => {
+  const showNextImage = (e) => {
+    e?.stopPropagation();
+    const nextIndex = (currentImageIndex + 1) % hobbyImages.length;
+    openLightbox(nextIndex);
+  };
+
+  const showPrevImage = (e) => {
+    e?.stopPropagation();
+    const prevIndex = (currentImageIndex - 1 + hobbyImages.length) % hobbyImages.length;
+    openLightbox(prevIndex);
+  };
+
+  hobbyImages.forEach((img, index) => {
     img.addEventListener('click', () => {
-      openLightbox(img.src);
+      openLightbox(index);
     });
   });
+
+  // Navigation listeners
+  lightboxNext.addEventListener('click', showNextImage);
+  lightboxPrev.addEventListener('click', showPrevImage);
 
   // Close on click outside or close button
   lightbox.addEventListener('click', (e) => {
@@ -333,10 +358,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Close on Escape key
+  // Keyboard navigation
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+    if (!lightbox.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
       closeLightbox();
+    } else if (e.key === 'ArrowRight') {
+      showNextImage();
+    } else if (e.key === 'ArrowLeft') {
+      showPrevImage();
     }
   });
 });
