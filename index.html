@@ -42,6 +42,7 @@
 </head>
 
 <body>
+
   <div class="page-container">
     <div class="page-layout">
       <div class="content-column">
@@ -197,8 +198,6 @@
               </div>
             </div>
           </section>
-
-
 
           <section class="section-card accordion" id="readings">
             <button class="accordion-toggle" type="button" aria-expanded="true" aria-controls="readings-panel">
@@ -362,38 +361,36 @@
             </div>
           </section>
 
-          <section class="section-card accordion" id="swimming">
-            <button class="accordion-toggle" type="button" aria-expanded="true" aria-controls="swimming-panel">
-              <span>Swimming</span>
+          <section class="section-card accordion" id="gallery">
+            <button class="accordion-toggle" type="button" aria-expanded="true" aria-controls="gallery-panel">
+              <span>Gallery</span>
               <span class="accordion-icon" aria-hidden="true">▾</span>
             </button>
-            <div class="accordion-panel" id="swimming-panel">
-              <div class="section-content" style="display: flex; justify-content: center;">
-                <img src="./assets/swimming.jpg" alt="Swimming" class="hobby-image">
-              </div>
-            </div>
-          </section>
-
-          <section class="section-card accordion" id="pilates">
-            <button class="accordion-toggle" type="button" aria-expanded="true" aria-controls="pilates-panel">
-              <span>Pilates</span>
-              <span class="accordion-icon" aria-hidden="true">▾</span>
-            </button>
-            <div class="accordion-panel" id="pilates-panel">
-              <div class="section-content" style="display: flex; justify-content: center;">
-                <img src="./assets/pilates.jpg" alt="Pilates" class="hobby-image" style="object-position: center 65%;">
-              </div>
-            </div>
-          </section>
-
-          <section class="section-card accordion" id="dance">
-            <button class="accordion-toggle" type="button" aria-expanded="true" aria-controls="dance-panel">
-              <span>Dance</span>
-              <span class="accordion-icon" aria-hidden="true">▾</span>
-            </button>
-            <div class="accordion-panel" id="dance-panel">
-              <div class="section-content" style="display: flex; justify-content: center;">
-                <img src="./assets/dance.jpg" alt="Dance" class="hobby-image" style="object-position: center 80%;">
+            <div class="accordion-panel" id="gallery-panel">
+              <div class="section-content">
+                <div class="gallery-carousel">
+                  <div class="carousel-track">
+                    <div class="carousel-slide active">
+                      <img src="./assets/swimming.jpg" alt="Swimming" loading="lazy">
+                      <div class="carousel-caption">Swimming</div>
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="./assets/pilates.jpg" alt="Pilates" style="object-position: center 65%;" loading="lazy">
+                      <div class="carousel-caption">Pilates</div>
+                    </div>
+                    <div class="carousel-slide">
+                      <img src="./assets/dance.jpg" alt="Dance" style="object-position: center 80%;" loading="lazy">
+                      <div class="carousel-caption">Dance</div>
+                    </div>
+                  </div>
+                  <button class="carousel-nav carousel-prev" aria-label="Previous Slide">&lsaquo;</button>
+                  <button class="carousel-nav carousel-next" aria-label="Next Slide">&rsaquo;</button>
+                  <div class="carousel-indicators">
+                    <button class="carousel-indicator active" aria-label="Slide 1"></button>
+                    <button class="carousel-indicator" aria-label="Slide 2"></button>
+                    <button class="carousel-indicator" aria-label="Slide 3"></button>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -464,16 +461,8 @@
       <span class="nav-label">Heroes</span>
     </div>
 
-    <div class="nav-item" data-target="#swimming" onclick="document.getElementById('swimming').scrollIntoView({behavior: 'smooth'})">
-      <span class="nav-label">Swimming</span>
-    </div>
-
-    <div class="nav-item" data-target="#pilates" onclick="document.getElementById('pilates').scrollIntoView({behavior: 'smooth'})">
-      <span class="nav-label">Pilates</span>
-    </div>
-
-    <div class="nav-item" data-target="#dance" onclick="document.getElementById('dance').scrollIntoView({behavior: 'smooth'})">
-      <span class="nav-label">Dance</span>
+    <div class="nav-item" data-target="#gallery" onclick="document.getElementById('gallery').scrollIntoView({behavior: 'smooth'})">
+      <span class="nav-label">Gallery</span>
     </div>
   </nav>
 
